@@ -1,5 +1,12 @@
 {
-  "extends": ["airbnb"],
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+
+  "env": {
+    "es6": true
+  },
+  //"extends": "airbnb-base",
   "rules": {
     // Possible Errors
     "no-await-in-loop": "error",
@@ -41,7 +48,7 @@
     "no-lone-blocks": "error",
     "no-loop-func": "error",
     "no-magic-numbers": [
-      "error",
+      "off",
       {
         "ignore": [-1, 0, 1],
         "ignoreArrayIndexes": true
@@ -89,7 +96,7 @@
     "yoda": "error",
 
     // Strict Mode
-    "strict": "error",
+    "strict": "off",
 
     // Variables
     "no-unused-vars": "off",
@@ -102,7 +109,7 @@
     "no-undef-init": "error",
     "no-undefined": "off",
     "no-use-before-define": "off",
-    "no-console": "error",
+    "no-console": 1,
 
     // Node.js and CommonJS
     "callback-return": "off",
@@ -111,7 +118,7 @@
     "no-mixed-requires": "error",
     "no-new-require": "error",
     "no-path-concat": "error",
-    "no-process-env": "error",
+    "no-process-env": "off",
     "no-process-exit": "error",
     "no-restricted-modules": "error",
     "no-sync": "error",
@@ -226,7 +233,7 @@
     "prefer-numeric-literals": "error",
     "prefer-rest-params": "error",
     "prefer-spread": "error",
-    "prefer-template": "error",
+    "prefer-template": "off",
     "rest-spread-spacing": "error",
     "sort-imports": "error",
     "symbol-description": "error",
