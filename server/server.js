@@ -15,22 +15,20 @@ app.use(cors())
 app.use(helmet())
 app.use(bodyParser.json())
 
-mongoose.connect(
-  dbURI,
-  {
-    useNewUrlParser: true
-  },
-  (err) => {
-    if (err) {
-      console.log(err)
-    }
-  }
-)
-const connection = mongoose.connection
+// eslint-disable-next-line vars-on-top
+const argv = require('minimist')(process.argv.slice(2))
+const env = argv.source || 'mongo'
 
-connection.once('open', () => {
-  console.log('MongoDB database connection established successfully')
-})
+if (env === 'mock') {
+  console.log('data from mock')
+} else {
+  mongoose.connect(dbURI, {
+    useNewUrlParser: true
+  })
+  mongoose.connection.once('open', () => {
+    console.log('MongoDB database connection established successfully')
+  })
+}
 
 app.use(
   '/graphql',
