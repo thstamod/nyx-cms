@@ -1,24 +1,27 @@
 const {
-  GraphQLID, GraphQLObjectType, GraphQLString
-} = require('graphql')
+  GraphQLID, GraphQLObjectType, GraphQLString,
+} = require('graphql');
 
-exports.documentType = new GraphQLObjectType({
+const documentType = new GraphQLObjectType({
   name: 'DocumentType',
   fields: () => ({
     id: {
-      type: new GraphQLNonNull(GraphQLID)
+      // eslint-disable-next-line no-undef
+      type: new GraphQLNonNull(GraphQLID),
     },
     publicUrl: {
-      type: GraphQLString
+      type: GraphQLString,
     },
     inheritFrom: {
-      type: GraphQLString
+      type: GraphQLString,
     },
     privileges: {
-      type: GraphQLString
+      type: GraphQLString,
     },
     dataTypes: {
-      type: GraphQLString
-    }
-  })
-})
+      type: GraphQLString,
+    },
+  }),
+});
+
+module.exports = documentType;

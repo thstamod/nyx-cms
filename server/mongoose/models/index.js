@@ -1,1 +1,1 @@
-const DocumentTypeModel = require('./doumentType')
+const DocumentTypeModel = require('./doumentType');
