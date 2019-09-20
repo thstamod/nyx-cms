@@ -1,0 +1,1 @@
+const DocumentTypeModel = require('./doumentType')
