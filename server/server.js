@@ -8,7 +8,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
 const argv = require('minimist')(process.argv.slice(2));
-const schema = require('./graphql/schema/root');
+const schema = require('./graphql/schema');
 
 const dbURI = require('./config').mongoURI;
 
@@ -37,6 +37,7 @@ app.use(
   graphqlHTTP({
     schema,
     graphiql: true,
+    rootValue: global,
   }),
 );
 
