@@ -2,14 +2,17 @@ const {
   GraphQLNonNull, GraphQLString,
 } = require('graphql');
 
-const DataTypeModel = require('../../mongoose/models/dataType');
-const dataType = require('../types/dataType');
-const { uniqueID } = require('../../utils');
+const DataTypeModel = require('../../../mongoose/models/dataType');
+const dataType = require('../../types/dataType');
+const { uniqueID } = require('../../../utils');
 
 
 const addNewDataType = {
   type: dataType,
   args: {
+    id: {
+      type: GraphQLString,
+    },
     name: {
       type: new GraphQLNonNull(GraphQLString),
     },

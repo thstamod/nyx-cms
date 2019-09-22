@@ -5,6 +5,9 @@ const {
 const dataType = new GraphQLObjectType({
   name: 'DataType',
   fields: {
+    id: {
+      type: GraphQLString,
+    },
     name: {
       type: GraphQLString,
     },

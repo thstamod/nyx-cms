@@ -1,15 +1,18 @@
 const {
-  GraphQLNonNull, GraphQLString, GraphQLObjectType,
+  GraphQLNonNull, GraphQLString,
 } = require('graphql');
 
-const DocumentTypeModel = require('../../mongoose/models/doumentType');
-const documentType = require('../types/documentType');
-const { uniqueID } = require('../../utils');
+const DocumentTypeModel = require('../../../mongoose/models/doumentType');
+const documentType = require('../../types/documentType');
+const { uniqueID } = require('../../../utils');
 
 
 const addNewDocumentType = {
   type: documentType,
   args: {
+    id: {
+      type: GraphQLString,
+    },
     name: {
       type: new GraphQLNonNull(GraphQLString),
     },

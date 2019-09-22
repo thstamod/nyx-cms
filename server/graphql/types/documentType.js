@@ -5,6 +5,9 @@ const {
 const documentType = new GraphQLObjectType({
   name: 'DocumentType',
   fields: {
+    id: {
+      type: GraphQLString,
+    },
     name: {
       type: GraphQLString,
     },
