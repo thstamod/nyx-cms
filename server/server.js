@@ -37,7 +37,6 @@ app.use(
   graphqlHTTP({
     schema,
     graphiql: true,
-    rootValue: global,
   }),
 );
 

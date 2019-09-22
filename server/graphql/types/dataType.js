@@ -2,25 +2,22 @@ const {
  GraphQLObjectType, GraphQLString,
 } = require('graphql');
 
-const documentType = new GraphQLObjectType({
-  name: 'DocumentType',
+const dataType = new GraphQLObjectType({
+  name: 'DataType',
   fields: {
-    id: {
+    name: {
       type: GraphQLString,
     },
-    publicUrl: {
+    type: {
       type: GraphQLString,
     },
-    inheritFrom: {
+    options: {
       type: GraphQLString,
     },
-    privileges: {
-      type: GraphQLString,
-    },
-    dataTypes: {
+    value: {
       type: GraphQLString,
     },
   },
 });
 
-module.exports = documentType;
+module.exports = dataType;
