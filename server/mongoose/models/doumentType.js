@@ -6,5 +6,5 @@ module.exports = Mongoose.model('documentType', {
   publicUrl: String,
   inheritFrom: String,
   privileges: String,
-  dataTypes: String,
+  dataTypes: Object,
 });

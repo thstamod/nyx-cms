@@ -19,9 +19,6 @@ const updateDataType = {
     options: {
       type: GraphQLString,
     },
-    value: {
-      type: GraphQLString,
-    },
   },
   resolve: async (parent, args) => {
     const updated = await DataTypeModel.findOneAndUpdate({ id: args.id }, args, { new: true });

@@ -17,9 +17,6 @@ const dataType = new GraphQLObjectType({
     options: {
       type: GraphQLString,
     },
-    value: {
-      type: GraphQLString,
-    },
   },
 });
 
