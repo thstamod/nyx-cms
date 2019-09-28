@@ -1,14 +1,14 @@
 const {
-  GraphQLObjectType, GraphQLString, GraphQLList, GraphQLNonNull, GraphQLID,
+  GraphQLObjectType, GraphQLString,
 } = require('graphql');
-const dataType = require('./dataType');
+// const dataType = require('./dataType');
 
 
 const documentType = new GraphQLObjectType({
   name: 'DocumentType',
   fields: {
-    id: {
-      type: new GraphQLNonNull(GraphQLString),
+    _id: {
+      type: GraphQLString,
     },
     name: {
       type: GraphQLString,
@@ -22,9 +22,9 @@ const documentType = new GraphQLObjectType({
     privileges: {
       type: GraphQLString,
     },
-    dataTypes: {
-      type: new GraphQLList(dataType),
-    },
+    // dataTypes: {
+    // type: new GraphQLList(dataType),
+  //  },
   },
 });
 

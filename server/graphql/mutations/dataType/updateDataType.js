@@ -7,7 +7,7 @@ const dataType = require('../../types/dataType');
 const updateDataType = {
   type: dataType,
   args: {
-    id: {
+    _id: {
       type: GraphQLString,
     },
     name: {
@@ -21,7 +21,7 @@ const updateDataType = {
     },
   },
   resolve: async (parent, args) => {
-    const updated = await DataTypeModel.findOneAndUpdate({ id: args.id }, args, { new: true });
+    const updated = await DataTypeModel.findOneAndUpdate({ _id: args._id }, args, { new: true });
     if (!updated) {
       throw new Error('Error');
     }

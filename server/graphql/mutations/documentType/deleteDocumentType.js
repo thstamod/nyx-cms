@@ -7,12 +7,12 @@ const documentType = require('../../types/documentType');
 const deleteDocumentType = {
   type: documentType,
   args: {
-    id: {
+    _id: {
       type: GraphQLString,
     },
   },
   resolve: async (parent, args) => {
-    const deleted = await DocumentTypeModel.findOneAndDelete({ id: args.id });
+    const deleted = await DocumentTypeModel.findOneAndDelete({ _id: args._id });
     if (!deleted) {
       throw new Error('Error');
     }

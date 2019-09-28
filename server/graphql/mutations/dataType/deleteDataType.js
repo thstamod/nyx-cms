@@ -7,12 +7,12 @@ const dataType = require('../../types/dataType');
 const deleteDataType = {
   type: dataType,
   args: {
-    id: {
+    _id: {
       type: GraphQLString,
     },
   },
   resolve: async (parent, args) => {
-    const deleted = await DataTypeModel.findOneAndDelete({ id: args.id });
+    const deleted = await DataTypeModel.findOneAndDelete({ _id: args._id });
     if (!deleted) {
       throw new Error('Error');
     }

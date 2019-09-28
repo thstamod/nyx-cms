@@ -4,15 +4,11 @@ const {
 
 const DataTypeModel = require('../../../mongoose/models/dataType');
 const dataType = require('../../types/dataType');
-const { uniqueID } = require('../../../utils');
 
 
 const addNewDataType = {
   type: dataType,
   args: {
-    id: {
-      type: GraphQLString,
-    },
     name: {
       type: new GraphQLNonNull(GraphQLString),
     },
@@ -22,13 +18,9 @@ const addNewDataType = {
     options: {
       type: GraphQLString,
     },
-    value: {
-      type: GraphQLString,
-    },
   },
   resolve: async (parent, args) => {
     const uModel = new DataTypeModel({
-      id: uniqueID(),
       name: args.name,
       type: args.type,
       options: args.options,

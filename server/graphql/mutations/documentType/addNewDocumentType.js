@@ -1,20 +1,15 @@
 const {
-  GraphQLNonNull, GraphQLString, GraphQLList, GraphQLID,
+  GraphQLNonNull, GraphQLString, GraphQLList,
 } = require('graphql');
 
 const DocumentTypeModel = require('../../../mongoose/models/doumentType');
 const documentType = require('../../types/documentType');
 
 const inputDatatype = require('../../inputs/inputDataType');
-const { uniqueID } = require('../../../utils');
-
 
 const addNewDocumentType = {
   type: documentType,
   args: {
-    id: {
-      type: new GraphQLNonNull(GraphQLString),
-    },
     name: {
       type: new GraphQLNonNull(GraphQLString),
     },
@@ -33,7 +28,6 @@ const addNewDocumentType = {
   },
   resolve: async (parent, args) => {
     const uModel = new DocumentTypeModel({
-      id: uniqueID(),
       name: args.name,
       publicUrl: args.publicUrl,
       inheritFrom: args.inheritFrom,

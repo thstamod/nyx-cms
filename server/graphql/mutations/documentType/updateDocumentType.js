@@ -4,8 +4,9 @@ const {
 
 const DocumentTypeModel = require('../../../mongoose/models/doumentType');
 const documentType = require('../../types/documentType');
+const inputDatatype = require('../../inputs/inputDataType');
 
-const addNewDocumentType = {
+const updateDocumentType = {
   type: documentType,
   args: {
     id: {
@@ -24,11 +25,11 @@ const addNewDocumentType = {
       type: GraphQLString,
     },
     dataTypes: {
-      type: new GraphQLList(GraphQLString),
+      type: new GraphQLList(inputDatatype),
     },
   },
   resolve: async (parent, args) => {
-    const updated = await DocumentTypeModel.findOneAndUpdate({ id: args.id }, args, { new: true });
+    const updated = await DocumentTypeModel.findOneAndUpdate({ _id: args.id }, args, { new: true });
     if (!updated) {
       throw new Error('Error');
     }
@@ -36,4 +37,4 @@ const addNewDocumentType = {
   },
 };
 
-module.exports = addNewDocumentType;
+module.exports = updateDocumentType;
