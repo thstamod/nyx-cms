@@ -1,10 +1,10 @@
-const { GraphQLList, GraphQLString } = require('graphql');
+const { GraphQLString } = require('graphql');
 
 const DataTypeModel = require('../../mongoose/models/dataType');
 const dataType = require('../types/dataType');
 
-const GetDataTypes = {
-  type: new GraphQLList(dataType),
+const GetDataType = {
+  type: dataType,
   args: { _id: { type: GraphQLString } },
   resolve: async (parent, args) => {
     const datTypes = await DataTypeModel.findById(args._id);
@@ -16,4 +16,4 @@ const GetDataTypes = {
 };
 
 
-module.exports = GetDataTypes;
+module.exports = GetDataType;

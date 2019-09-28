@@ -1,7 +1,8 @@
 const {
-  GraphQLObjectType, GraphQLString,
+  GraphQLObjectType, GraphQLString, GraphQLList,
 } = require('graphql');
-// const dataType = require('./dataType');
+const DataTypeModel = require('../../mongoose/models/dataType');
+const dataType = require('./dataType');
 
 
 const documentType = new GraphQLObjectType({
@@ -22,9 +23,29 @@ const documentType = new GraphQLObjectType({
     privileges: {
       type: GraphQLString,
     },
-    // dataTypes: {
-    // type: new GraphQLList(dataType),
-  //  },
+    dataTypes: {
+      type: new GraphQLList(new GraphQLObjectType({
+        name: 'dataTypes',
+        fields: {
+          dataTypeId: {
+            type: GraphQLString,
+          },
+          options: {
+            type: GraphQLString,
+          },
+          value: {
+            type: GraphQLString,
+          },
+          dataType: {
+            type: dataType,
+            resolve: async (parent, args) => {
+              const res = await DataTypeModel.findById(parent.dataTypeId);
+              return res;
+            },
+          },
+        },
+      })),
+    },
   },
 });
 

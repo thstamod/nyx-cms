@@ -27,13 +27,7 @@ const addNewDocumentType = {
     },
   },
   resolve: async (parent, args) => {
-    const uModel = new DocumentTypeModel({
-      name: args.name,
-      publicUrl: args.publicUrl,
-      inheritFrom: args.inheritFrom,
-      privileges: args.privileges,
-      dataTypes: args.dataTypes,
-    });
+    const uModel = new DocumentTypeModel(args);
     const newDocType = await uModel.save();
     if (!newDocType) {
       throw new Error('error');

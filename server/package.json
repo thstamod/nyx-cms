@@ -7,7 +7,8 @@
     "start": "node server.js --source mock",
     "dev-mock": "nodemon server.js --source mock",
     "dev": "nodemon server.js --source db",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon --inspect server.js --source db"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "ws": "^7.1.2"
   }
 }

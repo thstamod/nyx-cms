@@ -9,8 +9,8 @@ const inputDatatype = require('../../inputs/inputDataType');
 const updateDocumentType = {
   type: documentType,
   args: {
-    id: {
-      type: GraphQLString,
+    _id: {
+      type: new GraphQLNonNull(GraphQLString),
     },
     name: {
       type: new GraphQLNonNull(GraphQLString),
@@ -29,7 +29,7 @@ const updateDocumentType = {
     },
   },
   resolve: async (parent, args) => {
-    const updated = await DocumentTypeModel.findOneAndUpdate({ _id: args.id }, args, { new: true });
+    const updated = await DocumentTypeModel.findByIdAndDelete({ _id: args._id }, args);
     if (!updated) {
       throw new Error('Error');
     }
