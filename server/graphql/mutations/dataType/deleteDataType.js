@@ -12,7 +12,7 @@ const deleteDataType = {
     },
   },
   resolve: async (parent, args) => {
-    const deleted = await DataTypeModel.findOneAndDelete({ _id: args._id });
+    const deleted = await DataTypeModel.findByIdAndDelete({ _id: args._id });
     if (!deleted) {
       throw new Error('Error');
     }

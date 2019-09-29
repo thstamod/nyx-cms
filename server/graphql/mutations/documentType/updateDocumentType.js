@@ -29,7 +29,8 @@ const updateDocumentType = {
     },
   },
   resolve: async (parent, args) => {
-    const updated = await DocumentTypeModel.findByIdAndDelete({ _id: args._id }, args);
+    const updated = await DocumentTypeModel
+      .findByIdAndUpdate({ _id: args._id }, args, { new: true });
     if (!updated) {
       throw new Error('Error');
     }

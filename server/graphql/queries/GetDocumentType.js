@@ -1,4 +1,4 @@
-const { GraphQLList, GraphQLString } = require('graphql');
+const { GraphQLString } = require('graphql');
 
 const DocumentTypeModel = require('../../mongoose/models/doumentType');
 const documentType = require('../types/documentType');

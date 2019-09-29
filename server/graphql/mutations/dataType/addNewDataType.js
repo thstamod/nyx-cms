@@ -20,12 +20,7 @@ const addNewDataType = {
     },
   },
   resolve: async (parent, args) => {
-    const uModel = new DataTypeModel({
-      name: args.name,
-      type: args.type,
-      options: args.options,
-      value: args.value,
-    });
+    const uModel = new DataTypeModel(args);
     const newDataType = await uModel.save();
     if (!newDataType) {
       throw new Error('error');

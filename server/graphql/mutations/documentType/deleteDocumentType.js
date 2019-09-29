@@ -12,7 +12,7 @@ const deleteDocumentType = {
     },
   },
   resolve: async (parent, args) => {
-    const deleted = await DocumentTypeModel.findOneAndDelete({ _id: args._id });
+    const deleted = await DocumentTypeModel.findByIdAndDelete({ _id: args._id });
     if (!deleted) {
       throw new Error('Error');
     }
