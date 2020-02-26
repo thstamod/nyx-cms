@@ -11,6 +11,7 @@ const query = new GraphQLObjectType({
     docunemtType,
     dataTypes,
     dataType,
+    //login
   },
 });
 
