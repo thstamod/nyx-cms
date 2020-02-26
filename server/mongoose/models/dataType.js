@@ -11,13 +11,9 @@ module.exports = mongoose.model('dataType', new mongoose.Schema({
   },
   options: String,
   value: String,
-  dateCreated: {
-    type: Date,
-    required: true
-  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
     required: true
   }
-}));
+}, { timestamps: true }));

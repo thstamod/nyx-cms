@@ -9,13 +9,9 @@ module.exports = mongoose.model('documentType', new mongoose.Schema({
   inheritFrom: String,
   privileges: String,
   compilation: Object,
-  dateCreated: {
-    type: Date,
-    required: true
-  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
     required: true
   }
-}));
+}, { timestamps: true }));

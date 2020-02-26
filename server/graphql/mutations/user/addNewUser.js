@@ -26,19 +26,22 @@ const addNewUser = {
     //  type: new GraphQLNonNull(GraphQLString),
     // }
   },
-  resolve: (parent, args) => {
-    return UserModel.findOne({ email: args.email }).then(user => {
+  resolve: async (parent, args) => {
+    try {
+      const user = await UserModel.findOne({ email: args.email })
       if (user) {
         throw new Error('User already exists')
       }
-      return bcrypt.hash(args.password, 12)
-    }).then(hashedPassword => {
-      args.dateCreated = (new Date).toISOString();
-      args.password = hashedPassword;
-      const uModel = new UserModel(args);
-      return uModel.save().then(user => { return { ...user._doc } });
-    }).catch(err => { throw err })
+      return bcrypt.hash(args.password, 12).then(hashedPassword => {
+        args.dateCreated = (new Date).toISOString();
+        args.password = hashedPassword;
+        const uModel = new UserModel(args);
+        return uModel.save().then(user => { return { ...user._doc } });
+      })
 
+
+    }
+    catch (err) { throw err }
   },
 };
 

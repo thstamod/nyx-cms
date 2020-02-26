@@ -27,7 +27,6 @@ const addNewDocumentType = {
     },
   },
   resolve: async (parent, args) => {
-    args.dateCreated = (new Date).toISOString()
     args.creator = "5e5413f7802939338e8f4d95"
     const uModel = new DocumentTypeModel(args);
     const newDocType = await uModel.save();
