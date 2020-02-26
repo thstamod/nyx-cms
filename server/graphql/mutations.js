@@ -8,9 +8,12 @@ const updateDataType = require('./mutations/dataType/updateDataType');
 const deleteDocumentType = require('./mutations/documentType/deleteDocumentType');
 const deleteDataType = require('./mutations/dataType/deleteDataType');
 
+const addNewUser = require('./mutations/user/addNewUser');
+
 const Mutations = new GraphQLObjectType({
   name: 'Mutations',
   fields: {
+    addNewUser,
     addNewDocumentType,
     addNewDataType,
     updateDocumentType,

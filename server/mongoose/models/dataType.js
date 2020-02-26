@@ -1,9 +1,23 @@
-const Mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-module.exports = Mongoose.model('dataType', {
-  id: String,
-  name: String,
-  type: String,
+module.exports = mongoose.model('dataType', new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
   options: String,
   value: String,
-});
+  dateCreated: {
+    type: Date,
+    required: true
+  },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+    required: true
+  }
+}));

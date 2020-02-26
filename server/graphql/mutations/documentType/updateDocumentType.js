@@ -24,7 +24,7 @@ const updateDocumentType = {
     privileges: {
       type: GraphQLString,
     },
-    dataTypes: {
+    compilation: {
       type: new GraphQLList(inputDatatype),
     },
   },

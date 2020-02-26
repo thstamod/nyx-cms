@@ -18,19 +18,8 @@ app.use(cors());
 app.use(helmet());
 app.use(bodyParser.json());
 
-
+mongoose.set('debug', true);
 const env = argv.source || 'mongo';
-
-if (env === 'mock') {
-  console.log('data from mock');
-} else {
-  mongoose.connect(dbURI, {
-    useNewUrlParser: true,
-  });
-  mongoose.connection.once('open', () => {
-    console.log('MongoDB database connection established successfully');
-  });
-}
 
 app.use(
   '/graphql',
@@ -43,6 +32,23 @@ app.use(
 app.get('/', (req, res) => {
   res.send('200 OK');
 });
+
+
+if (env === 'mock') {
+  console.log('data from mock');
+} else {
+  mongoose.connect(dbURI, {
+    useNewUrlParser: true,
+  }).then(() => {
+    console.log('MongoDB database connection established successfully');
+  }).catch(err => {
+    console.log('Error: ' + err)
+  });
+  // mongoose.connection.once('open', () => {
+  //   console.log('MongoDB database connection established successfully');
+  // });
+}
+
 app.listen(PORT, () => {
   console.log(`Server is running on Port: ${PORT}`);
 });

@@ -1,16 +1,16 @@
 const { GraphQLObjectType } = require('graphql');
-const GetDocunemtTypes = require('./queries/GetDocumentTypes');
-const GetDataTypes = require('./queries/GetDataTypes');
-const GetDocunemtType = require('./queries/GetDocumentType');
-const GetDataType = require('./queries/GetDataType');
+const docunemtTypes = require('./queries/GetDocumentTypes');
+const dataTypes = require('./queries/GetDataTypes');
+const docunemtType = require('./queries/GetDocumentType');
+const dataType = require('./queries/GetDataType');
 
 const query = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
-    GetDocunemtTypes,
-    GetDocunemtType,
-    GetDataTypes,
-    GetDataType,
+    docunemtTypes,
+    docunemtType,
+    dataTypes,
+    dataType,
   },
 });
 

@@ -1,10 +1,21 @@
-const Mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-module.exports = Mongoose.model('documentType', {
-  id: String,
-  name: String,
+module.exports = mongoose.model('documentType', new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
   publicUrl: String,
   inheritFrom: String,
   privileges: String,
-  dataTypes: Object,
-});
+  compilation: Object,
+  dateCreated: {
+    type: Date,
+    required: true
+  },
+  creator: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+    required: true
+  }
+}));
