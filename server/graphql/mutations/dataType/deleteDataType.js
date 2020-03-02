@@ -11,7 +11,10 @@ const deleteDataType = {
       type: GraphQLString,
     },
   },
-  resolve: async (parent, args) => {
+  resolve: async (parent, args, req) => {
+    if (!req.isAuth) {
+      throw new Error('unAuthorized')
+    }
     const deleted = await DataTypeModel.findByIdAndDelete({ _id: args._id });
     if (!deleted) {
       throw new Error('Error');

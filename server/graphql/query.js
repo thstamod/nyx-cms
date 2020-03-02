@@ -3,6 +3,7 @@ const docunemtTypes = require('./queries/GetDocumentTypes');
 const dataTypes = require('./queries/GetDataTypes');
 const docunemtType = require('./queries/GetDocumentType');
 const dataType = require('./queries/GetDataType');
+const login = require('./queries/login')
 
 const query = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -11,7 +12,7 @@ const query = new GraphQLObjectType({
     docunemtType,
     dataTypes,
     dataType,
-    //login
+    login
   },
 });
 

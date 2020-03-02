@@ -11,6 +11,7 @@ const argv = require('minimist')(process.argv.slice(2));
 const schema = require('./graphql/schema');
 
 const dbURI = require('./config').mongoURI;
+const isAuth = require('./middleware/is-auth')
 
 const PORT = process.env.PORT || 4000;
 
@@ -20,6 +21,8 @@ app.use(bodyParser.json());
 
 mongoose.set('debug', true);
 const env = argv.source || 'mongo';
+
+app.use(isAuth);
 
 app.use(
   '/graphql',

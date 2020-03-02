@@ -28,7 +28,10 @@ const updateDocumentType = {
       type: new GraphQLList(inputDatatype),
     },
   },
-  resolve: async (parent, args) => {
+  resolve: async (parent, args, req) => {
+    if (!req.isAuth) {
+      throw new Error('unAuthorized')
+    }
     const updated = await DocumentTypeModel
       .findByIdAndUpdate({ _id: args._id }, args, { new: true });
     if (!updated) {

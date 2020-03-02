@@ -14,9 +14,8 @@ module.exports = mongoose.model('user', new mongoose.Schema({
     required: true
   },
   name: String,
-  dateCreated: {
-    type: Date,
-    required: true
+  locked: {
+    type: Boolean,
+    default: false
   },
-
-}));
+}, { timestamps: true }));

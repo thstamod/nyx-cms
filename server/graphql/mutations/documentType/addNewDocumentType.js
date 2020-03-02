@@ -26,8 +26,11 @@ const addNewDocumentType = {
       type: new GraphQLList(inputDatatype),
     },
   },
-  resolve: async (parent, args) => {
-    args.creator = "5e5413f7802939338e8f4d95"
+  resolve: async (parent, args, req) => {
+    if (!req.isAuth) {
+      throw new Error('unAuthorized')
+    }
+    args.creator = req.userId;
     const uModel = new DocumentTypeModel(args);
     const newDocType = await uModel.save();
     if (!newDocType) {
