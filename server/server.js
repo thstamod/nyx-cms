@@ -9,8 +9,10 @@ const cors = require('cors');
 const graphqlHTTP = require('express-graphql');
 const argv = require('minimist')(process.argv.slice(2));
 const schema = require('./graphql/schema');
+require('dotenv').config();
 
-const dbURI = require('./config').mongoURI;
+const dbURILocal = require('./config').mongoURI;
+const dbURICloud = require('./config').mongoCloud(process.env.MONGO_USER, process.env.MONGO_PASSWORD);
 const isAuth = require('./middleware/is-auth')
 
 const PORT = process.env.PORT || 4000;
@@ -20,7 +22,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 mongoose.set('debug', true);
-const env = argv.source || 'mongo';
+const source = argv.source || 'mongo';
 
 app.use(isAuth);
 
@@ -37,20 +39,16 @@ app.get('/', (req, res) => {
 });
 
 
-if (env === 'mock') {
-  console.log('data from mock');
-} else {
-  mongoose.connect(dbURI, {
-    useNewUrlParser: true,
-  }).then(() => {
-    console.log('MongoDB database connection established successfully');
-  }).catch(err => {
-    console.log('Error: ' + err)
-  });
-  // mongoose.connection.once('open', () => {
-  //   console.log('MongoDB database connection established successfully');
-  // });
-}
+const dbURI = source === 'cloud' ? dbURICloud : dbURILocal;
+
+mongoose.connect(dbURI, {
+  useNewUrlParser: true,
+}).then(() => {
+  console.log('MongoDB database connection established successfully');
+}).catch(err => {
+  console.log('Error: ' + err)
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on Port: ${PORT}`);
