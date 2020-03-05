@@ -1,15 +1,18 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
 const MainNavigation = props => {
   return (
     <div>
-      <h5>Nav</h5>
-      <ul>
-        <li><NavLink to="/">Content</NavLink>
-        </li>
-        <li><NavLink to="/users">Users</NavLink></li>
-      </ul>
+      <Nav vertical>
+        <NavItem>
+          <NavLink tag={Link} to="/">Content</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to="/users">Users</NavLink>
+        </NavItem>
+      </Nav>
     </div>
   )
 }
