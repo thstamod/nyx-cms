@@ -1,11 +1,11 @@
 const { GraphQLString } = require('graphql');
 
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+const { jwtPassphrase } = require('../../config');
 const UserModel = require('../../mongoose/models/user');
 const authData = require('../types/authData');
 
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
-const jwtPassphrase = require('../../config')
 
 const login = {
   type: authData,
@@ -23,12 +23,11 @@ const login = {
     const token = jwt.sign({
       userId: user._id,
       email: user.email,
-      name: user.name
     }, jwtPassphrase, { expiresIn: '1h' })
     return {
       userId: user._id,
       token,
-      tokenExpiration: 1
+      tokenExpiration: 1,
     }
   }
 };

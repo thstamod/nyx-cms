@@ -1,5 +1,5 @@
-import axios from "axios"
+import { createHttpLink } from 'apollo-link-http'
 
-export default axios.create({
-  baseURL: "http://localhost:4000/graphql"
+export default createHttpLink({
+  uri: 'http://localhost:4000/graphql'
 })
