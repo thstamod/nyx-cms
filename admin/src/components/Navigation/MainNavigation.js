@@ -7,12 +7,11 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink as RSNavLink
+  NavLink as RSNavLink,
 } from 'reactstrap';
 
 
-
-const MainNavigation = props => {
+const MainNavigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -23,9 +22,9 @@ const MainNavigation = props => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
+            {/* <NavItem>
               <RSNavLink tag={NavLink} to="/auth">auth</RSNavLink>
-            </NavItem>
+            </NavItem> */}
             <NavItem>
               <RSNavLink tag={NavLink} to="/users">Users</RSNavLink>
             </NavItem>
@@ -33,7 +32,7 @@ const MainNavigation = props => {
         </Collapse>
       </Navbar>
     </div>
-  )
-}
+  );
+};
 
 export default MainNavigation;

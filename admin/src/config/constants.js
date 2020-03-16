@@ -1,3 +1,3 @@
 export default {
-  AUTH_TOKEN: 'auth-token'
-}
+  AUTH_TOKEN: 'auth-token',
+};

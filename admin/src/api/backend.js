@@ -1,5 +1,5 @@
-import { createHttpLink } from 'apollo-link-http'
+import { createHttpLink } from 'apollo-link-http';
 
 export default createHttpLink({
-  uri: 'http://localhost:4000/graphql'
-})
+  uri: 'http://localhost:4000/graphql',
+});

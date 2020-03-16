@@ -1,29 +1,33 @@
-import React from "react"
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import React from 'react';
+import {
+  BrowserRouter, Route, Redirect, Switch,
+} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
-import AuthPage from '../pages/Auth';
-import UsersPage from '../pages/Uers';
-import MainNavigation from './Navigation/MainNavigation'
+import AuthPage from '../pages/AuthPage/AuthPage';
+import UsersPage from '../pages/userPage/UersPage';
+import WithAuth from '../containers/withAuth';
 
 
+const App = () => (
+  <BrowserRouter>
+    <React.Fragment>
+      <Switch>
+        {/* <Route path="/" component={null} /> */}
+        <Redirect from="/" to="/auth" exact />
+        <Route path="/auth" component={AuthPage} />
+        <WithAuth path="/users"><UsersPage /> </WithAuth>
+      </Switch>
+
+    </React.Fragment>
+  </BrowserRouter>
+);
+
+const mapStateToProps = (state) => {
+  const { user } = state;
+  return { isLoggedIn: user.isLoggedIn };
+};
 
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <React.Fragment>
-        <MainNavigation />
-        <Switch>
-          {/* <Route path="/" component={null} /> */}
-          <Redirect from="/" to="/auth" exact />
-          <Route path="/auth" component={AuthPage} />
-          <Route path="/users" component={UsersPage} />
-        </Switch>
-
-      </React.Fragment>
-    </BrowserRouter>
-  )
-}
-
-export default App
+export default connect(mapStateToProps)(App);
