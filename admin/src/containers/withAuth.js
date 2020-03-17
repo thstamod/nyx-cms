@@ -4,14 +4,18 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
-const withAuth = ({ children, isLoggedIn }) => {
-  const checkAuth = () => {
-    console.log(isLoggedIn);
-    return isLoggedIn ? (children) : (<Redirect to={{ pathname: '/auth' }} />);
-  };
 
-  return (<Route render={checkAuth} />);
-};
+const withAuth = ({ component: Component, ...rest }) => (
+  <Route
+    {
+    ...rest}
+    render={(props) => (
+      rest.isLoggedIn
+        ? <Component {...props} />
+        : <Redirect to="/auth" />
+    )}
+  />
+);
 
 const mapStateToProps = (state) => {
   const { user } = state;
@@ -20,8 +24,7 @@ const mapStateToProps = (state) => {
 
 withAuth.propTypes = {
   isLoggedIn: propTypes.bool,
-  // path: propTypes.string,
-  children: propTypes.element,
+  component: propTypes.element,
 };
 
 export default connect(mapStateToProps)(withAuth);

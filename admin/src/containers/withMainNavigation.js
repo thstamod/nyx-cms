@@ -2,9 +2,9 @@ import React from 'react';
 import MainNavigation from '../components/Navigation/MainNavigation';
 
 const withMainNavigation = (WrappedComponent) => () => (
-  <MainNavigation>
+  <div> <MainNavigation />
     <WrappedComponent />
-  </MainNavigation>
+  </div>
 );
 
 

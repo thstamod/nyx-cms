@@ -18,4 +18,15 @@ const client = new ApolloClient({
 });
 
 
+// const authLink = setContext((_, { headers }) => {
+//   const token = window.initialData.jwt;
+//   // return the headers to the context so httpLink can read them
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : "",
+//     }
+//   }
+// });
+
 ReactDOM.render(<ApolloProvider client={client}> <Provider store={store}><App /></Provider></ApolloProvider>, document.querySelector('#root'));

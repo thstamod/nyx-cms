@@ -1,5 +1,4 @@
 import React from 'react';
-// import { compose } from 'redux';
 import withMainNavigation from '../../containers/withMainNavigation';
 
 
