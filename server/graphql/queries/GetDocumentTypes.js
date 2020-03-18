@@ -7,7 +7,7 @@ const GetDocunemtTypes = {
   type: new GraphQLList(documentType),
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
-      throw new Error('unAuthorized')
+      throw new Error('unAuthorized');
     }
     const docTypes = await DocumentTypeModel.find();
     if (!docTypes) {

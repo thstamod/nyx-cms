@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 module.exports = mongoose.model('user', new mongoose.Schema({
   email: {
     type: String,
-    required: true
+    required: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   authorization: {
     type: Number,
-    required: true
+    required: true,
   },
   name: String,
   locked: {
     type: Boolean,
-    default: false
+    default: false,
   },
 }, { timestamps: true }));

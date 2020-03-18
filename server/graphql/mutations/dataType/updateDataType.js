@@ -22,9 +22,10 @@ const updateDataType = {
   },
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
-      throw new Error('unAuthorized')
+      throw new Error('unAuthorized');
     }
-    const updated = await DataTypeModel.findByIdAndAndUpdate({ _id: args._id }, args, { new: true });
+    const updated = await DataTypeModel
+      .findByIdAndAndUpdate({ _id: args._id }, args, { new: true });
     if (!updated) {
       throw new Error('Error');
     }

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 module.exports = mongoose.model('documentType', new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   publicUrl: String,
   inheritFrom: String,
@@ -12,6 +12,6 @@ module.exports = mongoose.model('documentType', new mongoose.Schema({
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
-    required: true
-  }
+    required: true,
+  },
 }, { timestamps: true }));

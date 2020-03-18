@@ -1,5 +1,5 @@
 const {
-  GraphQLObjectType, GraphQLString, GraphQLInt
+  GraphQLObjectType, GraphQLString, GraphQLInt,
 } = require('graphql');
 
 const authData = new GraphQLObjectType({
@@ -9,12 +9,12 @@ const authData = new GraphQLObjectType({
       type: GraphQLString,
     },
     token: {
-      type: GraphQLString
+      type: GraphQLString,
     },
     tokenExpiration: {
-      type: GraphQLInt
-    }
-  }
+      type: GraphQLInt,
+    },
+  },
 });
 
 module.exports = authData;

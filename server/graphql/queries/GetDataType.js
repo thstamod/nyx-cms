@@ -8,7 +8,7 @@ const GetDataType = {
   args: { _id: { type: GraphQLString } },
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
-      throw new Error('unAuthorized')
+      throw new Error('unAuthorized');
     }
     const datTypes = await DataTypeModel.findById(args._id);
     if (!datTypes) {

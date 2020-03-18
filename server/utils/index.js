@@ -1,11 +1,9 @@
 
-const uniqueID = function () {
-  return `_${Math.random().toString(36).substr(2, 9)}`;
-};
+const uniqueID = () => `_${Math.random().toString(36).substr(2, 9)}`;
 
-const timestampToISO = (timestamp) => new Date(timestamp).toISOString()
+const timestampToISO = (timestamp) => new Date(timestamp).toISOString();
 
 module.exports = {
   uniqueID,
-  timestampToISO
+  timestampToISO,
 };

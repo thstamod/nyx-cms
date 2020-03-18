@@ -13,7 +13,7 @@ require('dotenv').config();
 
 const dbURILocal = require('./config').mongoURI;
 const dbURICloud = require('./config').mongoCloud(process.env.MONGO_USER, process.env.MONGO_PASSWORD);
-const isAuth = require('./middleware/is-auth')
+const isAuth = require('./middleware/is-auth');
 
 const PORT = process.env.PORT || 4000;
 
@@ -45,8 +45,8 @@ mongoose.connect(dbURI, {
   useNewUrlParser: true,
 }).then(() => {
   console.log('MongoDB database connection established successfully');
-}).catch(err => {
-  console.log('Error: ' + err)
+}).catch((err) => {
+  console.log(`Error: ${err}`);
 });
 
 

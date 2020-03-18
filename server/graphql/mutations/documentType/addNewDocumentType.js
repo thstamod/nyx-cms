@@ -28,10 +28,11 @@ const addNewDocumentType = {
   },
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
-      throw new Error('unAuthorized')
+      throw new Error('unAuthorized');
     }
-    args.creator = req.userId;
-    const uModel = new DocumentTypeModel(args);
+    const model = args;
+    model.creator = req.userId;
+    const uModel = new DocumentTypeModel(model);
     const newDocType = await uModel.save();
     if (!newDocType) {
       throw new Error('error');

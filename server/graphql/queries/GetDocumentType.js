@@ -8,7 +8,7 @@ const GetDocunemtType = {
   args: { _id: { type: GraphQLString } },
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
-      throw new Error('unAuthorized')
+      throw new Error('unAuthorized');
     }
     const docTypes = await DocumentTypeModel.findById(args._id);
     if (!docTypes) {

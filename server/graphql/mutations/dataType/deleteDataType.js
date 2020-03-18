@@ -13,7 +13,7 @@ const deleteDataType = {
   },
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
-      throw new Error('unAuthorized')
+      throw new Error('unAuthorized');
     }
     const deleted = await DataTypeModel.findByIdAndDelete({ _id: args._id });
     if (!deleted) {

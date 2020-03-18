@@ -3,17 +3,17 @@ const mongoose = require('mongoose');
 module.exports = mongoose.model('dataType', new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   type: {
     type: String,
-    required: true
+    required: true,
   },
   options: String,
   value: String,
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
-    required: true
-  }
+    required: true,
+  },
 }, { timestamps: true }));

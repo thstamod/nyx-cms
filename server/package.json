@@ -7,7 +7,7 @@
     "start": "node server.js --source db",
     "dev-cloud": "nodemon server.js --source cloud",
     "dev": "nodemon server.js --source db",
-    "debug": "nodemon --inspect server.js --source db"
+    "debug": "nodemon --inspect-brk server.js --source db"
   },
   "keywords": [],
   "author": "",

@@ -30,6 +30,7 @@ const AuthPage = (props) => {
   );
 
   if (data) {
+    console.log(data);
     props.loginAction(data.login.token);
     history.push('/users');
   }

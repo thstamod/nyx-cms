@@ -1,8 +1,8 @@
 const {
-  GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean
+  GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLBoolean,
 } = require('graphql');
 
-const { timestampToISO } = require('../../utils')
+const { timestampToISO } = require('../../utils');
 
 const user = new GraphQLObjectType({
   name: 'user',
@@ -24,9 +24,7 @@ const user = new GraphQLObjectType({
     },
     createdAt: {
       type: GraphQLString,
-      resolve: (parent, args) => {
-        return timestampToISO(parent.createdAt);
-      }
+      resolve: (parent) => timestampToISO(parent.createdAt),
     },
     locked: {
       type: GraphQLBoolean,
@@ -35,5 +33,3 @@ const user = new GraphQLObjectType({
 });
 
 module.exports = user;
-
-

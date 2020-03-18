@@ -4,7 +4,7 @@ const {
 
 const userModel = require('../../mongoose/models/user');
 const userType = require('./user');
-const { timestampToISO } = require('../../utils')
+const { timestampToISO } = require('../../utils');
 
 const dataType = new GraphQLObjectType({
   name: 'DataType',
@@ -13,33 +13,29 @@ const dataType = new GraphQLObjectType({
       type: GraphQLString,
     },
     name: {
-      type: GraphQLString
+      type: GraphQLString,
     },
     type: {
-      type: GraphQLString
+      type: GraphQLString,
     },
     options: {
-      type: GraphQLString
+      type: GraphQLString,
     },
     creator: {
       type: userType,
-      resolve: async (parent, args) => {
+      resolve: async (parent) => {
         const res = await userModel.findById(parent.creator);
         return res;
-      }
+      },
     },
     createdAt: {
       type: GraphQLString,
-      resolve: (parent, args) => {
-        return timestampToISO(parent.createdAt);
-      }
+      resolve: (parent) => timestampToISO(parent.createdAt),
     },
     updatedAt: {
       type: GraphQLString,
-      resolve: (parent, args) => {
-        return timestampToISO(parent.updatedAt);
-      }
-    }
+      resolve: (parent) => timestampToISO(parent.updatedAt),
+    },
   },
 });
 

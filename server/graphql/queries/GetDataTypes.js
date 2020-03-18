@@ -7,7 +7,7 @@ const GetDataTypes = {
   type: new GraphQLList(dataType),
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
-      throw new Error('unAuthorized')
+      throw new Error('unAuthorized');
     }
     const datTypes = await DataTypeModel.find();
     if (!datTypes) {
