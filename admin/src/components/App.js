@@ -21,7 +21,7 @@ const App = () => (
         {isLoggedIn && <WithAuth path="/users"><UsersPage /></WithAuth>} */}
         <Redirect from="/" to="/auth" exact />
         <Route path="/auth" component={AuthPage} />
-        <WithAuth path="/users" component={UsersPage} />
+        <WithAuth path="/users"><UsersPage /></WithAuth>
         <Route path="*" component={NotFound} />
       </Switch>
 

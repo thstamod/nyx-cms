@@ -24,8 +24,9 @@
     "react/jsx-one-expression-per-line": "off",
     "import/no-extraneous-dependencies": "off",
     "jsx-a11y/label-has-associated-control": "off",
-    "react/no-array-index-key": "warn",
+    "react/no-array-index-key": "off",
     "react/require-default-props": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "no-console": "off"
   }
 }

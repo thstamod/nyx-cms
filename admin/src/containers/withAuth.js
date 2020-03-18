@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
 
-const withAuth = ({ component: Component, ...rest }) => (
+const withAuth = ({ children, ...rest }) => (
   <Route
     {
     ...rest}
-    render={(props) => (
+    render={() => (
       rest.isLoggedIn
-        ? <Component {...props} />
-        : <Redirect to="/auth" />
+        ? (children)
+        : (<Redirect to="/auth" />)
     )}
   />
 );
@@ -24,7 +24,9 @@ const mapStateToProps = (state) => {
 
 withAuth.propTypes = {
   isLoggedIn: propTypes.bool,
-  component: propTypes.element,
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node]),
 };
 
 export default connect(mapStateToProps)(withAuth);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import gql from 'graphql-tag';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { connect } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { loginAction } from '../../redux/actions/userActions';
 
@@ -17,7 +17,6 @@ const LOGIN_QUERY = gql`
 
 
 const AuthPage = (props) => {
-  const history = useHistory();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [handleSubmit, { data, error }] = useLazyQuery(LOGIN_QUERY, { errorPolicy: 'all' });
@@ -29,10 +28,10 @@ const AuthPage = (props) => {
     </div>
   );
 
-  if (data) {
+  if (data && data.login) {
     console.log(data);
     props.loginAction(data.login.token);
-    history.push('/users');
+    return <Redirect to="/users" />;
   }
   return (
     <form>
