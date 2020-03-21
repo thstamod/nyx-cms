@@ -4,10 +4,11 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-
 import AuthPage from '../pages/AuthPage/AuthPage';
-import UsersPage from '../pages/userPage/UersPage';
-import NotFound from '../pages/notFound/notFound';
+import UsersPage from '../pages/UserPage/UersPage';
+import ContentPage from '../pages/ContentPage/ContentPage';
+import SettingsPage from '../pages/SettingsPage/SettingsPage';
+import NotFound from '../pages/NotFound/NotFound';
 import WithAuth from '../containers/withAuth';
 
 
@@ -15,12 +16,10 @@ const App = () => (
   <BrowserRouter>
     <React.Fragment>
       <Switch>
-        {/* {!isLoggedIn && <Redirect from="*" to="/auth" exact />}
-        {!isLoggedIn && <Route path="/auth" component={AuthPage} />}
-        {isLoggedIn && <Redirect from="/auth" to="/users" exact />}
-        {isLoggedIn && <WithAuth path="/users"><UsersPage /></WithAuth>} */}
         <Redirect from="/" to="/auth" exact />
         <Route path="/auth" component={AuthPage} />
+        <WithAuth path="/content"><ContentPage /></WithAuth>
+        <WithAuth path="/settings"><SettingsPage /></WithAuth>
         <WithAuth path="/users"><UsersPage /></WithAuth>
         <Route path="*" component={NotFound} />
       </Switch>

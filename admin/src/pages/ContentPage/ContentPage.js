@@ -12,7 +12,7 @@ const GET_DOCUMENT_TYPES = gql`
   }
 `;
 
-const UsersPage = () => {
+const ContentPage = () => {
   const [handleSubmit, { data, error }] = useLazyQuery(GET_DOCUMENT_TYPES, { errorPolicy: 'all' });
 
   const handleError = (err) => err && (
@@ -27,7 +27,7 @@ const UsersPage = () => {
   }
   return (
     <div>
-      <h1>Users page</h1>
+      <h1>Content page</h1>
       {handleError(error)}
       <button
         type="button"
@@ -38,4 +38,4 @@ const UsersPage = () => {
   );
 };
 
-export default withMainNavigation(UsersPage);
+export default withMainNavigation(ContentPage);

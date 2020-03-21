@@ -29,9 +29,8 @@ const AuthPage = (props) => {
   );
 
   if (data && data.login) {
-    console.log(data);
     props.loginAction(data.login.token);
-    return <Redirect to="/users" />;
+    return <Redirect to="/content" />;
   }
   return (
     <form>

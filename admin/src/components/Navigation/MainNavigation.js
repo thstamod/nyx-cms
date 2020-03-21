@@ -22,11 +22,14 @@ const MainNavigation = () => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            {/* <NavItem>
-              <RSNavLink tag={NavLink} to="/auth">auth</RSNavLink>
-            </NavItem> */}
+            <NavItem>
+              <RSNavLink tag={NavLink} to="/content">Content</RSNavLink>
+            </NavItem>
             <NavItem>
               <RSNavLink tag={NavLink} to="/users">Users</RSNavLink>
+            </NavItem>
+            <NavItem>
+              <RSNavLink tag={NavLink} to="/Settings">Settings</RSNavLink>
             </NavItem>
           </Nav>
         </Collapse>

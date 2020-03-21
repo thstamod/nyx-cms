@@ -13,10 +13,10 @@ import httpLink from './api/backend';
 import './scss/main.scss';
 
 
-function getAuthToken() {
-  console.log(store.getState());
-  return store.getState().user.token;
-}
+const getAuthToken = () => (store.getState().user.isLoggedIn
+  ? store.getState().user.token
+  : null);
+
 
 const authMiddleware = new ApolloLink((operation, forward) => {
   const token = getAuthToken();
