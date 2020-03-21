@@ -1,8 +1,11 @@
 import { createStore, compose } from 'redux';
 import rootReducer from './reducers';
+import { getSessionStorage } from '../utils/handleSessionStorage';
 
 
-export default createStore(rootReducer, {},
+const initialStore = getSessionStorage();
+console.log(initialStore);
+export default createStore(rootReducer, initialStore,
   compose(
     // applyMiddleware(client.middleware()),
     // If you are using the devToolsExtension, you can add it here also

@@ -1,6 +1,6 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import { useLazyQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import withMainNavigation from '../../containers/withMainNavigation';
 
 
@@ -13,7 +13,7 @@ const GET_DOCUMENT_TYPES = gql`
 `;
 
 const ContentPage = () => {
-  const [handleSubmit, { data, error }] = useLazyQuery(GET_DOCUMENT_TYPES, { errorPolicy: 'all' });
+  const { loading, data, error } = useQuery(GET_DOCUMENT_TYPES, { errorPolicy: 'all' });
 
   const handleError = (err) => err && (
     <div> Bad: {err.graphQLErrors.map(({ message }, i) => (
@@ -21,7 +21,9 @@ const ContentPage = () => {
     ))}
     </div>
   );
-
+  if (loading) {
+    return (<div>Loading</div>);
+  }
   if (data) {
     console.log(data);
   }
@@ -29,11 +31,6 @@ const ContentPage = () => {
     <div>
       <h1>Content page</h1>
       {handleError(error)}
-      <button
-        type="button"
-        onClick={() => handleSubmit()}
-      >Get data
-      </button>
     </div>
   );
 };
