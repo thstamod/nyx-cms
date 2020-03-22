@@ -6,7 +6,7 @@ import withMainNavigation from '../../containers/withMainNavigation';
 
 const GET_DOCUMENT_TYPES = gql`
   query dt {
-    docunemtTypes{
+    getDocunemtTypes{
       _id
     }
   }
