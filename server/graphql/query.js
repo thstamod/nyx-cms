@@ -12,8 +12,8 @@ const query = new GraphQLObjectType({
     getDocunemtType,
     getDataTypes,
     getDataType,
-    login,
-  },
+    login
+  }
 });
 
 module.exports = query;

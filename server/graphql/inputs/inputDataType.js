@@ -1,5 +1,7 @@
 const {
-  GraphQLString, GraphQLInputObjectType, GraphQLNonNull,
+  GraphQLString,
+  GraphQLInputObjectType,
+  GraphQLNonNull,
 } = require('graphql');
 
 const InputDataType = new GraphQLInputObjectType({
@@ -14,6 +16,7 @@ const InputDataType = new GraphQLInputObjectType({
     dataTypeId: {
       type: new GraphQLNonNull(GraphQLString),
     },
+
     options: {
       type: GraphQLString,
     },

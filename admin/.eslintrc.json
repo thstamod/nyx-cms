@@ -1,11 +1,11 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
-  "extends": [
-    "airbnb"
-  ],
+  "extends": ["eslint:recommended", "airbnb"],
+  "plugins": ["prettier"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -18,6 +18,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "prettier/prettier": "error",
     "no-underscore-dangle": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-fragments": "off",
@@ -27,6 +28,8 @@
     "react/no-array-index-key": "off",
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "implicit-arrow-linebreak": "off",
+    "comma-dangle": "off"
   }
 }

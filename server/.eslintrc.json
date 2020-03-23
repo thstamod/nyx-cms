@@ -1,21 +1,25 @@
 {
   "env": {
-    "browser": true,
-    "es6": true
+    "es6": true,
+    "node": true
   },
-  "extends": ["airbnb"],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
+  "extends": ["eslint:recommended", "airbnb"],
+  "plugins": ["prettier"],
   "rules": {
-    "no-underscore-dangle": "off"
+    "prettier/prettier": "error",
+    "no-underscore-dangle": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-fragments": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "import/no-extraneous-dependencies": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/no-array-index-key": "off",
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-console": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/no-unresolved": "off",
+    "comma-dangle": "off",
+    "import/no-self-import": "off"
   }
 }

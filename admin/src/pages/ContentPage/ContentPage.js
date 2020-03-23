@@ -3,26 +3,30 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import withMainNavigation from '../../containers/withMainNavigation';
 
-
 const GET_DOCUMENT_TYPES = gql`
   query dt {
-    getDocunemtTypes{
+    getDocunemtTypes {
       _id
     }
   }
 `;
 
 const ContentPage = () => {
-  const { loading, data, error } = useQuery(GET_DOCUMENT_TYPES, { errorPolicy: 'all' });
+  const { loading, data, error } = useQuery(GET_DOCUMENT_TYPES, {
+    errorPolicy: 'all',
+  });
 
-  const handleError = (err) => err && (
-    <div> Bad: {err.graphQLErrors.map(({ message }, i) => (
-      <span key={i}>{message}</span>
-    ))}
-    </div>
-  );
+  const handleError = (err) =>
+    err && (
+      <div>
+        Bad:
+        {err.graphQLErrors.map(({ message }, i) => (
+          <span key={i}>{message}</span>
+        ))}
+      </div>
+    );
   if (loading) {
-    return (<div>Loading</div>);
+    return <div>Loading</div>;
   }
   if (data) {
     console.log(data);
