@@ -18,7 +18,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "off",
     "no-underscore-dangle": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-fragments": "off",
@@ -30,6 +30,9 @@
     "react/jsx-props-no-spreading": "off",
     "no-console": "off",
     "implicit-arrow-linebreak": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "max-len": "off",
+    "no-confusing-arrow": "off",
+    "object-curly-newline": "off"
   }
 }

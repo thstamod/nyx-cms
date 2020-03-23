@@ -1,12 +1,15 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
+import { Col, Row } from 'react-bootstrap';
 import withMainNavigation from '../../containers/withMainNavigation';
+import ListView from '../../components/Navigation/ListView';
 
 const GET_DOCUMENT_TYPES = gql`
   query dt {
-    getDocunemtTypes {
+    documentTypes: getDocunemtTypes {
       _id
+      name
     }
   }
 `;
@@ -31,11 +34,17 @@ const ContentPage = () => {
   if (data) {
     console.log(data);
   }
+
+  const showListView = (d) => <ListView data={d} />;
   return (
-    <div>
-      <h1>Content page</h1>
-      {handleError(error)}
-    </div>
+    <Row>
+      <Col xs={3}>{showListView(data)}</Col>
+      <Col>
+        <h1>Content page</h1>
+
+        {handleError(error)}
+      </Col>
+    </Row>
   );
 };
 
