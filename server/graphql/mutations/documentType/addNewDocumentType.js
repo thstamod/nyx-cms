@@ -1,11 +1,8 @@
-const {
-  GraphQLNonNull, GraphQLString, GraphQLList,
-} = require('graphql');
-
+const { GraphQLNonNull, GraphQLString, GraphQLList } = require('graphql');
 const DocumentTypeModel = require('../../../mongoose/models/doumentType');
 const documentType = require('../../types/documentType');
-
 const inputDatatype = require('../../inputs/inputDataType');
+const inputDoctype = require('../../inputs/inputDocType');
 
 const addNewDocumentType = {
   type: documentType,
@@ -24,6 +21,9 @@ const addNewDocumentType = {
     },
     compilation: {
       type: new GraphQLList(inputDatatype),
+    },
+    descendants: {
+      type: new GraphQLList(inputDoctype),
     },
   },
   resolve: async (parent, args, req) => {

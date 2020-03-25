@@ -1,5 +1,6 @@
 const { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
 const DataTypeModel = require('../../mongoose/models/dataType');
+const DocumentTypeModel = require('../../mongoose/models/doumentType');
 const userModel = require('../../mongoose/models/user');
 const userType = require('./user');
 const dataType = require('./dataType');
@@ -8,7 +9,7 @@ const { timestampToISO } = require('../../utils');
 
 const documentType = new GraphQLObjectType({
   name: 'DocumentType',
-  fields: {
+  fields: () => ({
     _id: {
       type: GraphQLString,
     },
@@ -24,14 +25,35 @@ const documentType = new GraphQLObjectType({
     privileges: {
       type: GraphQLString,
     },
+    descendants: {
+      type: new GraphQLList(
+        new GraphQLObjectType({
+          name: 'descendants',
+          fields: {
+            // documentTypeId: {
+            //   type: GraphQLString,
+            // },
+            documentType: {
+              type: documentType,
+              resolve: async (parent) => {
+                const res = await DocumentTypeModel.findById(
+                  parent.documentTypeId
+                );
+                return res;
+              },
+            },
+          },
+        })
+      ),
+    },
     compilation: {
       type: new GraphQLList(
         new GraphQLObjectType({
           name: 'compilation',
           fields: {
-            dataTypeId: {
-              type: GraphQLString,
-            },
+            // dataTypeId: {
+            //   type: GraphQLString,
+            // },
             options: {
               type: GraphQLString,
             },
@@ -46,7 +68,7 @@ const documentType = new GraphQLObjectType({
               },
             },
           },
-        }),
+        })
       ),
     },
     creator: {
@@ -64,7 +86,7 @@ const documentType = new GraphQLObjectType({
       type: GraphQLString,
       resolve: (parent) => timestampToISO(parent.updatedAt),
     },
-  },
+  }),
 });
 
 module.exports = documentType;

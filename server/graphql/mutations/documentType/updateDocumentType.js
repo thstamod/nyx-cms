@@ -1,10 +1,9 @@
-const {
-  GraphQLNonNull, GraphQLString, GraphQLList,
-} = require('graphql');
+const { GraphQLNonNull, GraphQLString, GraphQLList } = require('graphql');
 
 const DocumentTypeModel = require('../../../mongoose/models/doumentType');
 const documentType = require('../../types/documentType');
 const inputDatatype = require('../../inputs/inputDataType');
+const inputDoctype = require('../../inputs/inputDocType');
 
 const updateDocumentType = {
   type: documentType,
@@ -27,13 +26,19 @@ const updateDocumentType = {
     compilation: {
       type: new GraphQLList(inputDatatype),
     },
+    descendants: {
+      type: new GraphQLList(inputDoctype),
+    },
   },
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
       throw new Error('unAuthorized');
     }
-    const updated = await DocumentTypeModel
-      .findByIdAndUpdate({ _id: args._id }, args, { new: true });
+    const updated = await DocumentTypeModel.findByIdAndUpdate(
+      { _id: args._id },
+      args,
+      { new: true }
+    );
     if (!updated) {
       throw new Error('Error');
     }
