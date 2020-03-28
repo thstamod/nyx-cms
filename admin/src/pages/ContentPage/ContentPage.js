@@ -3,13 +3,18 @@ import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import { Col, Row } from 'react-bootstrap';
 import withMainNavigation from '../../containers/withMainNavigation';
-import ListView from '../../components/Navigation/ListView';
+import ListView from '../../components/Navigation/sidebar/ListView';
 
 const GET_DOCUMENT_TYPES = gql`
   query dt {
     documentTypes: getDocunemtTypes {
       _id
       name
+      descendants {
+        documentType {
+          name
+        }
+      }
     }
   }
 `;
@@ -18,7 +23,6 @@ const ContentPage = () => {
   const { loading, data, error } = useQuery(GET_DOCUMENT_TYPES, {
     errorPolicy: 'all',
   });
-
   const handleError = (err) =>
     err && (
       <div>

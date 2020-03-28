@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 // import { NavLink } from 'react-router-dom';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import { Nav } from 'react-bootstrap';
 // import SubMenu from './SubMenu';
 
@@ -11,11 +11,18 @@ import { Nav } from 'react-bootstrap';
 //   color: #fff;
 // `;
 
+const Text = styled('div')`
+  font-family: ${(props) => props.theme.fonts[1]};
+  background: #fff000;
+  width: 200px;
+  color: ${(props) => props.theme.colors.lightBlue};
+`;
+
 const ListView = ({ data }) => {
   const showDocumentTypes = () => {
-    console.log(data.documentTypes);
+    // console.log(theme);
     const list = data.documentTypes.map((el) => (
-      <span key={el._id}>{el.name}</span>
+      <Text key={el._id}>{el.name}</Text>
     ));
     return list;
   };
