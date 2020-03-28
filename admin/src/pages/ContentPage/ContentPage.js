@@ -2,8 +2,8 @@ import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import { Col, Row } from 'react-bootstrap';
-import withMainNavigation from '../../containers/withMainNavigation';
-import ListView from '../../components/Navigation/sidebar/ListView';
+// import withMainNavigation from '../../containers/withMainNavigation';
+import Sidebar from '../../components/Navigation/sidebar/Sidebar';
 
 const GET_DOCUMENT_TYPES = gql`
   query dt {
@@ -36,14 +36,14 @@ const ContentPage = () => {
     return <div>Loading</div>;
   }
   if (data) {
-    console.log(data);
+    // console.log(data);
   }
 
-  const showListView = (d) => <ListView data={d} />;
+  const showSidebar = (d) => <Sidebar data={d} />;
   return (
     <Row>
-      <Col xs={3}>{showListView(data)}</Col>
-      <Col>
+      <Col xs={3}>{showSidebar(data)}</Col>
+      <Col xs={9}>
         <h1>Content page</h1>
 
         {handleError(error)}
@@ -52,4 +52,4 @@ const ContentPage = () => {
   );
 };
 
-export default withMainNavigation(ContentPage);
+export default ContentPage;

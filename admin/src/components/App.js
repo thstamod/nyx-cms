@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import propTypes from 'prop-types';
 
 import { ThemeProvider } from 'styled-components';
 import AuthPage from '../pages/AuthPage/AuthPage';
@@ -13,9 +14,9 @@ import store from '../redux/store';
 import { setSessionStorage } from '../utils/handleSessionStorage';
 import GlobalStyles from '../theme/globalStyle';
 import theme from '../theme/index';
+import MainNavigation from './Navigation/MainNavigation';
 
-const App = () => {
-  console.log(theme);
+const App = ({ isLoggedIn }) => {
   useEffect(() => {
     window.addEventListener('beforeunload', (ev) => {
       ev.preventDefault();
@@ -26,6 +27,7 @@ const App = () => {
     <BrowserRouter>
       <GlobalStyles />
       <ThemeProvider theme={theme}>
+        {isLoggedIn && <MainNavigation />}
         <React.Fragment>
           <Switch>
             <Redirect from="/" to="/auth" exact />
@@ -45,6 +47,10 @@ const App = () => {
       </ThemeProvider>
     </BrowserRouter>
   );
+};
+
+App.propTypes = {
+  isLoggedIn: propTypes.bool,
 };
 
 const mapStateToProps = (state) => {

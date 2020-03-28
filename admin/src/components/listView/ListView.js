@@ -5,22 +5,14 @@ import styled from 'styled-components';
 import { Nav } from 'react-bootstrap';
 // import SubMenu from './SubMenu';
 
-// const Sidebar = styled('div')`
-//   background: #fff000;
-//   width: 200px;
-//   color: #fff;
-// `;
-
 const Text = styled('div')`
   font-family: ${(props) => props.theme.fonts[1]};
-  background: #fff000;
-  width: 200px;
-  color: ${(props) => props.theme.colors.lightBlue};
+  width: 100%;
+  color: ${(props) => props.theme.colors.powderWhite};
 `;
 
 const ListView = ({ data }) => {
   const showDocumentTypes = () => {
-    // console.log(theme);
     const list = data.documentTypes.map((el) => (
       <Text key={el._id}>{el.name}</Text>
     ));

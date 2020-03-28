@@ -23,6 +23,8 @@
     "react/jsx-filename-extension": "off",
     "react/jsx-fragments": "off",
     "react/jsx-one-expression-per-line": "off",
+    "react/jsx-curly-newline": "off",
+    "react/forbid-prop-types": "off",
     "import/no-extraneous-dependencies": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "react/no-array-index-key": "off",

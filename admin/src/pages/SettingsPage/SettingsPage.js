@@ -1,6 +1,4 @@
 import React from 'react';
-import withMainNavigation from '../../containers/withMainNavigation';
-
 
 const SettingsPage = () => (
   <div>
@@ -8,5 +6,4 @@ const SettingsPage = () => (
   </div>
 );
 
-
-export default withMainNavigation(SettingsPage);
+export default SettingsPage;

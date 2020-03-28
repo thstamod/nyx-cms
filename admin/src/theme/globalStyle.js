@@ -1,14 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700|Rubik:300,400,400i,500&display=swap');
-
-  body {
-    padding: 0;
-    margin: 0;
-    font-family: Karla, sans-serif;
-    font-size: 16px;
+  html,body {
+    width:100%;
+  height: 100vh;
+  display: flex;
   }
+#root {
+  width:100%;
+  height:100%;
+}
 
   h1,h2,h3,h4,h5 {
     font-family: Rubik, serif;

@@ -1,18 +1,21 @@
 import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
+import styled from 'styled-components';
+import { Container } from 'react-bootstrap';
 import MainNavigation from '../components/Navigation/MainNavigation';
 
+const FullContainer = styled(Container)`
+  padding-right: 0;
+  padding-left: 0;
+  height: 100%;
+`;
+
 const withMainNavigation = (WrappedComponent) => () => (
-  <div>
-    <MainNavigation />
-    <Container fluid>
-      <Row>
-        <Col>
-          <WrappedComponent />
-        </Col>
-      </Row>
-    </Container>
-  </div>
+  <section>
+    <FullContainer fluid>
+      <MainNavigation />
+      <WrappedComponent />
+    </FullContainer>
+  </section>
 );
 
 export default withMainNavigation;
