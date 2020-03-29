@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     width:100%;
   height: 100vh;
   display: flex;
+  font-family: Karla, serif;
   }
 #root {
   width:100%;

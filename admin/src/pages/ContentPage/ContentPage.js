@@ -1,10 +1,20 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
+import styled from 'styled-components';
 import { Col, Row } from 'react-bootstrap';
-// import withMainNavigation from '../../containers/withMainNavigation';
 import Sidebar from '../../components/Navigation/sidebar/Sidebar';
 
+const FullRow = styled(Row)`
+  height: 100%;
+  margin-right: 0;
+  margin-left: 0;
+`;
+const FullCol = styled(Col)`
+  height: 100%;
+  padding-left: 0;
+  padding-right: 0;
+`;
 const GET_DOCUMENT_TYPES = gql`
   query dt {
     documentTypes: getDocunemtTypes {
@@ -13,6 +23,7 @@ const GET_DOCUMENT_TYPES = gql`
       descendants {
         documentType {
           name
+          _id
         }
       }
     }
@@ -41,14 +52,16 @@ const ContentPage = () => {
 
   const showSidebar = (d) => <Sidebar data={d} />;
   return (
-    <Row>
-      <Col xs={3}>{showSidebar(data)}</Col>
-      <Col xs={9}>
+    <FullRow>
+      <FullCol xs={3} md={2}>
+        {showSidebar(data)}
+      </FullCol>
+      <FullCol style={{ overflow: 'auto' }} xs={9} md={10}>
         <h1>Content page</h1>
 
         {handleError(error)}
-      </Col>
-    </Row>
+      </FullCol>
+    </FullRow>
   );
 };
 

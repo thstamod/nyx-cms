@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { Container } from 'react-bootstrap';
 import AuthPage from '../pages/AuthPage/AuthPage';
 import UsersPage from '../pages/UserPage/UersPage';
 import ContentPage from '../pages/ContentPage/ContentPage';
@@ -15,6 +16,14 @@ import { setSessionStorage } from '../utils/handleSessionStorage';
 import GlobalStyles from '../theme/globalStyle';
 import theme from '../theme/index';
 import MainNavigation from './Navigation/MainNavigation';
+
+const FullContainer = styled(Container)`
+  padding-right: 0;
+  padding-left: 0;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 56px;
+`;
 
 const App = ({ isLoggedIn }) => {
   useEffect(() => {
@@ -29,20 +38,22 @@ const App = ({ isLoggedIn }) => {
       <ThemeProvider theme={theme}>
         {isLoggedIn && <MainNavigation />}
         <React.Fragment>
-          <Switch>
-            <Redirect from="/" to="/auth" exact />
-            <Route path="/auth" component={AuthPage} />
-            <WithAuth path="/content">
-              <ContentPage />
-            </WithAuth>
-            <WithAuth path="/settings">
-              <SettingsPage />
-            </WithAuth>
-            <WithAuth path="/users">
-              <UsersPage />
-            </WithAuth>
-            <Route path="*" component={NotFound} />
-          </Switch>
+          <FullContainer fluid>
+            <Switch>
+              <Redirect from="/" to="/auth" exact />
+              <Route path="/auth" component={AuthPage} />
+              <WithAuth path="/content">
+                <ContentPage />
+              </WithAuth>
+              <WithAuth path="/settings">
+                <SettingsPage />
+              </WithAuth>
+              <WithAuth path="/users">
+                <UsersPage />
+              </WithAuth>
+              <Route path="*" component={NotFound} />
+            </Switch>
+          </FullContainer>
         </React.Fragment>
       </ThemeProvider>
     </BrowserRouter>
