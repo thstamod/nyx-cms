@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-column nav"
+  >
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        Home
+      </span>
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        About
+      </span>
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        About2
+      </span>
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        About3
+      </span>
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        Test
+      </span>
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        Test
+      </span>
+      <div />
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        Test
+      </span>
+      <div />
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        Test
+      </span>
+      <div />
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        Test
+      </span>
+      <div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          Home
+        </div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          About
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        Test
+      </span>
+      <div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          Home
+        </div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          About
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxirZ eOuGKq"
+    >
+      <span>
+        Test
+      </span>
+      <div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          Home
+        </div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          About
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

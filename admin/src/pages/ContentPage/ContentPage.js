@@ -47,7 +47,7 @@ const ContentPage = () => {
     return <div>Loading</div>;
   }
   if (data) {
-    // console.log(data);
+    console.log(data);
   }
 
   const showSidebar = (d) => <Sidebar data={d} />;
