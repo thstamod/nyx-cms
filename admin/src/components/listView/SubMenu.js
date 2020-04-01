@@ -11,7 +11,7 @@ const SubMenu = ({ data }) => {
   const showSubmenu = (d) => {
     // eslint-disable-next-line arrow-body-style
     const list = d.map(({ documentType }) => {
-      console.log(documentType);
+      // console.log(documentType);
       return (
         documentType && <Test key={documentType._id}>{documentType.name}</Test>
       );

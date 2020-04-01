@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubMenu renders 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="sc-AxjAm huDVTX"
+    >
+      Home
+    </div>
+    <div
+      class="sc-AxjAm huDVTX"
+    >
+      About
+    </div>
+  </div>
+</DocumentFragment>
+`;

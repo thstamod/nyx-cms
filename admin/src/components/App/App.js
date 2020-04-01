@@ -1,21 +1,20 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import propTypes from 'prop-types';
 
 import styled, { ThemeProvider } from 'styled-components';
 import { Container } from 'react-bootstrap';
-import AuthPage from '../pages/AuthPage/AuthPage';
-import UsersPage from '../pages/UserPage/UersPage';
-import ContentPage from '../pages/ContentPage/ContentPage';
-import SettingsPage from '../pages/SettingsPage/SettingsPage';
-import NotFound from '../pages/NotFound/NotFound';
-import WithAuth from '../containers/withAuth';
-import store from '../redux/store';
-import { setSessionStorage } from '../utils/handleSessionStorage';
-import GlobalStyles from '../theme/globalStyle';
-import theme from '../theme/index';
-import MainNavigation from './Navigation/MainNavigation';
+import AuthPage from '../../pages/AuthPage/AuthPage';
+import UsersPage from '../../pages/UserPage/UersPage';
+import ContentPage from '../../pages/ContentPage/ContentPage';
+import SettingsPage from '../../pages/SettingsPage/SettingsPage';
+import NotFound from '../../pages/NotFound/NotFound';
+import WithAuth from '../../containers/withAuth';
+import store from '../../redux/store';
+import { setSessionStorage } from '../../utils/handleSessionStorage';
+import GlobalStyles from '../../theme/globalStyle';
+import theme from '../../theme/index';
+import MainNavigation from '../Navigation/MainNavigation/MainNavigation';
 
 const FullContainer = styled(Container)`
   padding-right: 0;
@@ -58,10 +57,6 @@ const App = ({ isLoggedIn }) => {
       </ThemeProvider>
     </BrowserRouter>
   );
-};
-
-App.propTypes = {
-  isLoggedIn: propTypes.bool,
 };
 
 const mapStateToProps = (state) => {

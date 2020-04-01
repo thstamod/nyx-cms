@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 
 const MainNavigation = () => (
   <header>
-    <Navbar fixed="top" bg="dark" variant="dark">
+    <Navbar data-testid="header" fixed="top" bg="dark" variant="dark">
       <Navbar.Brand as={NavLink} to="/">
         Nyx-cms
       </Navbar.Brand>

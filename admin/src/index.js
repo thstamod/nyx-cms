@@ -5,7 +5,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { Provider } from 'react-redux';
 import { ApolloLink, concat } from 'apollo-link';
-import App from './components/App';
+import App from './components/App/App';
 import store from './redux/store';
 
 import httpLink from './api/backend';

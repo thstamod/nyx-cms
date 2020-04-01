@@ -9,14 +9,11 @@ const Text = styled('div')`
   color: ${(props) => props.theme.colors.powderWhite};
 `;
 
-const ListViewItem = ({ data }) => {
-  console.log(data);
-  return (
-    <Text key={data._id}>
-      <span>{data.name}</span>
-      {data.descendants && <SubMenu data={data.descendants} />}
-    </Text>
-  );
-};
+const ListViewItem = ({ data }) => (
+  <Text key={data._id}>
+    <span>{data.name}</span>
+    {data.descendants && <SubMenu data={data.descendants} />}
+  </Text>
+);
 
 export default ListViewItem;

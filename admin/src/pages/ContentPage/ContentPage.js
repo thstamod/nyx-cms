@@ -1,9 +1,9 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
 import { Col, Row } from 'react-bootstrap';
 import Sidebar from '../../components/Navigation/sidebar/Sidebar';
+import GET_DOCUMENT_TYPES from './query';
 
 const FullRow = styled(Row)`
   height: 100%;
@@ -14,20 +14,6 @@ const FullCol = styled(Col)`
   height: 100%;
   padding-left: 0;
   padding-right: 0;
-`;
-const GET_DOCUMENT_TYPES = gql`
-  query dt {
-    documentTypes: getDocunemtTypes {
-      _id
-      name
-      descendants {
-        documentType {
-          name
-          _id
-        }
-      }
-    }
-  }
 `;
 
 const ContentPage = () => {
@@ -44,7 +30,7 @@ const ContentPage = () => {
       </div>
     );
   if (loading) {
-    return <div>Loading</div>;
+    return <div>Loading...</div>;
   }
   if (data) {
     console.log(data);

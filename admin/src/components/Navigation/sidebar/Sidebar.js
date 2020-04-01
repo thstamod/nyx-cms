@@ -20,7 +20,7 @@ const ListViewWrapper = styled('aside')`
 const Sidebar = ({ data }) => {
   console.log(data);
   return (
-    <SidebarWrapper>
+    <SidebarWrapper data-testid="sidebar">
       <ListViewWrapper>
         <ListView data={data} />
       </ListViewWrapper>
