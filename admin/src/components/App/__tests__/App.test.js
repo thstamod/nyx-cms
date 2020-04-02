@@ -6,11 +6,6 @@ import { Provider } from 'react-redux';
 import reducer from '../../../redux/reducers/index';
 import App from '../App';
 
-// const initialState = {
-//   isLoggedIn: false,
-//   token: '',
-// };
-
 function renderWithRedux(
   ui,
   { initialState, store = createStore(reducer, initialState) } = {}
@@ -21,7 +16,7 @@ function renderWithRedux(
   };
 }
 
-test('Main navigation renders', () => {
+test('App renders', () => {
   const { asFragment } = renderWithRedux(<App />);
 
   expect(asFragment()).toMatchSnapshot();

@@ -2,36 +2,32 @@
 
 exports[`Main navigation renders 1`] = `
 <DocumentFragment>
-  <div
-    class="sc-AxheI dQIATQ container-fluid"
-  >
-    <form>
-      <div>
-        <label
-          for="email"
-        >
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-        />
-        <label
-          for="password"
-        >
-          Password
-        </label>
-        <input
-          id="password"
-          type="password"
-        />
-      </div>
-      <button
-        type="button"
+  <form>
+    <div>
+      <label
+        for="email"
       >
-        Submit
-      </button>
-    </form>
-  </div>
+        Email
+      </label>
+      <input
+        id="email"
+        type="email"
+      />
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        type="password"
+      />
+    </div>
+    <button
+      type="button"
+    >
+      Submit
+    </button>
+  </form>
 </DocumentFragment>
 `;
