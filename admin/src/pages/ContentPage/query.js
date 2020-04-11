@@ -1,16 +1,68 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query dt {
-    documentTypes: getDocunemtTypes {
-      _id
+  {
+    documentTypes {
       name
       descendants {
+        ...dtRecursive
+      }
+    }
+  }
+
+  fragment dtRecursive on descendants {
+    documentType {
+      ...documentTypeFields
+      descendants {
         documentType {
-          name
-          _id
+          ...documentTypeFields
+          descendants {
+            documentType {
+              ...documentTypeFields
+              descendants {
+                documentType {
+                  ...documentTypeFields
+                  descendants {
+                    documentType {
+                      ...documentTypeFields
+                      descendants {
+                        documentType {
+                          ...documentTypeFields
+                          descendants {
+                            documentType {
+                              ...documentTypeFields
+                              descendants {
+                                documentType {
+                                  ...documentTypeFields
+                                  descendants {
+                                    documentType {
+                                      ...documentTypeFields
+                                      descendants {
+                                        documentType {
+                                          ...documentTypeFields
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
+  }
+
+  fragment documentTypeFields on DocumentType {
+    _id
+    name
   }
 `;

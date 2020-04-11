@@ -17,16 +17,13 @@ const ListViewWrapper = styled('aside')`
   scrollbar-width: thin;
 `;
 
-const Sidebar = ({ data }) => {
-  console.log(data);
-  return (
-    <SidebarWrapper data-testid="sidebar">
-      <ListViewWrapper>
-        <ListView data={data} />
-      </ListViewWrapper>
-    </SidebarWrapper>
-  );
-};
+const Sidebar = ({ data }) => (
+  <SidebarWrapper data-testid="sidebar">
+    <ListViewWrapper>
+      <ListView data={data} />
+    </ListViewWrapper>
+  </SidebarWrapper>
+);
 
 Sidebar.propTypes = {
   data: propTypes.object,
