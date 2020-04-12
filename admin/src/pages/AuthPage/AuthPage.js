@@ -1,17 +1,15 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { useState } from 'react';
-import { useLazyQuery } from '@apollo/react-hooks';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginAction } from '../../redux/actions/userActions';
 import { calculateExpirationTime } from '../../utils/calculateTime';
+import withData from '../../containers/withData';
 import LOGIN_QUERY from '../../graphql/loginQuery';
 
 const AuthPage = (props) => {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
-  const [handleSubmit, { data, error }] = useLazyQuery(LOGIN_QUERY, {
-    errorPolicy: 'all',
-  });
 
   const handleError = (err) =>
     err && (
@@ -23,10 +21,10 @@ const AuthPage = (props) => {
       </div>
     );
 
-  if (data && data.login) {
+  if (props.data && props.data.login) {
     props.loginAction(
-      data.login.token,
-      calculateExpirationTime(data.login.tokenExpiration)
+      props.data.login.token,
+      calculateExpirationTime(props.data.login.tokenExpiration)
     );
     return <Redirect to="/content" />;
   }
@@ -50,11 +48,11 @@ const AuthPage = (props) => {
           }}
         />
       </div>
-      {handleError(error)}
+      {handleError(props.error)}
       <button
         type="button"
         onClick={() =>
-          handleSubmit({
+          props.handleSubmit({
             variables: {
               email,
               password,
@@ -68,4 +66,6 @@ const AuthPage = (props) => {
   );
 };
 
-export default connect(null, { loginAction })(AuthPage);
+export default withData({ query: LOGIN_QUERY, lazy: true })(
+  connect(null, { loginAction })(AuthPage)
+);

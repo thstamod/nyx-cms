@@ -1,9 +1,10 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
 import { Col, Row } from 'react-bootstrap';
 import Sidebar from '../../components/Navigation/sidebar/Sidebar';
 import GET_DOCUMENT_TYPES from '../../graphql/getDocumentTypesQuery';
+import withData from '../../containers/withData';
 
 const FullRow = styled(Row)`
   height: 100%;
@@ -16,10 +17,7 @@ const FullCol = styled(Col)`
   padding-right: 0;
 `;
 
-const ContentPage = () => {
-  const { loading, data, error } = useQuery(GET_DOCUMENT_TYPES, {
-    errorPolicy: 'all',
-  });
+const ContentPage = (props) => {
   const handleError = (err) =>
     err && (
       <div>
@@ -29,26 +27,28 @@ const ContentPage = () => {
         ))}
       </div>
     );
-  if (loading) {
+  if (props.loading) {
     return <div>Loading...</div>;
   }
-  if (data) {
-    console.log(data);
+  if (props.data) {
+    console.log(props.data);
   }
 
   const showSidebar = (d) => <Sidebar data={d} />;
   return (
     <FullRow>
       <FullCol xs={3} md={2}>
-        {showSidebar(data)}
+        {showSidebar(props.data)}
       </FullCol>
       <FullCol style={{ overflow: 'auto' }} xs={9} md={10}>
         <h1>Content page</h1>
 
-        {handleError(error)}
+        {handleError(props.error)}
       </FullCol>
     </FullRow>
   );
 };
 
-export default ContentPage;
+export default withData({ query: GET_DOCUMENT_TYPES, lazy: false })(
+  ContentPage
+);
