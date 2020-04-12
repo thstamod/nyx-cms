@@ -1,20 +1,10 @@
 import React, { useState } from 'react';
-import gql from 'graphql-tag';
 import { useLazyQuery } from '@apollo/react-hooks';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import propTypes from 'prop-types';
 import { loginAction } from '../../redux/actions/userActions';
 import { calculateExpirationTime } from '../../utils/calculateTime';
-
-const LOGIN_QUERY = gql`
-  query login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      tokenExpiration
-    }
-  }
-`;
+import LOGIN_QUERY from '../../graphql/loginQuery';
 
 const AuthPage = (props) => {
   const [email, setemail] = useState('');
@@ -76,10 +66,6 @@ const AuthPage = (props) => {
       </button>
     </form>
   );
-};
-
-AuthPage.propTypes = {
-  loginAction: propTypes.func,
 };
 
 export default connect(null, { loginAction })(AuthPage);

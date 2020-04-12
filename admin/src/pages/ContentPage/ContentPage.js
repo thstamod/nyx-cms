@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import styled from 'styled-components';
 import { Col, Row } from 'react-bootstrap';
 import Sidebar from '../../components/Navigation/sidebar/Sidebar';
-import GET_DOCUMENT_TYPES from './query';
+import GET_DOCUMENT_TYPES from '../../graphql/getDocumentTypesQuery';
 
 const FullRow = styled(Row)`
   height: 100%;
