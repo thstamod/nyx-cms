@@ -11,7 +11,10 @@ import SettingsPage from '../../pages/SettingsPage/SettingsPage';
 import NotFound from '../../pages/NotFound/NotFound';
 import AuthRoute from '../AuthRoute/AuthRoute';
 import store from '../../redux/store';
-import { setSessionStorage } from '../../utils/handleSessionStorage';
+import {
+  setSessionStorage,
+  clearSessionStorage,
+} from '../../utils/handleSessionStorage';
 import GlobalStyles from '../../theme/globalStyle';
 import theme from '../../theme/index';
 import MainNavigation from '../Navigation/MainNavigation/MainNavigation';
@@ -26,6 +29,10 @@ const FullContainer = styled(Container)`
 `;
 
 const App = ({ isLoggedIn }) => {
+  console.log(isLoggedIn);
+  if (!isLoggedIn) {
+    clearSessionStorage();
+  }
   useEffect(() => {
     window.addEventListener('beforeunload', (ev) => {
       ev.preventDefault();

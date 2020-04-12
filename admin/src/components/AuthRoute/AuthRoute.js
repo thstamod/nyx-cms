@@ -5,17 +5,27 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import withFullContainer from '../../containers/withFullContainer';
+import { logoutAction } from '../../redux/actions/userActions';
 
-const AuthRoute = ({ isLoggedIn, path, component }) =>
-  isLoggedIn ? (
+const AuthRoute = ({ isLoggedIn, expiration, logout, path, component }) => {
+  const isActiveAuth = () => expiration > Date.now();
+  const logoutFn = () => {
+    logout();
+    return <Redirect onEnter={logout} to="/auth" />;
+  };
+  console.log('test', isActiveAuth());
+  return isLoggedIn && isActiveAuth() ? (
     <Route path={path} component={component} />
   ) : (
-    <Redirect to="/auth" />
+    logoutFn()
   );
+};
 
 const mapStateToProps = (state) => {
   const { user } = state;
-  return { isLoggedIn: user.isLoggedIn };
+  return { isLoggedIn: user.isLoggedIn, expiration: user.tokenExpiration };
 };
 
-export default withFullContainer(connect(mapStateToProps)(AuthRoute));
+export default withFullContainer(
+  connect(mapStateToProps, { logout: logoutAction })(AuthRoute)
+);

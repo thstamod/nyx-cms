@@ -5,3 +5,5 @@ export const getSessionStorage = () =>
   sessionStorage.getItem('reduxState')
     ? JSON.parse(sessionStorage.getItem('reduxState'))
     : {};
+
+export const clearSessionStorage = () => sessionStorage.clear();

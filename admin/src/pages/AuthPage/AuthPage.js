@@ -5,11 +5,13 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import propTypes from 'prop-types';
 import { loginAction } from '../../redux/actions/userActions';
+import { calculateExpirationTime } from '../../utils/calculateTime';
 
 const LOGIN_QUERY = gql`
   query login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
+      tokenExpiration
     }
   }
 `;
@@ -32,7 +34,10 @@ const AuthPage = (props) => {
     );
 
   if (data && data.login) {
-    props.loginAction(data.login.token);
+    props.loginAction(
+      data.login.token,
+      calculateExpirationTime(data.login.tokenExpiration)
+    );
     return <Redirect to="/content" />;
   }
   return (
