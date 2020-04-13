@@ -1,12 +1,12 @@
 import { LOGIN, LOGOUT } from '../actions/actionTypes';
 
-const initialState = {
+export const initialState = {
   isLoggedIn: false,
   token: '',
   tokenExpiration: null,
 };
 
-export default function (state = initialState, action) {
+export function userReducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN: {
       const { token, tokenExpiration } = action.payload;

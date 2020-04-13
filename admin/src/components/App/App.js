@@ -30,7 +30,6 @@ const FullContainer = styled(Container)`
 
 const App = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
-  console.log(isLoggedIn);
   if (!isLoggedIn) {
     clearSessionStorage();
   }

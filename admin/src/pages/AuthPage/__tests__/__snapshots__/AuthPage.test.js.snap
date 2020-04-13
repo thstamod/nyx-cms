@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth page Page renders 1`] = `
+<DocumentFragment>
+  <form>
+    <div>
+      <label
+        for="email"
+      >
+        Email
+      </label>
+      <input
+        id="email"
+        type="email"
+      />
+      <label
+        for="password"
+      >
+        Password
+      </label>
+      <input
+        id="password"
+        type="password"
+      />
+    </div>
+    <button
+      type="button"
+    >
+      Submit
+    </button>
+  </form>
+</DocumentFragment>
+`;
