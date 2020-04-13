@@ -15,11 +15,9 @@ const WrapperSubmenu = styled.div`
 
 const SubMenu = ({ data }) => {
   const [isOpen, setOpen] = useState(false);
-  console.log(data);
   const showSubmenu = (d) => {
     // eslint-disable-next-line arrow-body-style
     const list = d.map(({ documentType }) => {
-      console.log(documentType);
       return (
         documentType && (
           <Test key={documentType._id} onClick={() => setOpen(!isOpen)}>

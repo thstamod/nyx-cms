@@ -31,7 +31,7 @@ const ContentPage = (props) => {
     return <div>Loading...</div>;
   }
   if (props.data) {
-    console.log(props.data);
+    // console.log(props.data);
   }
 
   const showSidebar = (d) => <Sidebar data={d} />;

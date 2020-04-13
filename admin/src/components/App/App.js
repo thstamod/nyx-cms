@@ -29,7 +29,6 @@ const FullContainer = styled(Container)`
 `;
 
 const App = ({ isLoggedIn }) => {
-  console.log(isLoggedIn);
   if (!isLoggedIn) {
     clearSessionStorage();
   }

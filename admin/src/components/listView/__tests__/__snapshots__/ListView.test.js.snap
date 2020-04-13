@@ -7,118 +7,142 @@ exports[`ListView renders 1`] = `
     data-testid="content-list-menu"
   >
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
         Home
       </span>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
         About
       </span>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
         About2
       </span>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
         About3
       </span>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
         Test
       </span>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
-        Test
+        Test+
       </span>
-      <div />
+      <div
+        class="sc-AxhCb fawwWB"
+      >
+        <div />
+      </div>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
-        Test
+        Test+
       </span>
-      <div />
+      <div
+        class="sc-AxhCb fawwWB"
+      >
+        <div />
+      </div>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
-        Test
+        Test+
       </span>
-      <div />
+      <div
+        class="sc-AxhCb fawwWB"
+      >
+        <div />
+      </div>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
-        Test
+        Test+
       </span>
-      <div>
-        <div
-          class="sc-AxjAm huDVTX"
-        >
-          Home
-        </div>
-        <div
-          class="sc-AxjAm huDVTX"
-        >
-          About
+      <div
+        class="sc-AxhCb fawwWB"
+      >
+        <div>
+          <div
+            class="sc-AxjAm huDVTX"
+          >
+            Home
+          </div>
+          <div
+            class="sc-AxjAm huDVTX"
+          >
+            About
+          </div>
         </div>
       </div>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
-        Test
+        Test+
       </span>
-      <div>
-        <div
-          class="sc-AxjAm huDVTX"
-        >
-          Home
-        </div>
-        <div
-          class="sc-AxjAm huDVTX"
-        >
-          About
+      <div
+        class="sc-AxhCb fawwWB"
+      >
+        <div>
+          <div
+            class="sc-AxjAm huDVTX"
+          >
+            Home
+          </div>
+          <div
+            class="sc-AxjAm huDVTX"
+          >
+            About
+          </div>
         </div>
       </div>
     </div>
     <div
-      class="sc-AxirZ eOuGKq"
+      class="sc-AxiKw kgbdPq"
     >
       <span>
-        Test
+        Test+
       </span>
-      <div>
-        <div
-          class="sc-AxjAm huDVTX"
-        >
-          Home
-        </div>
-        <div
-          class="sc-AxjAm huDVTX"
-        >
-          About
+      <div
+        class="sc-AxhCb fawwWB"
+      >
+        <div>
+          <div
+            class="sc-AxjAm huDVTX"
+          >
+            Home
+          </div>
+          <div
+            class="sc-AxjAm huDVTX"
+          >
+            About
+          </div>
         </div>
       </div>
     </div>

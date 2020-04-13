@@ -3,7 +3,6 @@ import { useLazyQuery, useQuery } from '@apollo/react-hooks';
 // import LOGIN_QUERY from '../graphql/loginQuery';
 
 const withData = ({ query, lazy }) => (Component) => (props) => {
-  // console.log(props);
   if (lazy) {
     const [handleSubmit, { data, error }] = useLazyQuery(query, {
       errorPolicy: 'all',

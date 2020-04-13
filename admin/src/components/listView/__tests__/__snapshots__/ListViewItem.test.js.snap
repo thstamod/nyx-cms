@@ -3,21 +3,25 @@
 exports[`ListViewItem renders 1`] = `
 <DocumentFragment>
   <div
-    class="sc-AxirZ eOuGKq"
+    class="sc-AxiKw kgbdPq"
   >
     <span>
-      Test
+      Test+
     </span>
-    <div>
-      <div
-        class="sc-AxjAm huDVTX"
-      >
-        Home
-      </div>
-      <div
-        class="sc-AxjAm huDVTX"
-      >
-        About
+    <div
+      class="sc-AxhCb fawwWB"
+    >
+      <div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          Home
+        </div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          About
+        </div>
       </div>
     </div>
   </div>

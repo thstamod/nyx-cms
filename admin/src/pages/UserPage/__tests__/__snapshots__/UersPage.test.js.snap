@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Users page Page renders 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      User page
+    </h1>
+  </div>
+</DocumentFragment>
+`;

@@ -13,7 +13,6 @@ const AuthRoute = ({ isLoggedIn, expiration, logout, path, component }) => {
     logout();
     return <Redirect onEnter={logout} to="/auth" />;
   };
-  console.log('test', isActiveAuth());
   return isLoggedIn && isActiveAuth() ? (
     <Route path={path} component={component} />
   ) : (
