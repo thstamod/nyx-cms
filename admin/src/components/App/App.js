@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import styled, { ThemeProvider } from 'styled-components';
 import { Container } from 'react-bootstrap';
@@ -28,7 +28,8 @@ const FullContainer = styled(Container)`
   padding-top: 56px;
 `;
 
-const App = ({ isLoggedIn }) => {
+const App = () => {
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   if (!isLoggedIn) {
     clearSessionStorage();
   }
@@ -62,9 +63,4 @@ const App = ({ isLoggedIn }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  const { user } = state;
-  return { isLoggedIn: user.isLoggedIn };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

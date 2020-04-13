@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginAction } from '../../redux/actions/userActions';
 import { calculateExpirationTime } from '../../utils/calculateTime';
@@ -8,6 +8,7 @@ import withData from '../../containers/withData';
 import LOGIN_QUERY from '../../graphql/loginQuery';
 
 const AuthPage = (props) => {
+  const dispatch = useDispatch();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
@@ -22,9 +23,11 @@ const AuthPage = (props) => {
     );
 
   if (props.data && props.data.login) {
-    props.loginAction(
-      props.data.login.token,
-      calculateExpirationTime(props.data.login.tokenExpiration)
+    dispatch(
+      loginAction(
+        props.data.login.token,
+        calculateExpirationTime(props.data.login.tokenExpiration)
+      )
     );
     return <Redirect to="/content" />;
   }
@@ -66,6 +69,4 @@ const AuthPage = (props) => {
   );
 };
 
-export default withData({ query: LOGIN_QUERY, lazy: true })(
-  connect(null, { loginAction })(AuthPage)
-);
+export default withData({ query: LOGIN_QUERY, lazy: true })(AuthPage);
