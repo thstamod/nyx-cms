@@ -6,11 +6,11 @@ import withFullContainer from '../../containers/withFullContainer';
 import { logoutAction } from '../../redux/actions/userActions';
 
 const AuthRoute = ({ path, component }) => {
-  const { isLoggedIn, expiration } = useSelector((state) => state.user);
+  const { isLoggedIn, tokenExpiration } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const isActiveAuth = () => expiration > Date.now();
+  const isActiveAuth = () => tokenExpiration > Date.now();
   const logoutFn = () => {
-    dispatch(logoutAction);
+    dispatch(logoutAction());
     return <Redirect to="/auth" />;
   };
   return isLoggedIn && isActiveAuth() ? (

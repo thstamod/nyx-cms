@@ -30,6 +30,7 @@ const FullContainer = styled(Container)`
 
 const App = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  console.log(isLoggedIn);
   if (!isLoggedIn) {
     clearSessionStorage();
   }
@@ -46,8 +47,12 @@ const App = () => {
         {isLoggedIn && <MainNavigation />}
         <React.Fragment>
           <Switch>
-            <Redirect from="/" to="/auth" exact />
-            <Route path="/auth" component={AuthPage} />
+            {!isLoggedIn ? (
+              <Redirect from="/" to="/auth" exact />
+            ) : (
+              <Redirect from="/" to="/content" exact />
+            )}
+            {!isLoggedIn && <Route path="/auth" component={AuthPage} />}
             {isLoggedIn && (
               <AuthRoute path="/content" component={ContentPage} />
             )}
