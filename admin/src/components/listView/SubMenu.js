@@ -11,6 +11,7 @@ const WrapperSubmenu = styled.div`
   max-height: ${(props) => (props.open ? '100%' : '0')};
   overflow: hidden;
   transition: all 0.3s ease-out;
+  padding-left: 10px;
 `;
 
 const SubMenu = ({ data }) => {
@@ -20,15 +21,17 @@ const SubMenu = ({ data }) => {
     const list = d.map(({ documentType }) => {
       return (
         documentType && (
-          <Test key={documentType._id} onClick={() => setOpen(!isOpen)}>
-            {documentType.name}
-            {documentType.descendants && '+'}
+          <>
+            <Test key={documentType._id} onClick={() => setOpen(!isOpen)}>
+              {documentType.name}
+              {documentType.descendants && '+'}
+            </Test>
             {documentType.descendants && (
               <WrapperSubmenu open={isOpen}>
                 <SubMenu data={documentType.descendants} />
               </WrapperSubmenu>
             )}
-          </Test>
+          </>
         )
       );
     });

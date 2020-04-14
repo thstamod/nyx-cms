@@ -6,12 +6,29 @@ exports[`SubMenu renders 1`] = `
     <div
       class="sc-AxjAm huDVTX"
     >
-      Home
+      depth3+
     </div>
     <div
-      class="sc-AxjAm huDVTX"
+      class="sc-AxirZ dwcgjc"
     >
-      About
+      <div>
+        <div
+          class="sc-AxjAm huDVTX"
+        >
+          depth2+
+        </div>
+        <div
+          class="sc-AxirZ dwcgjc"
+        >
+          <div>
+            <div
+              class="sc-AxjAm huDVTX"
+            >
+              depth1
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>
