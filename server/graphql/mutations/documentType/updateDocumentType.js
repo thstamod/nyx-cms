@@ -12,10 +12,10 @@ const updateDocumentType = {
       type: new GraphQLNonNull(GraphQLString),
     },
     name: {
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
     },
     publicUrl: {
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
     },
     inheritFrom: {
       type: GraphQLString,

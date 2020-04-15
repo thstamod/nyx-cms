@@ -172,6 +172,21 @@ const data = {
             ],
           },
         },
+
+        {
+          documentType: {
+            _id: '5e91f6e0575ff41f07d791b5',
+            name: 'depth31',
+            descendants: [
+              {
+                documentType: {
+                  _id: '5e91f6cd575ff41f07d791b4',
+                  name: 'depth32',
+                },
+              },
+            ],
+          },
+        },
       ],
     },
   ],

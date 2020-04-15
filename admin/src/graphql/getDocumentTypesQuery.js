@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 export default gql`
   {
     documentTypes {
-      name
+      ...documentTypeFields
       descendants {
         ...dtRecursive
       }
