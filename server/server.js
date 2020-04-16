@@ -44,6 +44,7 @@ const dbURI = source === 'cloud' ? dbURICloud : dbURILocal;
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,
+    useFindAndModify: false,
   })
   .then(() => {
     console.log('MongoDB database connection established successfully');

@@ -1,8 +1,7 @@
 const { GraphQLString } = require('graphql');
 
-const DocumentTypeModel = require('../../../mongoose/models/doumentType');
+const DocumentTypeModel = require('../../../mongoose/models/documentType');
 const documentType = require('../../types/documentType');
-
 
 const deleteDocumentType = {
   type: documentType,
@@ -15,13 +14,14 @@ const deleteDocumentType = {
     if (!req.isAuth) {
       throw new Error('unAuthorized');
     }
-    const deleted = await DocumentTypeModel.findByIdAndDelete({ _id: args._id });
+    const deleted = await DocumentTypeModel.findByIdAndDelete({
+      _id: args._id,
+    });
     if (!deleted) {
       throw new Error('Error');
     }
     return deleted;
   },
-
 };
 
 module.exports = deleteDocumentType;

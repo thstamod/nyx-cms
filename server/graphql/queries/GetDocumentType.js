@@ -1,9 +1,9 @@
 const { GraphQLString } = require('graphql');
 
-const DocumentTypeModel = require('../../mongoose/models/doumentType');
+const DocumentTypeModel = require('../../mongoose/models/documentType');
 const documentType = require('../types/documentType');
 
-const GetDocunemtType = {
+const GetDocumentType = {
   type: documentType,
   args: { _id: { type: GraphQLString } },
   resolve: async (parent, args, req) => {
@@ -18,4 +18,4 @@ const GetDocunemtType = {
   },
 };
 
-module.exports = GetDocunemtType;
+module.exports = GetDocumentType;

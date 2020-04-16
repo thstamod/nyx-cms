@@ -1,6 +1,6 @@
 const { GraphQLNonNull, GraphQLString, GraphQLList } = require('graphql');
 
-const DocumentTypeModel = require('../../../mongoose/models/doumentType');
+const DocumentTypeModel = require('../../../mongoose/models/documentType');
 const documentType = require('../../types/documentType');
 const inputDatatype = require('../../inputs/inputDataType');
 const inputDoctype = require('../../inputs/inputDocType');
@@ -14,7 +14,7 @@ const updateDocumentType = {
     name: {
       type: GraphQLString,
     },
-    publicUrl: {
+    parentDocumentType: {
       type: GraphQLString,
     },
     inheritFrom: {
@@ -27,16 +27,24 @@ const updateDocumentType = {
       type: new GraphQLList(inputDatatype),
     },
     descendants: {
-      type: new GraphQLList(inputDoctype),
+      type: new GraphQLList(GraphQLString),
     },
   },
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
       throw new Error('unAuthorized');
     }
+    // TODO: refactor how descendants are pushed
+    let _descendants = null;
+    if (args.descendants) {
+      _descendants = args.descendants;
+      delete args.descendants;
+    }
     const updated = await DocumentTypeModel.findByIdAndUpdate(
       { _id: args._id },
-      args,
+      _descendants
+        ? { ...args, $addToSet: { descendants: _descendants } }
+        : args,
       { new: true }
     );
     if (!updated) {

@@ -1,9 +1,9 @@
 const { GraphQLList } = require('graphql');
 
-const DocumentTypeModel = require('../../mongoose/models/doumentType');
+const DocumentTypeModel = require('../../mongoose/models/documentType');
 const documentType = require('../types/documentType');
 
-const GetDocunemtTypes = {
+const GetDocumentTypes = {
   type: new GraphQLList(documentType),
   resolve: async (parent, args, req) => {
     if (!req.isAuth) {
@@ -17,4 +17,4 @@ const GetDocunemtTypes = {
   },
 };
 
-module.exports = GetDocunemtTypes;
+module.exports = GetDocumentTypes;

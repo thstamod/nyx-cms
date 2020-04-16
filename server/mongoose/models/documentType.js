@@ -8,11 +8,14 @@ module.exports = mongoose.model(
         type: String,
         required: true,
       },
-      publicUrl: String,
+      parentDocumentType: String,
       inheritFrom: String,
       privileges: String,
-      compilation: Object,
-      descendants: Object,
+      compilation: [Object],
+      descendants: {
+        type: 'array',
+        items: { type: 'string', uniqueItems: true },
+      },
       creator: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',

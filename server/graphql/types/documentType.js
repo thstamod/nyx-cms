@@ -1,6 +1,6 @@
 const { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
 const DataTypeModel = require('../../mongoose/models/dataType');
-const DocumentTypeModel = require('../../mongoose/models/doumentType');
+const DocumentTypeModel = require('../../mongoose/models/documentType');
 const userModel = require('../../mongoose/models/user');
 const userType = require('./user');
 const dataType = require('./dataType');
@@ -16,7 +16,7 @@ const documentType = new GraphQLObjectType({
     name: {
       type: GraphQLString,
     },
-    publicUrl: {
+    parentDocumentType: {
       type: GraphQLString,
     },
     inheritFrom: {
@@ -30,15 +30,11 @@ const documentType = new GraphQLObjectType({
         new GraphQLObjectType({
           name: 'descendants',
           fields: {
-            // documentTypeId: {
-            //   type: GraphQLString,
-            // },
             documentType: {
               type: documentType,
               resolve: async (parent) => {
-                const res = await DocumentTypeModel.findById(
-                  parent.documentTypeId
-                );
+                console.log(parent);
+                const res = await DocumentTypeModel.findById(parent);
                 return res;
               },
             },
