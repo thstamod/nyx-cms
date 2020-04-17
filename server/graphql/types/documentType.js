@@ -33,7 +33,6 @@ const documentType = new GraphQLObjectType({
             documentType: {
               type: documentType,
               resolve: async (parent) => {
-                console.log(parent);
                 const res = await DocumentTypeModel.findById(parent);
                 return res;
               },

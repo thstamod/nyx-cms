@@ -17,7 +17,7 @@ const WrapperSubmenu = styled.div`
 const ListViewItem = ({ data }) => {
   const [isOpen, setOpen] = useState(false);
   const setDescendants = () =>
-    data.descendants && (
+    !!data.descendants.length && (
       <WrapperSubmenu open={isOpen}>
         <SubMenu data={data.descendants} />
       </WrapperSubmenu>
@@ -26,7 +26,7 @@ const ListViewItem = ({ data }) => {
     <Item key={data._id}>
       <span onClick={() => setOpen(!isOpen)}>
         {data.name}
-        {data.descendants && '+'}
+        {!!data.descendants.length && '+'}
       </span>
       {setDescendants()}
     </Item>
