@@ -8,7 +8,7 @@ import { data } from '../../../../__mocks__/_pages/_contentPage';
 
 afterEach(cleanup);
 
-test('SubMenu renders', () => {
+test.skip('SubMenu renders', () => {
   const { asFragment } = render(
     <ThemeProvider theme={theme}>
       <SubMenu data={data.documentTypes[14].descendants} />
@@ -18,7 +18,7 @@ test('SubMenu renders', () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-test('open submenu renders', () => {
+test.skip('open submenu renders', () => {
   const { getByText } = render(
     <ThemeProvider theme={theme}>
       <SubMenu data={data.documentTypes[14].descendants} />

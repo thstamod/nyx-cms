@@ -1,144 +1,30 @@
 const data = {
   documentTypes: [
     {
-      name: 'Home',
-      descendants: null,
-    },
-    {
-      name: 'About',
-      descendants: null,
-    },
-    {
-      name: 'About2',
-      descendants: null,
-    },
-    {
-      name: 'About3',
-      descendants: null,
-    },
-    {
-      name: 'Test',
-      descendants: null,
-    },
-    {
-      name: 'Test',
-      descendants: [
-        {
-          documentType: null,
-        },
-        {
-          documentType: null,
-        },
-      ],
-    },
-    {
-      name: 'Test',
-      descendants: [
-        {
-          documentType: null,
-        },
-        {
-          documentType: null,
-        },
-      ],
-    },
-    {
-      name: 'Test',
-      descendants: [
-        {
-          documentType: null,
-        },
-        {
-          documentType: null,
-        },
-      ],
-    },
-    {
-      name: 'Test',
+      _id: '5e986ce27a141e6a5ca5f2ee',
+      name: 'depth_0',
+      parentDocumentType: null,
       descendants: [
         {
           documentType: {
-            _id: '5e765ba31427b934d26c920d',
-            name: 'Home',
-            descendants: null,
+            _id: '5e986cfb7a141e6a5ca5f2ef',
+            name: 'depth_11',
+            parentDocumentType: '5e986ce27a141e6a5ca5f2ee',
+            descendants: [],
           },
         },
         {
           documentType: {
-            _id: '5e765bca1427b934d26c920e',
-            name: 'About',
-            descendants: null,
-          },
-        },
-      ],
-    },
-    {
-      name: 'Test',
-      descendants: [
-        {
-          documentType: {
-            _id: '5e765ba31427b934d26c920d',
-            name: 'Home',
-            descendants: null,
-          },
-        },
-        {
-          documentType: {
-            _id: '5e765bca1427b934d26c920e',
-            name: 'About',
-            descendants: null,
-          },
-        },
-      ],
-    },
-    {
-      name: 'Test',
-      descendants: [
-        {
-          documentType: {
-            _id: '5e765ba31427b934d26c920d',
-            name: 'Home',
-            descendants: null,
-          },
-        },
-        {
-          documentType: {
-            _id: '5e765bca1427b934d26c920e',
-            name: 'About',
-            descendants: null,
-          },
-        },
-      ],
-    },
-    {
-      name: 'depth1',
-      descendants: null,
-    },
-    {
-      name: 'depth2',
-      descendants: [
-        {
-          documentType: {
-            _id: '5e91f67b575ff41f07d791b3',
-            name: 'depth1',
-            descendants: null,
-          },
-        },
-      ],
-    },
-    {
-      name: 'depth3',
-      descendants: [
-        {
-          documentType: {
-            _id: '5e91f6cd575ff41f07d791b4',
-            name: 'depth2',
+            _id: '5e986d007a141e6a5ca5f2f0',
+            name: 'depth12_with_child',
+            parentDocumentType: '5e986ce27a141e6a5ca5f2ee',
             descendants: [
               {
                 documentType: {
-                  _id: '5e91f67b575ff41f07d791b3',
-                  name: 'depth1',
-                  descendants: null,
+                  _id: '5e986d097a141e6a5ca5f2f1',
+                  name: 'depth_2',
+                  parentDocumentType: '5e986d007a141e6a5ca5f2f0',
+                  descendants: [],
                 },
               },
             ],
@@ -147,47 +33,16 @@ const data = {
       ],
     },
     {
-      name: 'depth4',
-      descendants: [
-        {
-          documentType: {
-            _id: '5e91f6e0575ff41f07d791b5',
-            name: 'depth3',
-            descendants: [
-              {
-                documentType: {
-                  _id: '5e91f6cd575ff41f07d791b4',
-                  name: 'depth2',
-                  descendants: [
-                    {
-                      documentType: {
-                        _id: '5e91f67b575ff41f07d791b3',
-                        name: 'depth1',
-                        descendants: null,
-                      },
-                    },
-                  ],
-                },
-              },
-            ],
-          },
-        },
-
-        {
-          documentType: {
-            _id: '5e91f6e0575ff41f07d791b5',
-            name: 'depth31',
-            descendants: [
-              {
-                documentType: {
-                  _id: '5e91f6cd575ff41f07d791b4',
-                  name: 'depth32',
-                },
-              },
-            ],
-          },
-        },
-      ],
+      _id: '5e98743e707dfc01d6ce173e',
+      name: 'depth0_no child',
+      parentDocumentType: null,
+      descendants: [],
+    },
+    {
+      _id: '5e989eee707dfc01d6ce173f',
+      name: 'depth0_1_no child',
+      parentDocumentType: null,
+      descendants: [],
     },
   ],
 };

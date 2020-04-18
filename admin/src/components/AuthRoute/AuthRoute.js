@@ -8,6 +8,7 @@ import { logoutAction } from '../../redux/actions/userActions';
 const AuthRoute = ({ path, component }) => {
   const { isLoggedIn, tokenExpiration } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  console.log(tokenExpiration, Date.now());
   const isActiveAuth = () => tokenExpiration > Date.now();
   const logoutFn = () => {
     dispatch(logoutAction());

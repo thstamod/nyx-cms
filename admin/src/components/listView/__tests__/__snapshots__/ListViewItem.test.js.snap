@@ -3,56 +3,42 @@
 exports[`ListViewItem renders 1`] = `
 <DocumentFragment>
   <div
-    class="sc-AxiKw kgbdPq"
+    class="sc-AxjAm daMWKx"
   >
     <span>
-      depth4+
+      depth_0+
     </span>
     <div
-      class="sc-AxhCb fawwWB"
+      class="sc-AxirZ dwcgjc"
     >
-      <div>
+      <div
+        class="sc-AxjAm daMWKx"
+      >
+        <span>
+          depth_11
+        </span>
         <div
-          class="sc-AxjAm huDVTX"
-        >
-          depth3+
-        </div>
+          class="sc-AxirZ dwcgjc"
+        />
+      </div>
+      <div
+        class="sc-AxjAm daMWKx"
+      >
+        <span>
+          depth12_with_child+
+        </span>
         <div
           class="sc-AxirZ dwcgjc"
         >
-          <div>
-            <div
-              class="sc-AxjAm huDVTX"
-            >
-              depth2+
-            </div>
+          <div
+            class="sc-AxjAm daMWKx"
+          >
+            <span>
+              depth_2
+            </span>
             <div
               class="sc-AxirZ dwcgjc"
-            >
-              <div>
-                <div
-                  class="sc-AxjAm huDVTX"
-                >
-                  depth1
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="sc-AxjAm huDVTX"
-        >
-          depth31+
-        </div>
-        <div
-          class="sc-AxirZ dwcgjc"
-        >
-          <div>
-            <div
-              class="sc-AxjAm huDVTX"
-            >
-              depth32
-            </div>
+            />
           </div>
         </div>
       </div>

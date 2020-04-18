@@ -11,7 +11,7 @@ afterEach(cleanup);
 test('ListViewItem renders', () => {
   const { asFragment } = render(
     <ThemeProvider theme={theme}>
-      <ListViewItem data={data.documentTypes[14]} />
+      <ListViewItem data={data.documentTypes[0]} />
     </ThemeProvider>
   );
 
@@ -21,12 +21,12 @@ test('ListViewItem renders', () => {
 test('open submenu renders', () => {
   const { getByText } = render(
     <ThemeProvider theme={theme}>
-      <ListViewItem data={data.documentTypes[14]} />
+      <ListViewItem data={data.documentTypes[0]} />
     </ThemeProvider>
   );
 
-  fireEvent.click(screen.getByText('depth4+'));
-  expect(getByText('depth3+')).toBeVisible();
+  fireEvent.click(screen.getByText('depth_0+'));
+  expect(getByText('depth_11')).toBeVisible();
 });
 
 // test('with no data', () => {

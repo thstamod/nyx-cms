@@ -7,254 +7,66 @@ exports[`ListView renders 1`] = `
     data-testid="content-list-menu"
   >
     <div
-      class="sc-AxiKw kgbdPq"
+      class="sc-AxjAm daMWKx"
     >
       <span>
-        Home
-      </span>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        About
-      </span>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        About2
-      </span>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        About3
-      </span>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        Test
-      </span>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        Test+
+        depth_0+
       </span>
       <div
-        class="sc-AxhCb fawwWB"
+        class="sc-AxirZ dwcgjc"
       >
-        <div />
-      </div>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        Test+
-      </span>
-      <div
-        class="sc-AxhCb fawwWB"
-      >
-        <div />
-      </div>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        Test+
-      </span>
-      <div
-        class="sc-AxhCb fawwWB"
-      >
-        <div />
-      </div>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        Test+
-      </span>
-      <div
-        class="sc-AxhCb fawwWB"
-      >
-        <div>
+        <div
+          class="sc-AxjAm daMWKx"
+        >
+          <span>
+            depth_11
+          </span>
           <div
-            class="sc-AxjAm huDVTX"
-          >
-            Home
-          </div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            About
-          </div>
+            class="sc-AxirZ dwcgjc"
+          />
         </div>
-      </div>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        Test+
-      </span>
-      <div
-        class="sc-AxhCb fawwWB"
-      >
-        <div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            Home
-          </div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            About
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        Test+
-      </span>
-      <div
-        class="sc-AxhCb fawwWB"
-      >
-        <div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            Home
-          </div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            About
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        depth1
-      </span>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        depth2+
-      </span>
-      <div
-        class="sc-AxhCb fawwWB"
-      >
-        <div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            depth1
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        depth3+
-      </span>
-      <div
-        class="sc-AxhCb fawwWB"
-      >
-        <div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            depth2+
-          </div>
+        <div
+          class="sc-AxjAm daMWKx"
+        >
+          <span>
+            depth12_with_child+
+          </span>
           <div
             class="sc-AxirZ dwcgjc"
           >
-            <div>
-              <div
-                class="sc-AxjAm huDVTX"
-              >
-                depth1
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="sc-AxiKw kgbdPq"
-    >
-      <span>
-        depth4+
-      </span>
-      <div
-        class="sc-AxhCb fawwWB"
-      >
-        <div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            depth3+
-          </div>
-          <div
-            class="sc-AxirZ dwcgjc"
-          >
-            <div>
-              <div
-                class="sc-AxjAm huDVTX"
-              >
-                depth2+
-              </div>
+            <div
+              class="sc-AxjAm daMWKx"
+            >
+              <span>
+                depth_2
+              </span>
               <div
                 class="sc-AxirZ dwcgjc"
-              >
-                <div>
-                  <div
-                    class="sc-AxjAm huDVTX"
-                  >
-                    depth1
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="sc-AxjAm huDVTX"
-          >
-            depth31+
-          </div>
-          <div
-            class="sc-AxirZ dwcgjc"
-          >
-            <div>
-              <div
-                class="sc-AxjAm huDVTX"
-              >
-                depth32
-              </div>
+              />
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="sc-AxjAm daMWKx"
+    >
+      <span>
+        depth0_no child
+      </span>
+      <div
+        class="sc-AxirZ dwcgjc"
+      />
+    </div>
+    <div
+      class="sc-AxjAm daMWKx"
+    >
+      <span>
+        depth0_1_no child
+      </span>
+      <div
+        class="sc-AxirZ dwcgjc"
+      />
     </div>
   </div>
 </DocumentFragment>

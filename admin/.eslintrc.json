@@ -32,6 +32,7 @@
     "react/jsx-props-no-spreading": "off",
     "no-console": "off",
     "implicit-arrow-linebreak": "off",
+    "operator-linebreak": "off",
     "comma-dangle": "off",
     "max-len": "off",
     "no-confusing-arrow": "off",
