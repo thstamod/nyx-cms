@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen  --silent",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen --coverage --silent --colors",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -50,5 +50,23 @@
     "jest-environment-jsdom-sixteen": "^1.0.3",
     "node-sass": "^4.13.1",
     "prettier": "^2.0.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text"
+    ]
   }
 }

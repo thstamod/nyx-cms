@@ -13,7 +13,7 @@ exports[`ListView renders 1`] = `
         depth_0+
       </span>
       <div
-        class="sc-AxirZ dwcgjc"
+        class="sc-AxirZ icelQB"
       >
         <div
           class="sc-AxjAm daMWKx"
@@ -22,7 +22,7 @@ exports[`ListView renders 1`] = `
             depth_11
           </span>
           <div
-            class="sc-AxirZ dwcgjc"
+            class="sc-AxirZ icelQB"
           />
         </div>
         <div
@@ -32,7 +32,7 @@ exports[`ListView renders 1`] = `
             depth12_with_child+
           </span>
           <div
-            class="sc-AxirZ dwcgjc"
+            class="sc-AxirZ icelQB"
           >
             <div
               class="sc-AxjAm daMWKx"
@@ -41,7 +41,7 @@ exports[`ListView renders 1`] = `
                 depth_2
               </span>
               <div
-                class="sc-AxirZ dwcgjc"
+                class="sc-AxirZ icelQB"
               />
             </div>
           </div>
@@ -55,7 +55,7 @@ exports[`ListView renders 1`] = `
         depth0_no child
       </span>
       <div
-        class="sc-AxirZ dwcgjc"
+        class="sc-AxirZ icelQB"
       />
     </div>
     <div
@@ -65,7 +65,7 @@ exports[`ListView renders 1`] = `
         depth0_1_no child
       </span>
       <div
-        class="sc-AxirZ dwcgjc"
+        class="sc-AxirZ icelQB"
       />
     </div>
   </div>

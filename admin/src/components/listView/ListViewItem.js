@@ -12,6 +12,7 @@ const Item = styled('div')`
 
 const WrapperSubmenu = styled.div`
   max-height: ${(props) => (props.open ? '100%' : '0')};
+  opacity: ${(props) => (props.open ? '1' : '0')};
   overflow: hidden;
   transition: all 0.3s ease-out;
   padding-left: 10px;

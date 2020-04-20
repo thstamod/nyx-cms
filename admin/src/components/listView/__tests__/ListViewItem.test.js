@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, cleanup, fireEvent, screen } from '@testing-library/react';
+import { render, cleanup, screen, waitFor } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../../theme';
 import ListViewItem from '../ListViewItem';
@@ -18,23 +18,39 @@ test('ListViewItem renders', () => {
   expect(asFragment()).toMatchSnapshot();
 });
 
-test('open submenu renders', () => {
+test('open submenu on click', () => {
   const { getByText } = render(
     <ThemeProvider theme={theme}>
       <ListViewItem data={data.documentTypes[0]} />
     </ThemeProvider>
   );
 
-  fireEvent.click(screen.getByText('depth_0+'));
+  // fireEvent.click(screen.getByText('depth_0+'));
+  const el = screen.getByText('depth_0+');
+  el.click();
   expect(getByText('depth_11')).toBeVisible();
 });
 
-// test('with no data', () => {
-//   const { getByTestId } = render(
-//     <ThemeProvider theme={theme}>
-//       <ListViewItem data={null} />
-//     </ThemeProvider>
-//   );
+test('submenu is hide initially', () => {
+  const { getByText } = render(
+    <ThemeProvider theme={theme}>
+      <ListViewItem data={data.documentTypes[0]} />
+    </ThemeProvider>
+  );
 
-//   expect(getByTestId('content-list-menu-item')).toBeEmpty();
-// });
+  expect(getByText('depth_11')).not.toBeVisible();
+});
+
+test('submenu opens and closes', async () => {
+  const { getByText } = render(
+    <ThemeProvider theme={theme}>
+      <ListViewItem data={data.documentTypes[0]} />
+    </ThemeProvider>
+  );
+
+  const el = screen.getByText('depth_0+');
+  el.click();
+  expect(getByText('depth_11')).toBeVisible();
+  el.click();
+  waitFor(() => expect(getByText('depth_11')).not.toBeVisible());
+});
