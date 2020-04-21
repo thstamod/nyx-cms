@@ -10,7 +10,6 @@ import { useAppState } from '../context/AppContext';
 import httpLink from '../api/backend';
 
 const WithApolloProvider = ({ children }) => {
-  console.log(useAppState());
   const [{ isLoggedIn, token }] = useAppState();
 
   const authMiddleware = new ApolloLink((operation, forward) => {

@@ -32,7 +32,6 @@ const FullContainer = styled(Container)`
 
 const App = () => {
   const [{ isLoggedIn }] = useAppState();
-
   if (!isLoggedIn) {
     clearSessionStorage();
   }

@@ -10,7 +10,7 @@ export function userReducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN: {
       const { token, tokenExpiration } = action.payload;
-      return { isLoggedIn: true, token, tokenExpiration };
+      return { ...state, isLoggedIn: true, token, tokenExpiration };
     }
     case LOGOUT: {
       return { ...initialState };
