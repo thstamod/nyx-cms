@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import styled, { ThemeProvider } from 'styled-components';
 import { Container } from 'react-bootstrap';
@@ -18,6 +19,7 @@ import {
 import GlobalStyles from '../../theme/globalStyle';
 import theme from '../../theme/index';
 import MainNavigation from '../Navigation/MainNavigation/MainNavigation';
+import { useAppState } from '../../context/AppContext';
 
 // eslint-disable-next-line no-unused-vars
 const FullContainer = styled(Container)`
@@ -29,7 +31,8 @@ const FullContainer = styled(Container)`
 `;
 
 const App = () => {
-  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+  const [{ isLoggedIn }] = useAppState();
+
   if (!isLoggedIn) {
     clearSessionStorage();
   }

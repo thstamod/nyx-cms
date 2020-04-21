@@ -1,14 +1,16 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { loginAction } from '../../redux/actions/userActions';
 import { calculateExpirationTime } from '../../utils/calculateTime';
 import withData from '../../containers/withData';
 import LOGIN_QUERY from '../../graphql/loginQuery';
+import { useAppState } from '../../context/AppContext';
 
 const AuthPage = (props) => {
-  const dispatch = useDispatch();
+  const [, dispatch] = useAppState();
+  // const dispatch = useDispatch();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
