@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import { userReducer, initialState } from '../redux/reducers/userReducer';
+import { userReducer, initialState } from '../state/reducers/userReducer';
 import useEnhancedReducer from '../hooks/useEnhancedReducer';
 import logger from '../middlewares/customLogger';
 

@@ -1,9 +1,9 @@
 export const setSessionStorage = (store) =>
-  sessionStorage.setItem('reduxState', JSON.stringify(store.getState()));
+  sessionStorage.setItem('state', JSON.stringify(store.getState()));
 
 export const getSessionStorage = () =>
-  sessionStorage.getItem('reduxState')
-    ? JSON.parse(sessionStorage.getItem('reduxState'))
+  sessionStorage.getItem('state')
+    ? JSON.parse(sessionStorage.getItem('state'))
     : {};
 
 export const clearSessionStorage = () => sessionStorage.clear();

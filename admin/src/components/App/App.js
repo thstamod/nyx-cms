@@ -1,8 +1,5 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-
 import styled, { ThemeProvider } from 'styled-components';
 import { Container } from 'react-bootstrap';
 import AuthPage from '../../pages/AuthPage/AuthPage';
@@ -11,11 +8,6 @@ import ContentPage from '../../pages/ContentPage/ContentPage';
 import SettingsPage from '../../pages/SettingsPage/SettingsPage';
 import NotFound from '../../pages/NotFound/NotFound';
 import AuthRoute from '../AuthRoute/AuthRoute';
-import store from '../../redux/store';
-import {
-  setSessionStorage,
-  clearSessionStorage,
-} from '../../utils/handleSessionStorage';
 import GlobalStyles from '../../theme/globalStyle';
 import theme from '../../theme/index';
 import MainNavigation from '../Navigation/MainNavigation/MainNavigation';
@@ -32,15 +24,15 @@ const FullContainer = styled(Container)`
 
 const App = () => {
   const [{ isLoggedIn }] = useAppState();
-  if (!isLoggedIn) {
-    clearSessionStorage();
-  }
-  useEffect(() => {
-    window.addEventListener('beforeunload', (ev) => {
-      ev.preventDefault();
-      setSessionStorage(store);
-    });
-  }, []);
+  // if (!isLoggedIn) {
+  //   clearSessionStorage();
+  // }
+  // useEffect(() => {
+  //   window.addEventListener('beforeunload', (ev) => {
+  //     ev.preventDefault();
+  //     setSessionStorage(store);
+  //   });
+  // }, []);
   return (
     <BrowserRouter>
       <GlobalStyles />

@@ -1,9 +1,8 @@
 /* eslint-disable react/jsx-indent */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-// import { useSelector, useDispatch } from 'react-redux';
 import withFullContainer from '../../containers/withFullContainer';
-import { logoutAction } from '../../redux/actions/userActions';
+import { logoutAction } from '../../state/actions/userActions';
 import { useAppState } from '../../context/AppContext';
 
 const AuthRoute = ({ path, component }) => {

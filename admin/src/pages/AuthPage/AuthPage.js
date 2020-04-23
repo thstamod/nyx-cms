@@ -1,8 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { loginAction } from '../../redux/actions/userActions';
+import { loginAction } from '../../state/actions/userActions';
 import { calculateExpirationTime } from '../../utils/calculateTime';
 import withData from '../../containers/withData';
 import LOGIN_QUERY from '../../graphql/loginQuery';
