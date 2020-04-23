@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen --coverage --silent --colors",
+    "test": "react-scripts test --coverage --watchAll=false --env=jest-environment-jsdom-sixteen --silent --colors",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -65,7 +65,7 @@
       }
     },
     "coverageReporters": [
-      "text"
+      "lcov"
     ]
   }
 }
