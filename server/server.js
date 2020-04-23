@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 });
 
 const dbURI = source === 'cloud' ? dbURICloud : dbURILocal;
-
+mongoose.set('useUnifiedTopology', true);
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,
@@ -54,5 +54,5 @@ mongoose
   });
 
 app.listen(PORT, () => {
-  console.log(`😎 Server is running on Port: ${PORT} 😎`);
+  console.log(`Server is running on Port: ${PORT} 😎`);
 });
