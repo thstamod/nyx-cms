@@ -1,21 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import styled from 'styled-components';
-import { Col, Row } from 'react-bootstrap';
 import Sidebar from '../../components/Navigation/sidebar/Sidebar';
 import GET_DOCUMENT_TYPES from '../../graphql/getDocumentTypesQuery';
 import withData from '../../containers/withData';
-
-const FullRow = styled(Row)`
-  height: 100%;
-  margin-right: 0;
-  margin-left: 0;
-`;
-const FullCol = styled(Col)`
-  height: 100%;
-  padding-left: 0;
-  padding-right: 0;
-`;
+import { MainContent } from './ContentPage.styles.tw';
 
 const ContentPage = (props) => {
   const handleError = (err) =>
@@ -34,18 +22,16 @@ const ContentPage = (props) => {
     // console.log(props.data);
   }
 
-  const showSidebar = (d) => <Sidebar data={d} />;
   return (
-    <FullRow>
-      <FullCol xs={3} md={2}>
-        {showSidebar(props.data)}
-      </FullCol>
-      <FullCol style={{ overflow: 'auto' }} xs={9} md={10}>
+    <>
+      <Sidebar data={props.data} />
+
+      <MainContent>
         <h1>Content page</h1>
 
         {handleError(props.error)}
-      </FullCol>
-    </FullRow>
+      </MainContent>
+    </>
   );
 };
 

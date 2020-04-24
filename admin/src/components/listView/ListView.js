@@ -1,5 +1,4 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
 import ListViewItem from './ListViewItem';
 
 const ListView = ({ data }) => {
@@ -20,15 +19,7 @@ const ListView = ({ data }) => {
     );
     return list;
   };
-  return (
-    <Nav
-      defaultActiveKey="/home"
-      className="flex-column"
-      data-testid="content-list-menu"
-    >
-      {showListViewItems()}
-    </Nav>
-  );
+  return <div data-testid="content-list-menu">{showListViewItems()}</div>;
 };
 
 export default ListView;

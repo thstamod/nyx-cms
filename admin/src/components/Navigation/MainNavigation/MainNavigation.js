@@ -1,27 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import Header from './MainNavigation.styles.tw';
 
 const MainNavigation = () => (
-  <header>
-    <Navbar data-testid="header" fixed="top" bg="dark" variant="dark">
-      <Navbar.Brand as={NavLink} to="/">
-        Nyx-cms
-      </Navbar.Brand>
-      <Nav className="mr-auto">
-        <Nav.Link as={NavLink} to="/content">
-          Content
-        </Nav.Link>
-        <Nav.Link as={NavLink} to="/settings">
-          Settings
-        </Nav.Link>
-        <Nav.Link as={NavLink} to="/users">
-          Users
-        </Nav.Link>
-      </Nav>
-    </Navbar>
-  </header>
+  <Header>
+    <ul className="flex">
+      <li className="mr-6">
+        <div as={NavLink}>
+          <NavLink to="/">Nyx-cms</NavLink>
+        </div>
+      </li>
+      <li className="mr-6">
+        <NavLink to="/content">Content</NavLink>
+      </li>
+      <li className="mr-6">
+        <NavLink to="/settings">Settings</NavLink>
+      </li>
+      <li className="mr-6">
+        <NavLink to="/users">Users</NavLink>
+      </li>
+    </ul>
+  </Header>
 );
 
 export default MainNavigation;

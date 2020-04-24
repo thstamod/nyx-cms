@@ -1,17 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Container } from 'react-bootstrap';
-
-const FullContainer = styled(Container)`
-  padding-right: 0;
-  padding-left: 0;
-  height: 100%;
-  overflow: hidden;
-  padding-top: 56px;
-`;
+import { FullContainer } from '../styles/basicLayout.styles.tw';
 
 const withFullContainer = (Component) => (props) => (
-  <FullContainer fluid>
+  <FullContainer>
     <Component {...props} />
   </FullContainer>
 );
