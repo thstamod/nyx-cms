@@ -11,10 +11,8 @@ import GlobalStyles from '../../theme/globalStyle';
 import theme from '../../theme/index';
 import MainNavigation from '../Navigation/MainNavigation/MainNavigation';
 import { useAppState } from '../../context/AppContext';
-// import useSessionState from '../../hooks/useSessionState';
 
 const App = () => {
-  // useSessionState();
   const [{ isLoggedIn }] = useAppState();
 
   return (

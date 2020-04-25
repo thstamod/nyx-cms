@@ -2,7 +2,7 @@ import React from 'react';
 import { FullContainer } from '../styles/basicLayout.styles.tw';
 
 const withFullContainer = (Component) => (props) => (
-  <FullContainer>
+  <FullContainer data-testid="main-container">
     <Component {...props} />
   </FullContainer>
 );

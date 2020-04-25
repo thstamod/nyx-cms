@@ -23,7 +23,6 @@ export function userReducer(state = initialState, action) {
       return { ...initialState };
     }
     case GET_FROM_SESSION_STATE: {
-      console.log({ ...state, ...action.payload });
       return { ...state, ...action.payload };
     }
     default:
