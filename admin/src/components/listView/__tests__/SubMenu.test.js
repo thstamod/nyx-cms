@@ -4,14 +4,14 @@ import { render, cleanup, fireEvent, screen } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../../theme';
 import SubMenu from '../SubMenu';
-import { data } from '../../../../__mocks__/_pages/_contentPage';
+import data from '../../../../__mocks__/_pages/_contentPage';
 
 afterEach(cleanup);
 
 test.skip('SubMenu renders', () => {
   const { asFragment } = render(
     <ThemeProvider theme={theme}>
-      <SubMenu data={data.documentTypes[14].descendants} />
+      <SubMenu data={data.data.documentTypes[14].descendants} />
     </ThemeProvider>
   );
 
@@ -21,7 +21,7 @@ test.skip('SubMenu renders', () => {
 test.skip('open submenu renders', () => {
   const { getByText } = render(
     <ThemeProvider theme={theme}>
-      <SubMenu data={data.documentTypes[14].descendants} />
+      <SubMenu data={data.data.documentTypes[14].descendants} />
     </ThemeProvider>
   );
 

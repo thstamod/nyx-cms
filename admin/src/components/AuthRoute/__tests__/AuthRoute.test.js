@@ -1,14 +1,12 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, waitFor, cleanup, fireEvent } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
 import { MockedProvider } from '@apollo/react-testing';
-import LOGIN from '../../../graphql/loginQuery';
 import { AppStateProvider } from '../../../context/AppContext';
-import theme from '../../../theme';
+import AuthRoute from '../AuthRoute';
+import LOGIN from '../../../graphql/loginQuery';
 import data from '../../../../__mocks__/_pages/_login';
-import AuthPage from '../AuthPage';
-import App from '../../../components/App/App';
+import App from '../../App/App';
 
 afterEach(cleanup);
 
@@ -22,38 +20,12 @@ const mocks = [
   },
 ];
 
-test('Auth page Page renders', () => {
-  const { asFragment } = render(
-    <AppStateProvider>
-      <MockedProvider mocks={[]} addTypename={false}>
-        <ThemeProvider theme={theme}>
-          <AuthPage />
-        </ThemeProvider>
-      </MockedProvider>
-    </AppStateProvider>
-  );
-
-  expect(asFragment()).toMatchSnapshot();
-});
-test('Auth initial state', async () => {
-  const { getByText } = render(
-    <AppStateProvider>
-      <MockedProvider mocks={[]} addTypename={false}>
-        <ThemeProvider theme={theme}>
-          <AuthPage />
-        </ThemeProvider>
-      </MockedProvider>
-    </AppStateProvider>
-  );
-  waitFor(() => expect(getByText(/^Submit/)).toBeInTheDocument());
-});
-
-test('Auth page logged in state', async () => {
+test('Auth route logged in state', async () => {
   const { getByTestId, getByText, getByLabelText } = render(
     <AppStateProvider>
       <MockedProvider mocks={mocks} addTypename={false}>
         <App>
-          <AuthPage />
+          <AuthRoute />
         </App>
       </MockedProvider>
     </AppStateProvider>

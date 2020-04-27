@@ -1,9 +1,8 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, waitFor, cleanup } from '@testing-library/react';
-import { AppStateProvider, AppContext } from '../../../context/AppContext';
+import { AppContext } from '../../../context/AppContext';
 import App from '../App';
-import { setSessionStorage } from '../../../utils/handleSessionStorage';
 import { initialState } from '../../../state/reducers/userReducer';
 
 afterEach(cleanup);

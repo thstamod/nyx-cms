@@ -4,14 +4,14 @@ import { render, cleanup, screen, waitFor } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import theme from '../../../theme';
 import ListViewItem from '../ListViewItem';
-import { data } from '../../../../__mocks__/_pages/_contentPage';
+import data from '../../../../__mocks__/_pages/_contentPage';
 
 afterEach(cleanup);
 
 test('ListViewItem renders', () => {
   const { asFragment } = render(
     <ThemeProvider theme={theme}>
-      <ListViewItem data={data.documentTypes[0]} />
+      <ListViewItem data={data.data.documentTypes[0]} />
     </ThemeProvider>
   );
 
@@ -21,7 +21,7 @@ test('ListViewItem renders', () => {
 test('open submenu on click', () => {
   const { getByText } = render(
     <ThemeProvider theme={theme}>
-      <ListViewItem data={data.documentTypes[0]} />
+      <ListViewItem data={data.data.documentTypes[0]} />
     </ThemeProvider>
   );
 
@@ -34,7 +34,7 @@ test('open submenu on click', () => {
 test('submenu is hide initially', () => {
   const { getByText } = render(
     <ThemeProvider theme={theme}>
-      <ListViewItem data={data.documentTypes[0]} />
+      <ListViewItem data={data.data.documentTypes[0]} />
     </ThemeProvider>
   );
 
@@ -44,7 +44,7 @@ test('submenu is hide initially', () => {
 test('submenu opens and closes', async () => {
   const { getByText } = render(
     <ThemeProvider theme={theme}>
-      <ListViewItem data={data.documentTypes[0]} />
+      <ListViewItem data={data.data.documentTypes[0]} />
     </ThemeProvider>
   );
 

@@ -9,7 +9,6 @@ import { useAppState } from '../../context/AppContext';
 
 const AuthPage = (props) => {
   const [, dispatch] = useAppState();
-  // const dispatch = useDispatch();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
@@ -24,6 +23,7 @@ const AuthPage = (props) => {
     );
 
   if (props.data && props.data.login) {
+    console.log('dispatch');
     dispatch(
       loginAction(
         props.data.login.token,

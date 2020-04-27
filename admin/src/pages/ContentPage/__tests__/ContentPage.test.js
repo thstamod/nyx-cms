@@ -15,15 +15,13 @@ const mocks = [
     request: {
       query: GET_DOCUMENT_TYPES,
     },
-    result: {
-      data,
-    },
+    result: () => data,
   },
 ];
 
 test('Content Page renders', () => {
   const { asFragment } = render(
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider mocks={mocks}>
       <ThemeProvider theme={theme}>
         <ContentPage />
       </ThemeProvider>

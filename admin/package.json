@@ -26,7 +26,7 @@
     "watch:css": "postcss src//styles/tailwind.css -o src/styles/main.css",
     "start": "npm run watch:css & react-scripts start",
     "build": "npm run build:css react-scripts build",
-    "test": "react-scripts test --env=jest-environment-jsdom-sixteen  --colors",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen --colors",
     "test:coverage": "react-scripts test --env=jest-environment-jsdom-sixteen --coverage --watchAll=false --silent --colors"
   },
   "eslintConfig": {
@@ -47,6 +47,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.3.0",
     "@testing-library/react": "^10.0.2",
+    "apollo-link-mock": "^1.0.1",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
