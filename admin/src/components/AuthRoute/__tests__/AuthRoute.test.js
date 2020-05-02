@@ -1,45 +1,62 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, waitFor, cleanup, fireEvent } from '@testing-library/react';
-import { MockedProvider } from '@apollo/react-testing';
-import { AppStateProvider } from '../../../context/AppContext';
+import { render, waitFor, cleanup } from '@testing-library/react';
+import { MemoryRouter, Route, Switch } from 'react-router-dom';
+import { AppContext } from '../../../context/AppContext';
 import AuthRoute from '../AuthRoute';
-import LOGIN from '../../../graphql/loginQuery';
-import data from '../../../../__mocks__/_pages/_login';
-import App from '../../App/App';
+import { initialState } from '../../../state/reducers/userReducer';
 
 afterEach(cleanup);
 
-const mocks = [
-  {
-    request: {
-      query: LOGIN,
-      variables: { email: 'test@mail.com', password: '1234' },
-    },
-    result: data,
-  },
-];
-
-test('Auth route logged in state', async () => {
-  const { getByTestId, getByText, getByLabelText } = render(
-    <AppStateProvider>
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <App>
-          <AuthRoute />
-        </App>
-      </MockedProvider>
-    </AppStateProvider>
+const renderMock = (state, dispatch) =>
+  render(
+    <AppContext.Provider value={[state, dispatch]}>
+      <MemoryRouter initialEntries={['/content']}>
+        <Switch>
+          <AuthRoute
+            path="/content"
+            component={() => <div>Content Page</div>}
+          />
+          <Route path="/auth" component={() => <div>Auth Page </div>} />
+        </Switch>
+      </MemoryRouter>
+    </AppContext.Provider>
   );
 
-  fireEvent.change(getByLabelText(/email/i), {
-    target: { value: 'test@mail.com' },
-  });
-  fireEvent.change(getByLabelText(/password/i), {
-    target: { value: '1234' },
-  });
+test('Auth route with initial state', async () => {
+  const mockedDispatch = jest.fn();
 
-  await waitFor(() => fireEvent.click(getByText('Submit')));
-  await waitFor(() =>
-    expect(getByTestId('main-container')).toBeInTheDocument()
-  ).catch((e) => console.log(e));
+  const { getByText } = renderMock(initialState, mockedDispatch);
+
+  await waitFor(() => expect(getByText('Auth Page')).toBeInTheDocument());
+});
+
+test('Auth route with valid state', async () => {
+  const state = {
+    isLoggedIn: true,
+    token:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTcxNDczZjE4MTIxYzJmZjI0YzQwZWYiLCJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE1ODc4MDkxOTUsImV4cCI6MTU4NzgxMjc5NX0.2Rnz5e8-YwcvNrqcS1C8WGUddjMjygn9yJutfWdNC_Q',
+    tokenExpiration: 1651253522000,
+  };
+
+  const mockedDispatch = jest.fn();
+
+  const { getByText } = renderMock(state, mockedDispatch);
+
+  await waitFor(() => expect(getByText('Content Page')).toBeInTheDocument());
+});
+
+test('Auth route with invalid state', async () => {
+  const state = {
+    isLoggedIn: true,
+    token:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI1ZTcxNDczZjE4MTIxYzJmZjI0YzQwZWYiLCJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE1ODc4MDkxOTUsImV4cCI6MTU4NzgxMjc5NX0.2Rnz5e8-YwcvNrqcS1C8WGUddjMjygn9yJutfWdNC_Q',
+    tokenExpiration: 1588181522000,
+  };
+
+  const mockedDispatch = jest.fn();
+
+  const { getByText } = renderMock(state, mockedDispatch);
+
+  await waitFor(() => expect(getByText('Auth Page')).toBeInTheDocument());
 });

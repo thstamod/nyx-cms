@@ -1,24 +1,29 @@
 /* eslint-disable react/jsx-indent */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import withFullContainer from '../../containers/withFullContainer';
 import { logoutAction } from '../../state/actions/userActions';
+import { removeItemSessionStorage } from '../../utils/handleSessionStorage';
 import { useAppState } from '../../context/AppContext';
 
-const AuthRoute = ({ path, component }) => {
+const AuthRoute = ({ component: Component, ...rest }) => {
   const [{ isLoggedIn, tokenExpiration }, dispatch] = useAppState();
-  // const { isLoggedIn, tokenExpiration } = useSelector((state) => state.user);
-  // const dispatch = useDispatch();
-  // console.log(tokenExpiration, Date.now());
-  const isActiveAuth = () => tokenExpiration > Date.now();
-  const logoutFn = () => {
-    dispatch(() => logoutAction());
-    return <Redirect to="/auth" />;
-  };
-  return isLoggedIn && isActiveAuth() ? (
-    <Route path={path} component={component} />
-  ) : (
-    logoutFn()
+  const isActiveAuth = () => isLoggedIn && tokenExpiration > Date.now();
+  useEffect(() => {
+    if (!isActiveAuth()) {
+      removeItemSessionStorage('user');
+      dispatch(logoutAction());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isActiveAuth()]);
+
+  return (
+    <Route
+      {...rest}
+      render={() =>
+        isActiveAuth() ? <Component /> : <Redirect to={{ pathname: '/auth' }} />
+      }
+    />
   );
 };
 

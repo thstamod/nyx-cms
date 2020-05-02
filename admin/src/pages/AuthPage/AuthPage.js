@@ -23,7 +23,6 @@ const AuthPage = (props) => {
     );
 
   if (props.data && props.data.login) {
-    console.log('dispatch');
     dispatch(
       loginAction(
         props.data.login.token,

@@ -42,6 +42,7 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "function-paren-newline": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "no-unused-expressions": ["off", { "allowShortCircuit": true }]
   }
 }
