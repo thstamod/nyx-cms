@@ -6,7 +6,6 @@ import { getSessionStorage } from '../utils/handleSessionStorage';
 export default (key, dispatch, initialState, action) => {
   const user = getSessionStorage(key);
   useEffect(() => {
-    console.log(user);
     dispatch({
       type: action,
       payload: !_.isEmpty(user) ? user : initialState,
