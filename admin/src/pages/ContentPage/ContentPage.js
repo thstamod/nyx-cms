@@ -4,6 +4,8 @@ import Sidebar from '../../components/Navigation/sidebar/Sidebar';
 import GET_DOCUMENT_TYPES from '../../graphql/getDocumentTypesQuery';
 import withData from '../../containers/withData';
 import { MainContent } from './ContentPage.styles.tw';
+import MainPanel from '../../components/MainPanel/MainPanel';
+import { ContentPageProvider } from '../../context/ContentPageContext';
 
 const ContentPage = (props) => {
   const handleError = (err) =>
@@ -23,15 +25,13 @@ const ContentPage = (props) => {
   }
 
   return (
-    <>
+    <ContentPageProvider>
       <Sidebar data={props.data} />
-
       <MainContent>
-        <h1>Content page</h1>
-
+        <MainPanel />
         {handleError(props.error)}
       </MainContent>
-    </>
+    </ContentPageProvider>
   );
 };
 

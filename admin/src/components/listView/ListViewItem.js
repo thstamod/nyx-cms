@@ -1,23 +1,15 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import _ from 'lodash/lang';
-// import SubMenu from './SubMenu';
+import { Item, WrapperSubmenu } from './ListViewItem.styles.tw';
+import { useContentPageState } from '../../context/ContentPageContext';
+import { selectDocType } from '../../state/actions/contentPageActions';
 
-const Item = styled('div')`
-  font-family: ${(props) => props.theme.fonts[1]};
-  width: 100%;
-  color: ${(props) => props.theme.colors.powderWhite};
-`;
+// TODO: refactor runs multiple times after dispatch
 
-const WrapperSubmenu = styled.div`
-  max-height: ${(props) => (props.open ? '100%' : '0')};
-  opacity: ${(props) => (props.open ? '1' : '0')};
-  overflow: hidden;
-  transition: all 0.3s ease-out;
-  padding-left: 10px;
-`;
 const ListViewItem = ({ data }) => {
+  const [state, dispatch] = useContentPageState();
+  console.log(state);
   const [isOpen, setOpen] = useState(false);
   const setDescendants = () =>
     !_.isEmpty(data.descendants) &&
@@ -26,7 +18,12 @@ const ListViewItem = ({ data }) => {
     ));
   return (
     <Item key={data._id}>
-      <span onClick={() => setOpen(!isOpen)}>
+      <span
+        onClick={() => {
+          setOpen(!isOpen);
+          dispatch(selectDocType(data._id));
+        }}
+      >
         {data.name}
         {!_.isEmpty(data.descendants) && '+'}
       </span>
@@ -35,4 +32,4 @@ const ListViewItem = ({ data }) => {
   );
 };
 
-export default ListViewItem;
+export default React.memo(ListViewItem);

@@ -33,7 +33,7 @@ test('Content Page renders', () => {
 
 it('should render loading state initially', () => {
   const { getByText } = render(
-    <MockedProvider mocks={[]} addTypename={false}>
+    <MockedProvider mocks={[]}>
       <ThemeProvider theme={theme}>
         <ContentPage />
       </ThemeProvider>
@@ -46,7 +46,7 @@ it('should render loading state initially', () => {
 
 test('Content Page has header and sidebar', async () => {
   const { getByTestId } = render(
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider mocks={mocks}>
       <ThemeProvider theme={theme}>
         <ContentPage />
       </ThemeProvider>
