@@ -1,16 +1,16 @@
-export default {
+export const sidebar = {
   data: {
     documentTypes: [
       {
         _id: '5e986ce27a141e6a5ca5f2ee',
         name: 'depth_0',
-        parentDocumentType: null,
+        __typename: 'DocumentType',
         descendants: [
           {
             documentType: {
               _id: '5e986cfb7a141e6a5ca5f2ef',
               name: 'depth_11',
-              parentDocumentType: '5e986ce27a141e6a5ca5f2ee',
+              __typename: 'DocumentType',
               descendants: [],
             },
           },
@@ -18,13 +18,13 @@ export default {
             documentType: {
               _id: '5e986d007a141e6a5ca5f2f0',
               name: 'depth12_with_child',
-              parentDocumentType: '5e986ce27a141e6a5ca5f2ee',
+              __typename: 'DocumentType',
               descendants: [
                 {
                   documentType: {
                     _id: '5e986d097a141e6a5ca5f2f1',
                     name: 'depth_2',
-                    parentDocumentType: '5e986d007a141e6a5ca5f2f0',
+                    __typename: 'DocumentType',
                     descendants: [],
                   },
                 },
@@ -36,15 +36,42 @@ export default {
       {
         _id: '5e98743e707dfc01d6ce173e',
         name: 'depth0_no child',
-        parentDocumentType: null,
+        __typename: 'DocumentType',
         descendants: [],
       },
       {
         _id: '5e989eee707dfc01d6ce173f',
         name: 'depth0_1_no child',
-        parentDocumentType: null,
+        __typename: 'DocumentType',
         descendants: [],
       },
     ],
+  },
+};
+export const panel = {
+  data: {
+    documentType: {
+      _id: '5e98743e707dfc01d6ce173e',
+      name: 'depth0_no child',
+      parentDocumentType: null,
+      compilation: [
+        {
+          dataType: {
+            type: 'text',
+            name: 'text',
+          },
+          value: 'I am a Title!!',
+        },
+        {
+          dataType: {
+            type: 'text',
+            name: 'TextArea',
+          },
+          value:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+        },
+      ],
+      __typename: 'DocumentType',
+    },
   },
 };

@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { ContentPageProvider } from '../../../context/ContentPageContext';
 import theme from '../../../theme';
 import ListViewItem from '../ListViewItem';
-import data from '../../../../__mocks__/_pages/_contentPage';
+import { sidebar } from '../../../../__mocks__/_pages/_contentPage';
 
 afterEach(cleanup);
 
@@ -13,7 +13,7 @@ test('ListViewItem renders', () => {
   const { asFragment } = render(
     <ContentPageProvider>
       <ThemeProvider theme={theme}>
-        <ListViewItem data={data.data.documentTypes[0]} />
+        <ListViewItem data={sidebar.data.documentTypes[0]} />
       </ThemeProvider>
     </ContentPageProvider>
   );
@@ -25,7 +25,7 @@ test('open submenu on click', () => {
   const { getByText } = render(
     <ContentPageProvider>
       <ThemeProvider theme={theme}>
-        <ListViewItem data={data.data.documentTypes[0]} />
+        <ListViewItem data={sidebar.data.documentTypes[0]} />
       </ThemeProvider>
     </ContentPageProvider>
   );
@@ -40,7 +40,7 @@ test('submenu is hide initially', () => {
   const { getByText } = render(
     <ContentPageProvider>
       <ThemeProvider theme={theme}>
-        <ListViewItem data={data.data.documentTypes[0]} />
+        <ListViewItem data={sidebar.data.documentTypes[0]} />
       </ThemeProvider>
     </ContentPageProvider>
   );
@@ -52,7 +52,7 @@ test('submenu opens and closes', async () => {
   const { getByText } = render(
     <ContentPageProvider>
       <ThemeProvider theme={theme}>
-        <ListViewItem data={data.data.documentTypes[0]} />
+        <ListViewItem data={sidebar.data.documentTypes[0]} />
       </ThemeProvider>
     </ContentPageProvider>
   );

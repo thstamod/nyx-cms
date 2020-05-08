@@ -8,7 +8,6 @@ const GetDocumentTypes = {
   type: new GraphQLList(documentType),
   args: { root: { type: GraphQLBoolean } },
   resolve: async (parent, args, req) => {
-    console.log('args', args);
     if (!req.isAuth) {
       throw new Error('unAuthorized');
     }
