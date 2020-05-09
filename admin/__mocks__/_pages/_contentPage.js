@@ -57,18 +57,26 @@ export const panel = {
       compilation: [
         {
           dataType: {
-            type: 'text',
+            type: 'Text',
             name: 'text',
           },
-          value: 'I am a Title!!',
+          value: {
+            val: 'I am a Title!!',
+          },
+          title: 'title',
+          options: null,
         },
         {
           dataType: {
-            type: 'text',
+            type: 'TextArea',
             name: 'TextArea',
           },
-          value:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
+          value: {
+            val:
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          },
+          title: 'big text',
+          options: null,
         },
       ],
       __typename: 'DocumentType',

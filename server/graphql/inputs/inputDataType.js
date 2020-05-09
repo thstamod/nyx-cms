@@ -3,6 +3,7 @@ const {
   GraphQLInputObjectType,
   GraphQLNonNull,
 } = require('graphql');
+const { GraphQLJSONObject } = require('graphql-type-json');
 
 const InputDataType = new GraphQLInputObjectType({
   name: 'InputDataType',
@@ -18,10 +19,10 @@ const InputDataType = new GraphQLInputObjectType({
     },
 
     options: {
-      type: GraphQLString,
+      type: GraphQLJSONObject,
     },
     value: {
-      type: GraphQLString,
+      type: GraphQLJSONObject,
     },
   },
 });

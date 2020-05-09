@@ -1,4 +1,10 @@
-const { GraphQLObjectType, GraphQLString, GraphQLList } = require('graphql');
+const {
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLList,
+  GraphQLO,
+} = require('graphql');
+const { GraphQLJSONObject } = require('graphql-type-json');
 const DataTypeModel = require('../../mongoose/models/dataType');
 const DocumentTypeModel = require('../../mongoose/models/documentType');
 const userModel = require('../../mongoose/models/user');
@@ -46,14 +52,17 @@ const documentType = new GraphQLObjectType({
         new GraphQLObjectType({
           name: 'compilation',
           fields: {
-            // dataTypeId: {
-            //   type: GraphQLString,
-            // },
-            options: {
+            title: {
               type: GraphQLString,
             },
-            value: {
+            description: {
               type: GraphQLString,
+            },
+            options: {
+              type: GraphQLJSONObject,
+            },
+            value: {
+              type: GraphQLJSONObject,
             },
             dataType: {
               type: dataType,

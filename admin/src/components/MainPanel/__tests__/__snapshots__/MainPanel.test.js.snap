@@ -9,8 +9,9 @@ exports[`MainPanel renders 1`] = `
   <input
     type="text"
   />
-  <input
-    type="text"
+  <textarea
+    cols="50"
+    rows="4"
   />
 </DocumentFragment>
 `;

@@ -11,6 +11,7 @@ export default gql`
           type
           name
         }
+        title
         value
       }
       __typename
