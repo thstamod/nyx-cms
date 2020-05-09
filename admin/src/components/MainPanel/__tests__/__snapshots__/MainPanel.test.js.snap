@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPanel renders 1`] = `
+<DocumentFragment>
+  <h1>
+    Content page
+  </h1>
+  depth0_no child
+  <input
+    type="text"
+  />
+  <input
+    type="text"
+  />
+</DocumentFragment>
+`;

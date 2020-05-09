@@ -7,7 +7,7 @@ import { MainContent } from './ContentPage.styles.tw';
 import MainPanel from '../../components/MainPanel/MainPanel';
 import { ContentPageProvider } from '../../context/ContentPageContext';
 
-const ContentPage = (props) => {
+const ContentPage = ({ data, loading, error }) => {
   const handleError = (err) =>
     err && (
       <div>
@@ -17,19 +17,19 @@ const ContentPage = (props) => {
         ))}
       </div>
     );
-  if (props.loading) {
+  if (loading) {
     return <div>Loading...</div>;
   }
-  if (props.data) {
+  if (data) {
     // console.log(props.data);
   }
 
   return (
     <ContentPageProvider>
-      <Sidebar data={props.data} />
+      <Sidebar data={data} />
       <MainContent>
         <MainPanel />
-        {handleError(props.error)}
+        {handleError(error)}
       </MainContent>
     </ContentPageProvider>
   );

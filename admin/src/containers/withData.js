@@ -4,12 +4,12 @@ import { useLazyQuery, useQuery } from '@apollo/react-hooks';
 
 const withData = ({ query, lazy }) => (Component) => (props) => {
   if (lazy) {
-    const [handleSubmit, { data, error }] = useLazyQuery(query, {
+    const [handleClick, { data, error }] = useLazyQuery(query, {
       errorPolicy: 'all',
     });
     return (
       <Component
-        handleSubmit={handleSubmit}
+        handleClick={handleClick}
         data={data}
         error={error}
         {...props}

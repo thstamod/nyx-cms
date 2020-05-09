@@ -1,15 +1,15 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { useEffect } from 'react';
 import withData from '../../containers/withData';
 import GET_DOCTYPE_WITH_DATATYPES from '../../graphql/getDocumentTypeWithDataTypes';
 import { useContentPageState } from '../../context/ContentPageContext';
+import dataTypes from '../dataTypes';
 
-const MainPanel = (props) => {
+const MainPanel = ({ data, loading, error, handleClick }) => {
   const [{ id }] = useContentPageState();
 
   useEffect(() => {
     if (id) {
-      props.handleSubmit({
+      handleClick({
         variables: {
           _id: id,
         },
@@ -18,11 +18,6 @@ const MainPanel = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  if (props.data) {
-    console.log(props.data.documentType);
-  }
-
-  // eslint-disable-next-line no-unused-vars
   const handleError = (err) =>
     err && (
       <div>
@@ -33,13 +28,28 @@ const MainPanel = (props) => {
       </div>
     );
 
-  if (props.loading) {
+  if (data) {
+    // console.log(data.documentType);
+  }
+
+  const renderDataTypes = (_data) =>
+    _data.compilation &&
+    _data.compilation.map((dataType) => {
+      console.log(dataType);
+      const { type, name } = dataType.dataType;
+      const TypedComponent = dataTypes[type.toLowerCase()];
+      return <TypedComponent name={name} key={Math.random()} />;
+    });
+
+  if (loading) {
     return <div>Loading...</div>;
   }
   return (
     <>
       <h1>Content page</h1>
-      {props.data && props.data.documentType.name}
+      {data && data.documentType.name}
+      {data && renderDataTypes(data.documentType)}
+      {handleError(error)}
     </>
   );
 };

@@ -55,7 +55,7 @@ const AuthPage = (props) => {
       <button
         type="button"
         onClick={() =>
-          props.handleSubmit({
+          props.handleClick({
             variables: {
               email,
               password,
