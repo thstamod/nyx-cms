@@ -10,9 +10,12 @@ export default gql`
         dataType {
           type
           name
+          _id
         }
         title
         value
+        options
+        description
       }
       __typename
     }

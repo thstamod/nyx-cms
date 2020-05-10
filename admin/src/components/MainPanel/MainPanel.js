@@ -32,13 +32,24 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
     // console.log(data.documentType);
   }
 
+  // const handleData = (_data) => {
+  //   console.log(_data);
+  // };
+
   const renderDataTypes = (_data) =>
     _data.compilation &&
     _data.compilation.map((dataType) => {
       console.log(dataType);
-      const { type, name } = dataType.dataType;
+      const { title, options, value } = dataType;
+      const { type, _id } = dataType.dataType;
       const TypedComponent = dataTypes[type.toLowerCase()];
-      return <TypedComponent name={name} key={Math.random()} />;
+      const props = {
+        _id,
+        title,
+        options,
+        value,
+      };
+      return <TypedComponent {...props} key={Math.random()} />;
     });
 
   if (loading) {
@@ -50,6 +61,7 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
       {data && data.documentType.name}
       {data && renderDataTypes(data.documentType)}
       {handleError(error)}
+      <button type="button">RUn</button>
     </>
   );
 };
