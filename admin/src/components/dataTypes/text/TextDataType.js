@@ -6,7 +6,6 @@ import { setDataType } from '../../../state/actions/contentPageActions';
 // eslint-disable-next-line no-unused-vars
 const TextDataType = ({ _id, options, value, title }) => {
   const [state, dispatch] = useContentPageState();
-  console.log('state', state);
 
   const onChangeHandler = (event) => {
     //  console.log();

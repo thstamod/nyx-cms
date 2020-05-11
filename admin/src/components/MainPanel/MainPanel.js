@@ -5,10 +5,9 @@ import { useContentPageState } from '../../context/ContentPageContext';
 import { setAllDataTypes } from '../../state/actions/contentPageActions';
 import dataTypes from '../dataTypes';
 
-// TODO: prevent to dispatch action with the same id
 const MainPanel = ({ data, loading, error, handleClick }) => {
   const [{ id }, dispatch] = useContentPageState();
-  console.log('rerender mainpanel');
+
   useEffect(() => {
     if (id) {
       handleClick({
@@ -31,9 +30,8 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
     );
 
   useEffect(() => {
-    console.log(data);
-    const dataTypesVals = {};
     if (data && data.documentType.compilation.length > 0) {
+      const dataTypesVals = {};
       data.documentType.compilation.forEach((dt) => {
         // console.log(dt);
         const { title, options, value } = dt;
@@ -43,9 +41,8 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
           value,
         };
       });
+      dispatch(setAllDataTypes(dataTypesVals));
     }
-    console.log(dataTypesVals);
-    dispatch(setAllDataTypes(dataTypesVals));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
@@ -53,14 +50,9 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
     //  console.log(data);
   }
 
-  // const handleData = (_data) => {
-  //   console.log(_data);
-  // };
-
   const renderDataTypes = (_data) =>
     _data.compilation &&
     _data.compilation.map((dataType) => {
-      console.log(dataType);
       const { title, options, value } = dataType;
       const { type, _id } = dataType.dataType;
       const TypedComponent = dataTypes[type.toLowerCase()];
@@ -82,7 +74,6 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
       {data && data.documentType.name}
       {data && renderDataTypes(data.documentType)}
       {handleError(error)}
-      <button type="button">RUn</button>
     </>
   );
 };

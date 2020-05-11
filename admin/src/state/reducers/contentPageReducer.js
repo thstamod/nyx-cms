@@ -16,7 +16,7 @@ export function contentPageReducer(state = initialState, action) {
     }
     case SET_ALL_DATATYPES: {
       const datatypes = { ...action.payload };
-      return { ...state, datatypes };
+      return { ...state, datatypes, beforeChangesDataTypes: datatypes };
     }
     case SET_DATATYPE: {
       const datatypes = { ...state.datatypes, ...action.payload };
