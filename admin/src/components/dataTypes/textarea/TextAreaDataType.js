@@ -5,8 +5,18 @@ import React from 'react';
 const TextAreaDataType = (props) => {
   return (
     <>
-      <input type="text" required value={props.name} />
-      <textarea rows="4" cols="50" value={props.value} />
+      <input
+        type="text"
+        onChange={() => console.log('test')}
+        required
+        value={props.name}
+      />
+      <textarea
+        rows="4"
+        cols="50"
+        value={props.value}
+        onChange={() => console.log('test')}
+      />
     </>
   );
 };

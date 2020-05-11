@@ -4,8 +4,6 @@ import { Item, WrapperSubmenu } from './ListViewItem.styles.tw';
 import { useContentPageState } from '../../context/ContentPageContext';
 import { selectDocType } from '../../state/actions/contentPageActions';
 
-// TODO: refactor runs multiple times after dispatch
-
 const ListViewItem = ({ data }) => {
   const [, dispatch] = useContentPageState();
 

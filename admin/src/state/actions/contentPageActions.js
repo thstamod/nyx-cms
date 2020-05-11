@@ -1,4 +1,8 @@
-import { SELECTED_DOCTYPE_CONTENT_PAGE } from './actionTypes';
+import {
+  SELECTED_DOCTYPE_CONTENT_PAGE,
+  SET_ALL_DATATYPES,
+  SET_DATATYPE,
+} from './actionTypes';
 
 // eslint-disable-next-line import/prefer-default-export
 export const selectDocType = (id) => ({
@@ -6,7 +10,12 @@ export const selectDocType = (id) => ({
   payload: { id },
 });
 
-export const changeDataType = (data) => ({
-  type: SELECTED_DOCTYPE_CONTENT_PAGE,
-  payload: { data },
+export const setAllDataTypes = (data) => ({
+  type: SET_ALL_DATATYPES,
+  payload: data,
+});
+
+export const setDataType = (data) => ({
+  type: SET_DATATYPE,
+  payload: data,
 });

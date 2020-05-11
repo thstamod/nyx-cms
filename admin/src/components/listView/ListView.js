@@ -6,7 +6,7 @@ const ListView = ({ data }) => {
     if (!data) {
       return null;
     }
-
+    console.log('rerender listview');
     const list = data.documentTypes.map(
       (el) =>
         el && (
