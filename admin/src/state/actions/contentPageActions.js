@@ -2,6 +2,7 @@ import {
   SELECTED_DOCTYPE_CONTENT_PAGE,
   SET_ALL_DATATYPES,
   SET_DATATYPE,
+  REMOVE_DATATYPE_FROM_DOCTYPE,
 } from './actionTypes';
 
 // eslint-disable-next-line import/prefer-default-export
@@ -17,5 +18,10 @@ export const setAllDataTypes = (data) => ({
 
 export const setDataType = (data) => ({
   type: SET_DATATYPE,
+  payload: data,
+});
+
+export const removeDataTypeFromDocType = (data) => ({
+  type: REMOVE_DATATYPE_FROM_DOCTYPE,
   payload: data,
 });

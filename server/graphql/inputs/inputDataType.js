@@ -2,6 +2,7 @@ const {
   GraphQLString,
   GraphQLInputObjectType,
   GraphQLNonNull,
+  GraphQLBoolean,
 } = require('graphql');
 const { GraphQLJSONObject } = require('graphql-type-json');
 
@@ -16,6 +17,10 @@ const InputDataType = new GraphQLInputObjectType({
     },
     dataTypeId: {
       type: new GraphQLNonNull(GraphQLString),
+    },
+    toBeDeleted: {
+      type: new GraphQLNonNull(GraphQLBoolean),
+      defaultValue: false,
     },
 
     options: {
