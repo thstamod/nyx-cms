@@ -25,6 +25,10 @@ const WithApolloProvider = ({ children }) => {
   const client = new ApolloClient({
     link: concat(authMiddleware, httpLink),
     cache: new InMemoryCache(),
+    onError: ({ networkError, graphQLErrors }) => {
+      console.log('graphQLErrors', graphQLErrors);
+      console.log('networkError', networkError);
+    },
   });
 
   return <ApolloProvider client={client}>{children}</ApolloProvider>;

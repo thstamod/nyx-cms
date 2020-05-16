@@ -7,21 +7,27 @@ import {
 } from '../../../state/actions/contentPageActions';
 
 // eslint-disable-next-line no-unused-vars
-const TextDataType = ({ _id, options, value, title }) => {
-  const [state, dispatch] = useContentPageState();
-  console.log('state', state);
+const TextDataType = ({ dataTypeId, options, value, title, type }) => {
+  const [{ datatypes }, dispatch] = useContentPageState();
+  console.log('datatypes', datatypes);
   const onChangeHandler = (event) => {
-    //  console.log();
+    // TODO: fix event target
     const data = {
-      [_id]: { value: { val: event.target.value }, options, title },
+      [dataTypeId]: {
+        value: { val: event.target.value },
+        options,
+        title,
+        type,
+        dataTypeId,
+      },
     };
     dispatch(setDataType(data));
   };
   const removeDocType = () => {
-    dispatch(removeDataTypeFromDocType(_id));
+    dispatch(removeDataTypeFromDocType(dataTypeId));
   };
 
-  if (!state.datatypes) {
+  if (!datatypes) {
     return <div>Loading</div>;
   }
 
@@ -31,13 +37,13 @@ const TextDataType = ({ _id, options, value, title }) => {
         type="text"
         onChange={onChangeHandler}
         required
-        value={state.datatypes[_id].title}
+        value={datatypes[dataTypeId].title}
       />
       <br />
       <input
         type="text"
         onChange={onChangeHandler}
-        value={state.datatypes[_id].value.val}
+        value={datatypes[dataTypeId].value.val}
       />
       <button type="button" onClick={removeDocType}>
         Remove
