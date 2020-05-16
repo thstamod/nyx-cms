@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { MockedProvider } from '@apollo/react-testing';
 import theme from '../../../theme';
 import ContentPage from '../ContentPage';
-import GET_DOCUMENT_TYPES from '../../../graphql/getDocumentTypesQuery';
+import GET_DOCUMENT_TYPES from '../../../graphql/queries/getDocumentTypesQuery';
 import data from '../../../../__mocks__/_pages/_contentPage';
 
 afterEach(cleanup);

@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect } from 'react';
 import withData from '../../containers/withData';
-import GET_DOCTYPE_WITH_DATATYPES from '../../graphql/getDocumentTypeWithDataTypes';
+import GET_DOCTYPE_WITH_DATATYPES from '../../graphql/queries/getDocumentTypeWithDataTypes';
 import { useContentPageState } from '../../context/ContentPageContext';
 import { setAllDataTypes } from '../../state/actions/contentPageActions';
 import dataTypesSupportedList from '../dataTypes';

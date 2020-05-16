@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import Sidebar from '../../components/Navigation/sidebar/Sidebar';
-import GET_DOCUMENT_TYPES from '../../graphql/getDocumentTypesQuery';
+import GET_DOCUMENT_TYPES from '../../graphql/queries/getDocumentTypesQuery';
 import withData from '../../containers/withData';
 import { MainContent } from './ContentPage.styles.tw';
 import MainPanel from '../../components/MainPanel/MainPanel';

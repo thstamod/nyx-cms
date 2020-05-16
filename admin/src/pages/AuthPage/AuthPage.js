@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { loginAction } from '../../state/actions/userActions';
 import { calculateExpirationTime } from '../../utils/calculateTime';
 import withData from '../../containers/withData';
-import LOGIN_QUERY from '../../graphql/loginQuery';
+import LOGIN_QUERY from '../../graphql/queries/loginQuery';
 import { useAppState } from '../../context/AppContext';
 
 const AuthPage = (props) => {

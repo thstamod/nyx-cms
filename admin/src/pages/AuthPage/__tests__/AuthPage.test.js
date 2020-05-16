@@ -4,7 +4,7 @@ import { render, waitFor, cleanup, fireEvent } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { MockedProvider } from '@apollo/react-testing';
 import { MemoryRouter, Switch, Route } from 'react-router-dom';
-import LOGIN from '../../../graphql/loginQuery';
+import LOGIN from '../../../graphql/queries/loginQuery';
 import { AppStateProvider } from '../../../context/AppContext';
 import theme from '../../../theme';
 import data from '../../../../__mocks__/_pages/_login';
