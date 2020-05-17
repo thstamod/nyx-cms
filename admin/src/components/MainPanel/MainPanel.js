@@ -89,7 +89,9 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
         };
         console.log('renderDataTypes -> props', props);
 
-        returned.push(<TypedComponent {...props} key={dataTypeId} />);
+        returned.push(
+          <TypedComponent {...props} dispatch={dispatch} key={dataTypeId} />
+        );
       }
     }
     return returned;

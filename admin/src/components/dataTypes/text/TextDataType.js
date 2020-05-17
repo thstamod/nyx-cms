@@ -1,15 +1,19 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import { useContentPageState } from '../../../context/ContentPageContext';
 import {
   setDataType,
   removeDataTypeFromDocType,
 } from '../../../state/actions/contentPageActions';
 
 // eslint-disable-next-line no-unused-vars
-const TextDataType = ({ dataTypeId, options, value, title, type }) => {
-  const [{ datatypes }, dispatch] = useContentPageState();
-  console.log('datatypes', datatypes);
+const TextDataType = ({
+  dataTypeId,
+  options,
+  value,
+  title,
+  type,
+  dispatch,
+}) => {
   const onChangeHandler = (event) => {
     // TODO: fix event target
     const data = {
@@ -27,24 +31,15 @@ const TextDataType = ({ dataTypeId, options, value, title, type }) => {
     dispatch(removeDataTypeFromDocType(dataTypeId));
   };
 
-  if (!datatypes) {
-    return <div>Loading</div>;
-  }
+  // if (!datatypes) {
+  //   return <div>Loading</div>;
+  // }
 
   return (
     <div>
-      <input
-        type="text"
-        onChange={onChangeHandler}
-        required
-        value={datatypes[dataTypeId].title}
-      />
+      <input type="text" onChange={onChangeHandler} required value={title} />
       <br />
-      <input
-        type="text"
-        onChange={onChangeHandler}
-        value={datatypes[dataTypeId].value.val}
-      />
+      <input type="text" onChange={onChangeHandler} value={value.val} />
       <button type="button" onClick={removeDocType}>
         Remove
       </button>
