@@ -1,19 +1,16 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect } from 'react';
-import { useMutation } from '@apollo/react-hooks';
 import withData from '../../containers/withData';
+import withMutation from '../../containers/withMutation';
 import GET_DOCTYPE_WITH_DATATYPES from '../../graphql/queries/getDocumentTypeWithDataTypes';
 import UPDATE_DOCUMENT_TYPE from '../../graphql/mutations/updateDocumentType';
 import { useContentPageState } from '../../context/ContentPageContext';
 import { setAllDataTypes } from '../../state/actions/contentPageActions';
 import dataTypesSupportedList from '../dataTypes';
+import { compose } from '../../utils/common';
 
-const MainPanel = ({ data, loading, error, handleClick }) => {
+const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
   const [{ id, datatypes }, dispatch] = useContentPageState();
-  // eslint-disable-next-line no-unused-vars
-  const [updateDocumentType, { error: mutationError }] = useMutation(
-    UPDATE_DOCUMENT_TYPE
-  );
 
   useEffect(() => {
     if (id) {
@@ -48,7 +45,7 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
         compilation.push(tmp);
       }
     }
-    updateDocumentType({ variables: { _id: id, compilation } });
+    handleMutation({ variables: { _id: id, compilation } });
   };
 
   useEffect(() => {
@@ -71,14 +68,6 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
-
-  if (data) {
-    // console.log(data);
-  }
-
-  if (mutationError) {
-    console.log(mutationError);
-  }
 
   const renderDataTypes = (_data) => {
     const returned = [];
@@ -122,6 +111,7 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
   );
 };
 
-export default withData({ query: GET_DOCTYPE_WITH_DATATYPES, lazy: true })(
-  MainPanel
-);
+export default compose(
+  withData({ query: GET_DOCTYPE_WITH_DATATYPES, lazy: true }),
+  withMutation({ query: UPDATE_DOCUMENT_TYPE })
+)(MainPanel);
