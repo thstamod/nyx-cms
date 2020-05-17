@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 export default gql`
   mutation updateDocumentType(
     $_id: String!
-    $compilation: [inputDatatype]
+    $compilation: [InputDataType]
     $name: String
     $parentDocumentType: String
     $inheritFrom: String

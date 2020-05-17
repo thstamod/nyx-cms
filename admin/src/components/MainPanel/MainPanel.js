@@ -11,7 +11,9 @@ import dataTypesSupportedList from '../dataTypes';
 const MainPanel = ({ data, loading, error, handleClick }) => {
   const [{ id, datatypes }, dispatch] = useContentPageState();
   // eslint-disable-next-line no-unused-vars
-  const [updateDocumentType] = useMutation(UPDATE_DOCUMENT_TYPE);
+  const [updateDocumentType, { error: mutationError }] = useMutation(
+    UPDATE_DOCUMENT_TYPE
+  );
 
   useEffect(() => {
     if (id) {
@@ -41,7 +43,9 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
     if (datatypes) {
       // eslint-disable-next-line guard-for-in
       for (const key in datatypes) {
-        compilation.push(datatypes[key]);
+        const tmp = { ...datatypes[key] };
+        delete tmp.type;
+        compilation.push(tmp);
       }
     }
     updateDocumentType({ variables: { _id: id, compilation } });
@@ -72,6 +76,10 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
     // console.log(data);
   }
 
+  if (mutationError) {
+    console.log(mutationError);
+  }
+
   const renderDataTypes = (_data) => {
     const returned = [];
     // eslint-disable-next-line guard-for-in
@@ -97,24 +105,6 @@ const MainPanel = ({ data, loading, error, handleClick }) => {
     }
     return returned;
   };
-
-  // // _data &&
-  // // _data.map((dataType) => {
-  // //   console.log('dataType', dataType);
-  // //   if (dataType.toBeDeleted) {
-  // //     return 0;
-  // //   }
-  // //   const { title, options, value } = dataType;
-  // //   const { type, _id } = dataType.dataType;
-  // //   const TypedComponent = dataTypesSupportedList[type.toLowerCase()];
-  // //   const props = {
-  // //     _id,
-  // //     title,
-  // //     options,
-  // //     value,
-  // //   };
-  // //   return <TypedComponent {...props} key={_id} />;
-  // });
 
   if (loading) {
     return <div>Loading...</div>;
