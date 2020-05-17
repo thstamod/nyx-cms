@@ -13,11 +13,12 @@ const TextDataType = ({
   title,
   type,
   dispatch,
+  sid,
 }) => {
   const onChangeHandler = (event) => {
     // TODO: fix event target
     const data = {
-      [dataTypeId]: {
+      [sid]: {
         value: { val: event.target.value },
         options,
         title,
@@ -28,7 +29,7 @@ const TextDataType = ({
     dispatch(setDataType(data));
   };
   const removeDocType = () => {
-    dispatch(removeDataTypeFromDocType(dataTypeId));
+    dispatch(removeDataTypeFromDocType(sid));
   };
 
   // if (!datatypes) {

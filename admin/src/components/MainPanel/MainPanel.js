@@ -38,12 +38,13 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
   const handleSave = () => {
     const compilation = [];
     if (datatypes) {
-      // eslint-disable-next-line guard-for-in
-      for (const key in datatypes) {
-        const tmp = { ...datatypes[key] };
+      const dt = Object.getOwnPropertySymbols(datatypes);
+      dt.forEach((s) => {
+        const tmp = { ...datatypes[s] };
         delete tmp.type;
+        delete tmp.sid;
         compilation.push(tmp);
-      }
+      });
     }
     handleMutation({ variables: { _id: id, compilation } });
   };
@@ -52,16 +53,17 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
     if (data && data.documentType.compilation.length > 0) {
       const dataTypesVals = {};
       data.documentType.compilation.forEach((dt) => {
-        console.log(dt);
         const { type, _id } = dt.dataType;
         const { title, options, value, description } = dt;
-        dataTypesVals[dt.dataType._id] = {
+        const sid = Symbol('id');
+        dataTypesVals[sid] = {
           title,
           options,
           value,
           description,
           type,
           dataTypeId: _id,
+          sid,
         };
       });
       dispatch(setAllDataTypes(dataTypesVals));
@@ -71,13 +73,22 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
 
   const renderDataTypes = (_data) => {
     const returned = [];
-    // eslint-disable-next-line guard-for-in
-    for (const key in _data) {
+    if (!_data) {
+      return null;
+    }
+    const dt = Object.getOwnPropertySymbols(_data);
+    dt.forEach((s, index) => {
       // eslint-disable-next-line no-prototype-builtins
-      if (!_data[key].hasOwnProperty('toBeDeleted')) {
-        const { title, options, value, type, description, dataTypeId } = _data[
-          key
-        ];
+      if (!_data[s].hasOwnProperty('toBeDeleted')) {
+        const {
+          title,
+          options,
+          value,
+          type,
+          description,
+          dataTypeId,
+          sid,
+        } = _data[s];
         const TypedComponent = dataTypesSupportedList[type.toLowerCase()];
         const props = {
           dataTypeId,
@@ -86,14 +97,14 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
           options,
           value,
           type,
+          sid,
         };
-        console.log('renderDataTypes -> props', props);
 
         returned.push(
-          <TypedComponent {...props} dispatch={dispatch} key={dataTypeId} />
+          <TypedComponent {...props} dispatch={dispatch} key={index} />
         );
       }
-    }
+    });
     return returned;
   };
 
