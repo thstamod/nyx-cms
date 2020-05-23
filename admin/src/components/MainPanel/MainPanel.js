@@ -34,7 +34,7 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
         ))}
       </div>
     );
-
+  // TODO: add the rest of the documentType's properties
   const handleSave = () => {
     const compilation = [];
     if (datatypes) {
@@ -54,7 +54,7 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
       const dataTypesVals = {};
       data.documentType.compilation.forEach((dt) => {
         const { type, _id } = dt.dataType;
-        const { title, options, value, description } = dt;
+        const { title, options, value, description, compilationItemId } = dt;
         const sid = Symbol('id');
         dataTypesVals[sid] = {
           title,
@@ -64,6 +64,7 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
           type,
           dataTypeId: _id,
           sid,
+          compilationItemId,
         };
       });
       dispatch(setAllDataTypes(dataTypesVals));
@@ -88,6 +89,7 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
           description,
           dataTypeId,
           sid,
+          compilationItemId,
         } = _data[s];
         const TypedComponent = dataTypesSupportedList[type.toLowerCase()];
         const props = {
@@ -98,6 +100,7 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
           value,
           type,
           sid,
+          compilationItemId,
         };
 
         returned.push(

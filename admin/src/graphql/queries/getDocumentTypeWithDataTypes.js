@@ -16,6 +16,7 @@ export default gql`
         value
         options
         description
+        compilationItemId
       }
       __typename
     }

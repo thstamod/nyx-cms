@@ -14,6 +14,8 @@ const TextDataType = ({
   type,
   dispatch,
   sid,
+  compilationItemId,
+  description,
 }) => {
   const onChangeHandler = (event) => {
     // TODO: fix event target
@@ -24,6 +26,9 @@ const TextDataType = ({
         title,
         type,
         dataTypeId,
+        compilationItemId,
+        description,
+        sid,
       },
     };
     dispatch(setDataType(data));
