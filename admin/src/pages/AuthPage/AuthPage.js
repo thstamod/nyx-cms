@@ -7,7 +7,7 @@ import withData from '../../containers/withData';
 import LOGIN_QUERY from '../../graphql/queries/loginQuery';
 import { useAppState } from '../../context/AppContext';
 
-const AuthPage = (props) => {
+const AuthPage = ({ queryData, queryError, queryHandleClick }) => {
   const [, dispatch] = useAppState();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -22,11 +22,11 @@ const AuthPage = (props) => {
       </div>
     );
 
-  if (props.data && props.data.login) {
+  if (queryData && queryData.login) {
     dispatch(
       loginAction(
-        props.data.login.token,
-        calculateExpirationTime(props.data.login.tokenExpiration)
+        queryData.login.token,
+        calculateExpirationTime(queryData.login.tokenExpiration)
       )
     );
     return <Redirect to="/content" />;
@@ -51,11 +51,11 @@ const AuthPage = (props) => {
           }}
         />
       </div>
-      {handleError(props.error)}
+      {handleError(queryError)}
       <button
         type="button"
         onClick={() =>
-          props.handleClick({
+          queryHandleClick({
             variables: {
               email,
               password,

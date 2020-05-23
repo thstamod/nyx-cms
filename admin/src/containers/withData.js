@@ -9,9 +9,10 @@ const withData = ({ query, lazy }) => (Component) => (props) => {
     });
     return (
       <Component
-        handleClick={handleClick}
-        data={data}
-        error={error}
+        queryHandleClick={handleClick}
+        // queryLoading={loading}
+        queryData={data}
+        queryError={error}
         {...props}
       />
     );
@@ -19,7 +20,14 @@ const withData = ({ query, lazy }) => (Component) => (props) => {
   const { loading, data, error } = useQuery(query, {
     errorPolicy: 'all',
   });
-  return <Component loading={loading} data={data} error={error} {...props} />;
+  return (
+    <Component
+      queryLoading={loading}
+      queryData={data}
+      queryError={error}
+      {...props}
+    />
+  );
 };
 
 export default withData;

@@ -9,12 +9,21 @@ import { setAllDataTypes } from '../../state/actions/contentPageActions';
 import dataTypesSupportedList from '../dataTypes';
 import { compose } from '../../utils/common';
 
-const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
+const MainPanel = ({
+  queryData,
+  queryLoading,
+  queryError,
+  queryHandleClick,
+  handleMutation,
+  mutationData,
+  mutationError,
+  mutationLoading,
+}) => {
   const [{ id, datatypes }, dispatch] = useContentPageState();
 
   useEffect(() => {
     if (id) {
-      handleClick({
+      queryHandleClick({
         variables: {
           _id: id,
         },
@@ -50,9 +59,9 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
   };
 
   useEffect(() => {
-    if (data && data.documentType.compilation.length > 0) {
+    if (queryData && queryData.documentType.compilation.length > 0) {
       const dataTypesVals = {};
-      data.documentType.compilation.forEach((dt) => {
+      queryData.documentType.compilation.forEach((dt) => {
         const { type, _id } = dt.dataType;
         const { title, options, value, description, compilationItemId } = dt;
         const sid = Symbol('id');
@@ -70,7 +79,7 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
       dispatch(setAllDataTypes(dataTypesVals));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [queryData]);
 
   const renderDataTypes = (_data) => {
     const returned = [];
@@ -111,15 +120,19 @@ const MainPanel = ({ data, loading, error, handleClick, handleMutation }) => {
     return returned;
   };
 
-  if (loading) {
+  if (queryLoading) {
     return <div>Loading...</div>;
   }
+
   return (
     <>
       <h1>Content page</h1>
-      {data && data.documentType.name}
-      {data && renderDataTypes(datatypes)}
-      {handleError(error)}
+      {queryData && queryData.documentType.name}
+      {queryData && renderDataTypes(datatypes)}
+      {handleError(queryError)}
+      {handleError(mutationError)}
+      {mutationLoading && <div> Saving...</div>}
+      {mutationData && <div> Save successful</div>}
       <button type="button" onClick={handleSave}>
         SAVE
       </button>
