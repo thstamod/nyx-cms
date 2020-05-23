@@ -26,7 +26,10 @@ export function contentPageReducer(state = initialState, action) {
     case REMOVE_DATATYPE_FROM_DOCTYPE: {
       const datatypes = {
         ...state.datatypes,
-        [action.payload]: { toBeDeleted: true },
+        [action.payload]: {
+          ...state.datatypes[action.payload],
+          toBeDeleted: true,
+        },
       };
       return { ...state, datatypes };
     }

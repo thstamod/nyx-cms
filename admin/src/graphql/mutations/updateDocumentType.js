@@ -20,6 +20,9 @@ export default gql`
       compilation: $compilation
     ) {
       _id
+      compilation {
+        title
+      }
     }
   }
 `;

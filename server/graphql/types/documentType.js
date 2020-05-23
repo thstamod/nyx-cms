@@ -52,6 +52,9 @@ const documentType = new GraphQLObjectType({
         new GraphQLObjectType({
           name: 'compilation',
           fields: {
+            compilationItemId: {
+              type: GraphQLString,
+            },
             title: {
               type: GraphQLString,
             },
