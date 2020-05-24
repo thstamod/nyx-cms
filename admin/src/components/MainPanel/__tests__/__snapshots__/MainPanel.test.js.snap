@@ -5,13 +5,10 @@ exports[`MainPanel renders 1`] = `
   <h1>
     Content page
   </h1>
-  depth0_no child
-  <input
-    type="text"
-  />
-  <textarea
-    cols="50"
-    rows="4"
-  />
+  <button
+    type="button"
+  >
+    SAVE
+  </button>
 </DocumentFragment>
 `;

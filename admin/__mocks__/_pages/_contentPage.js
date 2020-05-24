@@ -35,7 +35,7 @@ export const sidebar = {
       },
       {
         _id: '5e98743e707dfc01d6ce173e',
-        name: 'depth0_no child',
+        name: 'depth0_no_child',
         __typename: 'DocumentType',
         descendants: [],
       },
@@ -52,31 +52,36 @@ export const panel = {
   data: {
     documentType: {
       _id: '5e98743e707dfc01d6ce173e',
-      name: 'depth0_no child',
+      name: 'depth0_no_child',
       parentDocumentType: null,
       compilation: [
         {
           dataType: {
             type: 'Text',
             name: 'text',
+            _id: '5e7658d052a8500c640f3b91',
+            __typename: 'DataType',
           },
-          value: {
-            val: 'I am a Title!!',
-          },
-          title: 'title',
+          title: 'title2',
+          value: { val: 'I am a Title2!!' },
           options: null,
+          description: null,
+          compilationItemId: 'ba4ce241-9bcd-4135-9edc-ddcef273b20f',
+          __typename: 'compilation',
         },
         {
           dataType: {
-            type: 'TextArea',
-            name: 'TextArea',
+            type: 'Text',
+            name: 'text',
+            _id: '5e7658d052a8500c640f3b91',
+            __typename: 'DataType',
           },
-          value: {
-            val:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          },
-          title: 'big text',
+          title: 'title2_1',
+          value: { val: 'I am a Title2_1!!' },
           options: null,
+          description: null,
+          compilationItemId: '5fa907d1-be20-4605-801d-7094f266db29',
+          __typename: 'compilation',
         },
       ],
       __typename: 'DocumentType',

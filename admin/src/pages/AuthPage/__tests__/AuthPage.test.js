@@ -9,7 +9,6 @@ import { AppStateProvider } from '../../../context/AppContext';
 import theme from '../../../theme';
 import data from '../../../../__mocks__/_pages/_login';
 import AuthPage from '../AuthPage';
-import App from '../../../components/App/App';
 
 afterEach(cleanup);
 
