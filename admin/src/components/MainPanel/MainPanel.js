@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect } from 'react';
 import withData from '../../containers/withData';
@@ -19,7 +20,21 @@ const MainPanel = ({
   mutationError,
   mutationLoading,
 }) => {
-  const [{ id, datatypes }, dispatch] = useContentPageState();
+  const [
+    {
+      id,
+      name,
+      creator,
+      createdAt,
+      updatedAt,
+      inheritFrom,
+      parentDocumentType,
+      privileges,
+      descendants,
+      datatypes,
+    },
+    dispatch,
+  ] = useContentPageState();
 
   useEffect(() => {
     if (id) {
@@ -60,12 +75,21 @@ const MainPanel = ({
 
   useEffect(() => {
     if (queryData && queryData.documentType.compilation.length > 0) {
-      const dataTypesVals = {};
+      const dataTypesValues = {};
+      const docTypeData = {
+        name: queryData.documentType.name,
+        parentDocumentType: queryData.documentType.parentDocumentType,
+        privileges: queryData.documentType.privileges,
+        descendants: queryData.documentType.descendants,
+        creator: queryData.documentType.creator,
+        createdAt: queryData.documentType.createdAt,
+        updatedAt: queryData.documentType.updatedAt,
+      };
       queryData.documentType.compilation.forEach((dt) => {
         const { type, _id } = dt.dataType;
         const { title, options, value, description, compilationItemId } = dt;
         const sid = Symbol('id');
-        dataTypesVals[sid] = {
+        dataTypesValues[sid] = {
           title,
           options,
           value,
@@ -76,10 +100,16 @@ const MainPanel = ({
           compilationItemId,
         };
       });
-      dispatch(setAllDataTypes(dataTypesVals));
+      dispatch(setAllDataTypes({ docTypeData, dataTypesValues }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryData]);
+
+  // TODO: based on id, dispatch action for changing the specific doc type data
+  const handleDocDataChanges = (target) => {
+    console.log('handleDocDataChanges -> e', target.value);
+    console.log('handleDocDataChanges -> e', target.id);
+  };
 
   const renderDataTypes = (_data) => {
     const returned = [];
@@ -127,8 +157,21 @@ const MainPanel = ({
   return (
     <>
       <h1>Content page</h1>
-      {queryData && queryData.documentType.name}
-      {queryData && renderDataTypes(datatypes)}
+      {name && (
+        <>
+          <label htmlFor="docTypeName">Name</label>
+          <input
+            id="docTypeName"
+            type="text"
+            onChange={(e) => handleDocDataChanges(e.target)}
+            value={name}
+          />
+        </>
+      )}
+      {creator && creator.name}
+      {createdAt && createdAt}
+      {updatedAt && updatedAt}
+      {renderDataTypes(datatypes)}
       {handleError(queryError)}
       {handleError(mutationError)}
       {mutationLoading && <div> Saving...</div>}

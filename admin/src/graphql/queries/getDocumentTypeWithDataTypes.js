@@ -5,7 +5,22 @@ export default gql`
     documentType(_id: $_id) {
       _id
       name
+      inheritFrom
       parentDocumentType
+      privileges
+      descendants {
+        documentType {
+          _id
+          name
+        }
+      }
+      creator {
+        _id
+        name
+        authorization
+      }
+      createdAt
+      updatedAt
       compilation {
         dataType {
           type

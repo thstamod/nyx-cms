@@ -1,6 +1,6 @@
 import {
   SELECTED_DOCTYPE_CONTENT_PAGE,
-  SET_ALL_DATATYPES,
+  SET_ALL_DOCTYPE_DATA,
   SET_DATATYPE,
   REMOVE_DATATYPE_FROM_DOCTYPE,
 } from './actionTypes';
@@ -12,7 +12,7 @@ export const selectDocType = (id) => ({
 });
 
 export const setAllDataTypes = (data) => ({
-  type: SET_ALL_DATATYPES,
+  type: SET_ALL_DOCTYPE_DATA,
   payload: data,
 });
 
