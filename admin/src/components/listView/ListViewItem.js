@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import _ from 'lodash/lang';
-import { Item, WrapperSubmenu } from './ListViewItem.styles.tw';
+import cx from 'classnames';
+import styles from './styles.module.scss';
 
 const ListViewItem = ({ data, handleClick }) => {
   const [isOpen, setOpen] = useState(false);
@@ -16,7 +17,7 @@ const ListViewItem = ({ data, handleClick }) => {
     ));
 
   return (
-    <Item key={data._id}>
+    <div className={styles.item} key={data._id}>
       <span
         onClick={() => {
           setOpen(!isOpen);
@@ -26,8 +27,8 @@ const ListViewItem = ({ data, handleClick }) => {
         {data.name}
         {!_.isEmpty(data.descendants) && '+'}
       </span>
-      <WrapperSubmenu open={isOpen}>{setDescendants()}</WrapperSubmenu>
-    </Item>
+      <div className={isOpen ? cx(styles.wrapperSubmenu, styles.open) : styles.wrapperSubmenu} open={isOpen}>{setDescendants()}</div>
+    </div>
   );
   // eslint-disable-next-line react-hooks/exhaustive-deps
 };

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-indent */
 import React, { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import withFullContainer from '../../containers/withFullContainer';
+import withFullContainer from '../../containers/withFullContainer/withFullContainer';
 import { logoutAction } from '../../state/actions/userActions';
 import { removeItemSessionStorage } from '../../utils/handleSessionStorage';
 import { useAppState } from '../../context/AppContext';

@@ -3,9 +3,9 @@ import React from 'react';
 import Sidebar from '../../components/Navigation/sidebar/Sidebar';
 import GET_DOCUMENT_TYPES from '../../graphql/queries/getDocumentTypesQuery';
 import withData from '../../containers/withData';
-import { MainContent } from './ContentPage.styles.tw';
 import MainPanel from '../../components/MainPanel/MainPanel';
 import { ContentPageProvider } from '../../context/ContentPageContext';
+import styles from './style.module.scss';
 
 const ContentPage = ({ queryData, queryLoading, queryError }) => {
   const handleError = (err) =>
@@ -27,10 +27,12 @@ const ContentPage = ({ queryData, queryLoading, queryError }) => {
   return (
     <ContentPageProvider>
       <Sidebar data={queryData} />
-      <MainContent>
+      <div className={styles.mainContent}>
         <MainPanel />
         {handleError(queryError)}
-      </MainContent>
+        <div className={styles.text}>test</div>
+      </div>
+
     </ContentPageProvider>
   );
 };

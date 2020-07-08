@@ -1,10 +1,10 @@
 import React from 'react';
-import { FullContainer } from '../styles/basicLayout.styles.tw';
+import styles from './styles.module.scss';
 
 const withFullContainer = (Component) => (props) => (
-  <FullContainer data-testid="main-container">
+  <div className={styles.fullContainer} data-testid="main-container">
     <Component {...props} />
-  </FullContainer>
+  </div>
 );
 
 export default withFullContainer;

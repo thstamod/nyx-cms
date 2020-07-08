@@ -1,13 +1,13 @@
 import React from 'react';
 import ListView from '../../listView/ListView';
-import { SidebarWrapper, ListViewWrapper } from './Sidebar.styles.tw';
+import styles from './styles.module.scss';
 
 const Sidebar = ({ data }) => (
-  <SidebarWrapper data-testid="sidebar">
-    <ListViewWrapper>
+  <aside className={styles.sidebarWrapper} data-testid="sidebar">
+    <div className={styles.listViewWrapper}>
       <ListView data={data} />
-    </ListViewWrapper>
-  </SidebarWrapper>
+    </div>
+  </aside>
 );
 
 export default React.memo(Sidebar);

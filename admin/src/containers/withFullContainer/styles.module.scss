@@ -1,0 +1,6 @@
+.fullContainer {
+  composes: row from global;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 56px;
+}
