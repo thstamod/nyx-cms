@@ -176,9 +176,7 @@ const MainPanel = ({
       {handleError(mutationError)}
       {mutationLoading && <div> Saving...</div>}
       {mutationData && <div> Save successful</div>}
-      <button type="button" onClick={handleSave}>
-        SAVE
-      </button>
+      {datatypes && (<button type="button" onClick={handleSave}>SAVE</button>)}
     </>
   );
 };
