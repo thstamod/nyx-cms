@@ -6,7 +6,6 @@ import ContentPage from '../../pages/ContentPage/ContentPage';
 import SettingsPage from '../../pages/SettingsPage/SettingsPage';
 import NotFound from '../../pages/NotFound/NotFound';
 import AuthRoute from '../AuthRoute/AuthRoute';
-import GlobalStyles from '../../theme/globalStyle';
 import MainNavigation from '../Navigation/MainNavigation/MainNavigation';
 import { useAppState } from '../../context/AppContext';
 
@@ -15,7 +14,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <GlobalStyles />
       {isLoggedIn && <MainNavigation />}
       <React.Fragment>
         <Switch>
