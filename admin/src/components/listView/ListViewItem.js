@@ -27,7 +27,16 @@ const ListViewItem = ({ data, handleClick }) => {
         {data.name}
         {!_.isEmpty(data.descendants) && '+'}
       </span>
-      <div className={isOpen ? cx(styles.wrapperSubmenu, styles.open) : styles.wrapperSubmenu} open={isOpen}>{setDescendants()}</div>
+      <div
+        className={
+          isOpen
+            ? cx(styles.wrapperSubmenu, styles.open)
+            : styles.wrapperSubmenu
+        }
+        open={isOpen}
+      >
+        {setDescendants()}
+      </div>
     </div>
   );
   // eslint-disable-next-line react-hooks/exhaustive-deps

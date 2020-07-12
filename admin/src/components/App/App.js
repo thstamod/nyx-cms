@@ -19,11 +19,11 @@ const App = () => {
         <Switch>
           {!isLoggedIn ? (
             <Redirect from="/" to="/auth" exact />
-          ) : (<Redirect from="/" to="/content" exact />)}
-          {!isLoggedIn && <Route path="/auth" component={AuthPage} />}
-          {isLoggedIn && (
-            <AuthRoute path="/content" component={ContentPage} />
+          ) : (
+            <Redirect from="/" to="/content" exact />
           )}
+          {!isLoggedIn && <Route path="/auth" component={AuthPage} />}
+          {isLoggedIn && <AuthRoute path="/content" component={ContentPage} />}
           {isLoggedIn && (
             <AuthRoute path="/settings" component={SettingsPage} />
           )}

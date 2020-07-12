@@ -1,6 +1,10 @@
+@import '../../scss/base/colors';
+
 .fullContainer {
-  composes: row from global;
+  background-color: $paris;
+  box-sizing: border-box;
   height: 100%;
+  width: 100%;
   overflow: hidden;
-  padding-top: 56px;
+  padding-top: 60px;
 }

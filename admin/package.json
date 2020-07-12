@@ -11,7 +11,9 @@
     "classnames": "^2.2.6",
     "flexboxgrid": "^6.3.1",
     "graphql": "^14.6.0",
+    "identity-obj-proxy": "^3.0.0",
     "lodash": "^4.17.15",
+    "normalize.css": "^8.0.1",
     "postcss-cli": "^7.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -24,10 +26,8 @@
     "tailwindcss": "^1.3.5"
   },
   "scripts": {
-    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css",
-    "watch:css": "postcss src//styles/tailwind.css -o src/styles/main.css",
-    "start": "npm run watch:css & react-scripts start",
-    "build": "npm run build:css react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen --colors",
     "test:coverage": "react-scripts test --env=jest-environment-jsdom-sixteen --coverage --watchAll=false --silent --colors"
   },

@@ -7,20 +7,17 @@ import {
   fireEvent,
   screen,
 } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
-import theme from '../../../theme';
 import { ContentPageProvider } from '../../../context/ContentPageContext';
 import ListView from '../ListView';
 import { sidebar } from '../../../../__mocks__/_pages/_contentPage';
+import styles from '../styles.module.scss';
 
 afterEach(cleanup);
 
 test('ListView renders', () => {
   const { asFragment } = render(
     <ContentPageProvider>
-      <ThemeProvider theme={theme}>
-        <ListView data={sidebar.data} />
-      </ThemeProvider>
+      <ListView data={sidebar.data} />
     </ContentPageProvider>
   );
 
@@ -30,9 +27,7 @@ test('ListView renders', () => {
 test('with no data', () => {
   const { getByTestId } = render(
     <ContentPageProvider>
-      <ThemeProvider theme={theme}>
-        <ListView data={null} />
-      </ThemeProvider>
+      <ListView data={null} />
     </ContentPageProvider>
   );
 
@@ -42,9 +37,7 @@ test('with no data', () => {
 test('open submenu on click', () => {
   const { getByText } = render(
     <ContentPageProvider>
-      <ThemeProvider theme={theme}>
-        <ListView data={sidebar.data} />
-      </ThemeProvider>
+      <ListView data={sidebar.data} />
     </ContentPageProvider>
   );
 
@@ -55,24 +48,21 @@ test('open submenu on click', () => {
   expect(getByText('depth_11')).toBeVisible();
 });
 
-test('submenu is hide initially', () => {
+test('submenu is hide initially', async () => {
   const { getByText } = render(
     <ContentPageProvider>
-      <ThemeProvider theme={theme}>
-        <ListView data={sidebar.data} />
-      </ThemeProvider>
+      <ListView data={sidebar.data} />
     </ContentPageProvider>
   );
 
-  expect(getByText('depth_11')).not.toBeVisible();
+  const el = screen.findByText(/depth_11/i); // getByText('depth_11');
+  expect(el).not.toBeVisible();
 });
 
 test('submenu opens and closes', async () => {
   const { getByText } = render(
     <ContentPageProvider>
-      <ThemeProvider theme={theme}>
-        <ListView data={sidebar.data} />
-      </ThemeProvider>
+      <ListView data={sidebar.data} />
     </ContentPageProvider>
   );
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const UsersPage = () => (
-  <div>
+  <div className="generalContainer">
     <h1>User page</h1>
   </div>
 );
