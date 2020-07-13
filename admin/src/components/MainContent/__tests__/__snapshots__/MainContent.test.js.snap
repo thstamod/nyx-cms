@@ -8,11 +8,6 @@ exports[`MainContent renders 1`] = `
     <h1>
       Content page
     </h1>
-    <button
-      type="button"
-    >
-      SAVE
-    </button>
   </div>
 </DocumentFragment>
 `;
