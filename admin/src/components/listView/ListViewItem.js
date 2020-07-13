@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import _ from 'lodash/lang';
-import cx from 'classnames';
+// import cx from 'classnames';
 import { Transition } from 'react-transition-group';
 import styles from './styles.module.scss';
 import { defaultStyle, transitionStyles } from './transitions';
@@ -37,7 +37,7 @@ const ListViewItem = ({ data, handleClick }) => {
               ...defaultStyle,
               ...transitionStyles[state],
             }}
-            className={cx(styles.wrapperSubmenu, styles.open)}
+            className={styles.wrapperSubmenu}
             open={isOpen}
           >
             {setDescendants()}
