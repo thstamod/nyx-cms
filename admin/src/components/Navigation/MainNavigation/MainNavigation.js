@@ -1,26 +1,33 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Header from './MainNavigation.styles.tw';
+import cx from 'classnames';
+import styles from './styles.module.scss';
 
 const MainNavigation = () => (
-  <Header>
-    <ul className="flex">
-      <li className="mr-6">
+  <header className={styles.header}>
+    <ul className={cx('row', styles.menu)}>
+      {/* <li className="col-xs">
         <div as={NavLink}>
           <NavLink to="/">Nyx-cms</NavLink>
         </div>
+      </li> */}
+      <li className={styles.menu__item}>
+        <NavLink activeClassName={styles.active} to="/content">
+          Content
+        </NavLink>
       </li>
-      <li className="mr-6">
-        <NavLink to="/content">Content</NavLink>
+      <li className={styles.menu__item}>
+        <NavLink activeClassName={styles.active} to="/settings">
+          Settings
+        </NavLink>
       </li>
-      <li className="mr-6">
-        <NavLink to="/settings">Settings</NavLink>
-      </li>
-      <li className="mr-6">
-        <NavLink to="/users">Users</NavLink>
+      <li className={styles.menu__item}>
+        <NavLink activeClassName={styles.active} to="/users">
+          Users
+        </NavLink>
       </li>
     </ul>
-  </Header>
+  </header>
 );
 
 export default MainNavigation;

@@ -3,41 +3,45 @@
 exports[`ListViewItem renders 1`] = `
 <DocumentFragment>
   <div
-    class="sc-AxjAm daMWKx"
+    class="item"
   >
     <span>
       depth_0+
     </span>
     <div
-      class="sc-AxirZ icelQB"
+      class="wrapperSubmenu"
+      style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
     >
       <div
-        class="sc-AxjAm daMWKx"
+        class="item"
       >
         <span>
           depth_11
         </span>
         <div
-          class="sc-AxirZ icelQB"
+          class="wrapperSubmenu"
+          style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
         />
       </div>
       <div
-        class="sc-AxjAm daMWKx"
+        class="item"
       >
         <span>
           depth12_with_child+
         </span>
         <div
-          class="sc-AxirZ icelQB"
+          class="wrapperSubmenu"
+          style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
         >
           <div
-            class="sc-AxjAm daMWKx"
+            class="item"
           >
             <span>
               depth_2
             </span>
             <div
-              class="sc-AxirZ icelQB"
+              class="wrapperSubmenu"
+              style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
             />
           </div>
         </div>

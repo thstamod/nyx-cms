@@ -7,10 +7,7 @@ import {
   fireEvent,
   screen,
 } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
 import { MockedProvider } from '@apollo/react-testing';
-import { act } from 'react-dom/test-utils';
-import theme from '../../../theme';
 import ContentPage from '../ContentPage';
 import GET_DOCUMENT_TYPES from '../../../graphql/queries/getDocumentTypesQuery';
 import GET_DOCTYPE_WITH_DATATYPES from '../../../graphql/queries/getDocumentTypeWithDataTypes';
@@ -102,9 +99,7 @@ const mocks = [
 test('Content Page renders', () => {
   const { asFragment } = render(
     <MockedProvider mocks={mocks}>
-      <ThemeProvider theme={theme}>
-        <ContentPage />
-      </ThemeProvider>
+      <ContentPage />
     </MockedProvider>
   );
 
@@ -114,9 +109,7 @@ test('Content Page renders', () => {
 it('should render loading state initially', () => {
   const { getByText } = render(
     <MockedProvider mocks={[]}>
-      <ThemeProvider theme={theme}>
-        <ContentPage />
-      </ThemeProvider>
+      <ContentPage />
     </MockedProvider>
   );
 
@@ -126,17 +119,15 @@ it('should render loading state initially', () => {
 
 test('Content Page has header and sidebar', async () => {
   const { getByTestId } = render(
-    <MockedProvider mocks={mocks}>
-      <ThemeProvider
-        theme={theme}
-        addTypename={false}
-        defaultOptions={{
-          watchQuery: { fetchPolicy: 'no-cache' },
-          query: { fetchPolicy: 'no-cache' },
-        }}
-      >
-        <ContentPage />
-      </ThemeProvider>
+    <MockedProvider
+      addTypename={false}
+      defaultOptions={{
+        watchQuery: { fetchPolicy: 'no-cache' },
+        query: { fetchPolicy: 'no-cache' },
+      }}
+      mocks={mocks}
+    >
+      <ContentPage />
     </MockedProvider>
   );
   await waitFor(() => expect(getByTestId('sidebar')).toBeInTheDocument());
@@ -152,9 +143,7 @@ test('click on doc type', async () => {
         query: { fetchPolicy: 'no-cache' },
       }}
     >
-      <ThemeProvider theme={theme}>
-        <ContentPage />
-      </ThemeProvider>
+      <ContentPage />
     </MockedProvider>
   );
 
@@ -186,9 +175,7 @@ test('remove data type', async () => {
         query: { fetchPolicy: 'no-cache' },
       }}
     >
-      <ThemeProvider theme={theme}>
-        <ContentPage />
-      </ThemeProvider>
+      <ContentPage />
     </MockedProvider>
   );
 

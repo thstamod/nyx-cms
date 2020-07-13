@@ -3,8 +3,7 @@ import React from 'react';
 import Sidebar from '../../components/Navigation/sidebar/Sidebar';
 import GET_DOCUMENT_TYPES from '../../graphql/queries/getDocumentTypesQuery';
 import withData from '../../containers/withData';
-import { MainContent } from './ContentPage.styles.tw';
-import MainPanel from '../../components/MainPanel/MainPanel';
+import MainContent from '../../components/MainContent/MainContent';
 import { ContentPageProvider } from '../../context/ContentPageContext';
 
 const ContentPage = ({ queryData, queryLoading, queryError }) => {
@@ -27,10 +26,10 @@ const ContentPage = ({ queryData, queryLoading, queryError }) => {
   return (
     <ContentPageProvider>
       <Sidebar data={queryData} />
-      <MainContent>
-        <MainPanel />
-        {handleError(queryError)}
-      </MainContent>
+      {/* <div className="container-fluid"> */}
+      <MainContent />
+      {handleError(queryError)}
+      {/* </div> */}
     </ContentPageProvider>
   );
 };

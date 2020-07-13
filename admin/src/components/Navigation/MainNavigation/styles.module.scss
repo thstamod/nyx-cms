@@ -1,0 +1,35 @@
+@import '../../../scss/base/colors';
+
+.header {
+  width: 100%;
+  position: fixed;
+  background-color: $paris;
+
+  .menu {
+    list-style-type: none;
+    padding-inline-start: 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    .menu__item {
+      font-family: Rubik, serif;
+      padding: 20px 10px 20px 0;
+      font-size: 18px;
+      font-weight: 500;
+      &:hover {
+        a {
+          color: $oslo;
+          text-decoration: underline;
+        }
+      }
+      a {
+        color: $liege;
+        text-decoration: none;
+        &.active {
+          color: $oslo;
+        }
+      }
+    }
+  }
+}

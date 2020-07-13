@@ -9,8 +9,9 @@ import { useContentPageState } from '../../context/ContentPageContext';
 import { setAllDataTypes } from '../../state/actions/contentPageActions';
 import dataTypesSupportedList from '../dataTypes';
 import { compose } from '../../utils/common';
+import styles from './style.module.scss';
 
-const MainPanel = ({
+const MainContent = ({
   queryData,
   queryLoading,
   queryError,
@@ -155,7 +156,7 @@ const MainPanel = ({
   }
 
   return (
-    <>
+    <div className={styles.mainContent}>
       <h1>Content page</h1>
       {name && (
         <>
@@ -176,7 +177,11 @@ const MainPanel = ({
       {handleError(mutationError)}
       {mutationLoading && <div> Saving...</div>}
       {mutationData && <div> Save successful</div>}
-      {datatypes && (<button type="button" onClick={handleSave}>SAVE</button>)}
+      {datatypes && (
+        <button type="button" onClick={handleSave}>
+          SAVE
+        </button>
+      )}
     </>
   );
 };
@@ -184,4 +189,4 @@ const MainPanel = ({
 export default compose(
   withData({ query: GET_DOCTYPE_WITH_DATATYPES, lazy: true }),
   withMutation({ query: UPDATE_DOCUMENT_TYPE })
-)(MainPanel);
+)(MainContent);

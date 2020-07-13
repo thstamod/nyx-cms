@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import _ from 'lodash/lang';
-import { Item, WrapperSubmenu } from './ListViewItem.styles.tw';
+// import cx from 'classnames';
+import { Transition } from 'react-transition-group';
+import styles from './styles.module.scss';
+import { defaultStyle, transitionStyles } from './transitions';
 
 const ListViewItem = ({ data, handleClick }) => {
   const [isOpen, setOpen] = useState(false);
@@ -16,7 +19,7 @@ const ListViewItem = ({ data, handleClick }) => {
     ));
 
   return (
-    <Item key={data._id}>
+    <div className={styles.item} key={data._id}>
       <span
         onClick={() => {
           setOpen(!isOpen);
@@ -26,8 +29,22 @@ const ListViewItem = ({ data, handleClick }) => {
         {data.name}
         {!_.isEmpty(data.descendants) && '+'}
       </span>
-      <WrapperSubmenu open={isOpen}>{setDescendants()}</WrapperSubmenu>
-    </Item>
+
+      <Transition in={isOpen} timeout={500}>
+        {(state) => (
+          <div
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state],
+            }}
+            className={styles.wrapperSubmenu}
+            open={isOpen}
+          >
+            {setDescendants()}
+          </div>
+        )}
+      </Transition>
+    </div>
   );
   // eslint-disable-next-line react-hooks/exhaustive-deps
 };
