@@ -6,6 +6,7 @@ import { calculateExpirationTime } from '../../utils/calculateTime';
 import withData from '../../containers/withData';
 import LOGIN_QUERY from '../../graphql/queries/loginQuery';
 import { useAppState } from '../../context/AppContext';
+import Input from '../../components/partials/input/Input';
 
 const AuthPage = ({ queryData, queryError, queryHandleClick }) => {
   const [, dispatch] = useAppState();
@@ -32,16 +33,36 @@ const AuthPage = ({ queryData, queryError, queryHandleClick }) => {
     return <Redirect to="/content" />;
   }
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        queryHandleClick({
+          variables: {
+            email,
+            password,
+          },
+        });
+      }}
+    >
       <div>
-        <label htmlFor="email">Email</label>
+        <Input
+          labelFor="email"
+          labelText="Email"
+          type="email"
+          id="email"
+          validationRules={{ validationOnChange: true, email: true, minLen: 5 }}
+          onChangeHandler={(e) => {
+            setemail(e.target.value);
+          }}
+        />
+        {/* <label htmlFor="email">Email</label>
         <input
           type="email"
           id="email"
           onChange={(e) => {
             setemail(e.target.value);
           }}
-        />
+        /> */}
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -52,19 +73,7 @@ const AuthPage = ({ queryData, queryError, queryHandleClick }) => {
         />
       </div>
       {handleError(queryError)}
-      <button
-        type="button"
-        onClick={() =>
-          queryHandleClick({
-            variables: {
-              email,
-              password,
-            },
-          })
-        }
-      >
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
