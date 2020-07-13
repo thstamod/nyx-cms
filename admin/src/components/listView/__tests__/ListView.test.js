@@ -10,7 +10,6 @@ import {
 import { ContentPageProvider } from '../../../context/ContentPageContext';
 import ListView from '../ListView';
 import { sidebar } from '../../../../__mocks__/_pages/_contentPage';
-import styles from '../styles.module.scss';
 
 afterEach(cleanup);
 
@@ -42,9 +41,7 @@ test('open submenu on click', () => {
   );
 
   fireEvent.click(screen.getByText('depth_0+'));
-  // const el = screen.getByText('depth_0+');
-  // console.log(el);
-  // el.click();
+
   expect(getByText('depth_11')).toBeVisible();
 });
 
@@ -55,7 +52,8 @@ test('submenu is hide initially', async () => {
     </ContentPageProvider>
   );
 
-  const el = screen.findByText(/depth_11/i); // getByText('depth_11');
+  const el = getByText('depth_11');
+
   expect(el).not.toBeVisible();
 });
 

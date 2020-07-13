@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import _ from 'lodash/lang';
 import cx from 'classnames';
+import { Transition } from 'react-transition-group';
 import styles from './styles.module.scss';
+import { defaultStyle, transitionStyles } from './transitions';
 
 const ListViewItem = ({ data, handleClick }) => {
   const [isOpen, setOpen] = useState(false);
@@ -27,16 +29,21 @@ const ListViewItem = ({ data, handleClick }) => {
         {data.name}
         {!_.isEmpty(data.descendants) && '+'}
       </span>
-      <div
-        className={
-          isOpen
-            ? cx(styles.wrapperSubmenu, styles.open)
-            : styles.wrapperSubmenu
-        }
-        open={isOpen}
-      >
-        {setDescendants()}
-      </div>
+
+      <Transition in={isOpen} timeout={500}>
+        {(state) => (
+          <div
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[state],
+            }}
+            className={cx(styles.wrapperSubmenu, styles.open)}
+            open={isOpen}
+          >
+            {setDescendants()}
+          </div>
+        )}
+      </Transition>
     </div>
   );
   // eslint-disable-next-line react-hooks/exhaustive-deps

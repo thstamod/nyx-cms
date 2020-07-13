@@ -12,7 +12,8 @@ exports[`ListView renders 1`] = `
         depth_0+
       </span>
       <div
-        class="wrapperSubmenu"
+        class="wrapperSubmenu open"
+        style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
       >
         <div
           class="item"
@@ -21,7 +22,8 @@ exports[`ListView renders 1`] = `
             depth_11
           </span>
           <div
-            class="wrapperSubmenu"
+            class="wrapperSubmenu open"
+            style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
           />
         </div>
         <div
@@ -31,7 +33,8 @@ exports[`ListView renders 1`] = `
             depth12_with_child+
           </span>
           <div
-            class="wrapperSubmenu"
+            class="wrapperSubmenu open"
+            style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
           >
             <div
               class="item"
@@ -40,7 +43,8 @@ exports[`ListView renders 1`] = `
                 depth_2
               </span>
               <div
-                class="wrapperSubmenu"
+                class="wrapperSubmenu open"
+                style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
               />
             </div>
           </div>
@@ -54,7 +58,8 @@ exports[`ListView renders 1`] = `
         depth0_no_child
       </span>
       <div
-        class="wrapperSubmenu"
+        class="wrapperSubmenu open"
+        style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
       />
     </div>
     <div
@@ -64,7 +69,8 @@ exports[`ListView renders 1`] = `
         depth0_1_no child
       </span>
       <div
-        class="wrapperSubmenu"
+        class="wrapperSubmenu open"
+        style="transition: all 300ms ease-in-out; opacity: 0; max-height: 0;"
       />
     </div>
   </div>
