@@ -13,13 +13,21 @@ const Input = ({
   placeholder,
   disabled,
   value,
+  ...props
 }) => {
   const ref = useRef(() => value || null);
-  const [valid, errors] = useValidator(ref.current, validationRules);
+  const [valid, errors] = useValidator(ref, validationRules);
   console.log(valid, errors);
 
   const change = (e) => {
     onChangeHandler(e);
+  };
+
+  const focus = () => {
+    ref.current.touched = true;
+    if (typeof onFocusHandler === 'function') {
+      onFocusHandler();
+    }
   };
 
   return (
@@ -30,10 +38,11 @@ const Input = ({
         id={id}
         type={type}
         disabled={disabled}
-        onFocus={onFocusHandler}
+        onFocus={focus}
         onChange={(e) => change(e)}
         onClick={onClickHandler}
         placeholder={placeholder}
+        {...props}
       />
       {errors && errors.map((er) => <span>{er}</span>)}
     </>

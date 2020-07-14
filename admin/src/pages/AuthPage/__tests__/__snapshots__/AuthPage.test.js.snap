@@ -24,7 +24,7 @@ exports[`Auth page Page renders 1`] = `
       />
     </div>
     <button
-      type="button"
+      type="submit"
     >
       Submit
     </button>
